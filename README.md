@@ -61,9 +61,9 @@ use.
 
 The Blue Alliance API endpoint(s) called:
 
-- https://www.thebluealliance.com/api/v3/event/<event_key>
-- https://www.thebluealliance.com/api/v3/event/<event_key>/teams
-- https://www.thebluealliance.com/api/v3/event/<event_key>/matches
+- https://www.thebluealliance.com/api/v3/event/{event_key}
+- https://www.thebluealliance.com/api/v3/event/{event_key}/{teams}
+- https://www.thebluealliance.com/api/v3/event/{event_key}/{matches}
 
 ### [fetch-events-for-year.py](./fetch-events-for-year.py)
 
@@ -75,7 +75,7 @@ use.
 
 The Blue Alliance API endpoint(s) called:
 
-- https://www.thebluealliance.com/api/v3/events/<year>
+- https://www.thebluealliance.com/api/v3/events/{year}
 
 ### [push-into-excel.py](./push-into-excel.py)
 
