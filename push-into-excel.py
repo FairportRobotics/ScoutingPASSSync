@@ -29,7 +29,7 @@ if not os.path.exists("push-into-excel-template.xlsx"):
     exit()   
 
 # Set various variables we can use throughout the script.
-ouput_file_name=f"excel_data/{tbaEventKey}.xlsx"
+ouput_file_name=f"excel_data/Match Scouting Results.xlsx"
 
 font_header = Font(bold=True, size=12, color="FFFFFF")
 font_data = Font(bold=False, size=12, color="000000")
@@ -340,20 +340,8 @@ def prepare_sheet_team_summary():
         # Percentile
         ws[f"J{row}"] = f"=PERCENTRANK(B$2:B${end_row}, B{row}, 3)"
         ws[f"K{row}"] = f"=PERCENTRANK(D$2:D${end_row}, D{row}, 3)"
-        ws[f"L{row}"] = f"=PERCENTRANK(F$2:F${end_row}, F{row}, 3)"      
-        ws[f"M{row}"] = f"=PERCENTRANK(H$2:H${end_row}, H{row}, 3)"          
-
-        # Points Weighted
-        ws[f"N{row}"] = f"=B{row} * Weights!$B$2"
-        ws[f"O{row}"] = f"=D{row} * Weights!$B$3"
-        ws[f"P{row}"] = f"=F{row} * Weights!$B$4"
-        ws[f"Q{row}"] = f"=SUM(N{row}:P{row})"
-
-       # Percentile Weighted
-        ws[f"R{row}"] = f"=PERCENTRANK(N$2:N${end_row}, N{row}, 3)"
-        ws[f"S{row}"] = f"=PERCENTRANK(O$2:O${end_row}, O{row}, 3)"
-        ws[f"T{row}"] = f"=PERCENTRANK(P$2:P${end_row}, P{row}, 3)"      
-        ws[f"U{row}"] = f"=PERCENTRANK(Q$2:Q${end_row}, Q{row}, 3)"           
+        ws[f"L{row}"] = f"=PERCENTRANK(F$2:F${end_row}, F{row}, 3)"
+        ws[f"M{row}"] = f"=PERCENTRANK(H$2:H${end_row}, H{row}, 3)"
 
     # Apply the formats to the cells.
     apply_formats(ws, [
@@ -361,25 +349,52 @@ def prepare_sheet_team_summary():
         { "range": f"A{start_row}:A{end_row}", "font": font_header, "fill": fill_default },
 
         # All data cells.
-        { "range": f"B{start_row}:U{end_row}", "font": font_data, "number_format": format_comma },
+        { "range": f"B{start_row}:M{end_row}", "font": font_data, "number_format": format_comma },
         { "range": f"J{start_row}:M{end_row}", "number_format": format_percent },
-        { "range": f"R{start_row}:U{end_row}", "number_format": format_percent },
+        { "range": f"R{start_row}:M{end_row}", "number_format": format_percent },
     ])
 
     # Build and apply the conditional formatting rules to produce a heatmap for percentiles.
     ws.conditional_formatting.add(f"J{start_row}:M{end_row}", color_scale_rule)
     ws.conditional_formatting.add(f"R{start_row}:U{end_row}", color_scale_rule)
 
-def protect_sheets():
-    sheets_to_protect = ["Event", "Teams", "Matches", "Team Summary"]
-    for sheet in sheets_to_protect:
-        status(f"Protecting sheet {sheet}...")
-        ws = wb[sheet]
-        ws.protection.set_password("letmeinplease")
-        ws.protection.allow_formatting_cells = True
-        ws.protection.allow_editing_objects = False
-        ws.protection.allow_sorting = True
-        ws.protection.allow_filtering = True
+
+# Hello World
+def prepare_sheet_pbi_team_summary():
+    status("Prepating Power BI Team Summary sheet...")
+
+    # Open the Teams sheet.
+    ws = wb["PB Team Summary"]   
+
+    ws["A2"] = "=SORT(UNIUE())"    
+
+
+# Hello World
+def prepare_sheet_pbi_scouter_summary():
+    status("Prepating Power BI Scouter Summary sheet...")
+
+    # Read the JSON data from the file.
+    file=f"tba_data/{tbaEventKey}.teams.json"
+    with open(file, "r") as f:
+        data = json.load(f)
+        data = sorted(data, key=lambda x: x["team_number"])
+
+    # Capture the extents of the sheet and data.
+    record_count = len(data)
+    start_row = 2
+
+    # Open the Teams sheet.
+    ws = wb["PB Team Summary"]    
+
+    # Apply the formulas.
+    for row in range(start_row, start_row + record_count):
+        ws[f"A{row}"] = f"='Team Summary'!A{row + 2}"
+        ws[f"B{row}"] = f"='Team Summary'!B{row + 2}"
+        ws[f"C{row}"] = f"='Team Summary'!C{row + 2}"
+        ws[f"D{row}"] = f"='Team Summary'!D{row + 2}"
+        ws[f"E{row}"] = f"='Team Summary'!E{row + 2}"
+        ws[f"F{row}"] = f"='Team Summary'!F{row + 2}"
+        ws[f"G{row}"] = f"='Team Summary'!G{row + 2}"
 
 
 # Push the data into the spreadsheet.
@@ -389,7 +404,9 @@ prepare_sheet_matches()
 prepare_sheet_team_scores()
 prepare_sheet_team_summary()
 
-#protect_sheets()
+prepare_sheet_pbi_team_summary()
+prepare_sheet_pbi_scouter_summary()
+
 
 # And finally, save the spreadsheet.
 wb.save(ouput_file_name)

@@ -22,6 +22,50 @@ if tbaEventKey == "":
     status("No event key provided.")
     exit()    
 
+
+team_members = [
+    "Abyss Mortimer",
+    "Alex Phillips",
+    "Amanah Obaji",
+    "Andrew McCadden",
+    "Ariana Toner",
+    "Asher Stuckey",
+    "Autumn Schoenfeld",
+    "Brandon Bates",
+    "Carter Silva",
+    "Celton Norter",
+    "Colby Jackson",
+    "Colden Stubbe",
+    "Connor Toper",
+    "Dean Blanchard",
+    "Domenic Giammusso",
+    "Greydon Jones-Dulisse",
+    "Hamza Keles",
+    "Jackson Newcomb",
+    "Jacob LeBlanc",
+    "Jacob Wyrozebski",
+    "Jesse White",
+    "Jonah Woika",
+    "Jonathan Brouillard",
+    "Jordan Fenton",
+    "Kai Hurrell",
+    "Kai Wilbur",
+    "Lukas Harrison",
+    "Maddie DeCicca",
+    "Mason Silva",
+    "Matthew Mazzota",
+    "Nanson Chen",
+    "Nicholas Munier",
+    "Ruthie Christensen",
+    "Sam Clark",
+    "Shawn Estrich",
+    "Siena Reeve",
+    "Simon Stuckey",
+    "TJ Blake",
+    "Tyler Hignett",
+]
+
+
 # Define a function that accepts the match number, the alliance, and the team keys.
 # This function will fabricate scouting data for each team in the alliance.
 def create_record_for_team(match, alliance, keys):
@@ -36,7 +80,7 @@ def create_record_for_team(match, alliance, keys):
 
         results.append({
                 "Key": key,
-                "Scouter": ''.join(random.choices(string.ascii_letters, k=3)).upper(),
+                "Scouter": random.choice(team_members),
                 "Event": tbaEventKey,
                 "Level": "qm",
                 "Match": match,
