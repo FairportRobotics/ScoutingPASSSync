@@ -359,7 +359,7 @@ def prepare_sheet_team_summary():
     ws.conditional_formatting.add(f"R{start_row}:U{end_row}", color_scale_rule)
 
 
-# Hello World
+# Prepare the sheet that lists the team results for consumption ny Power BI.
 def prepare_sheet_pbi_team_summary():
     status("Prepating Power BI Team Summary sheet...")
 
@@ -369,7 +369,7 @@ def prepare_sheet_pbi_team_summary():
     ws["A2"] = "=SORT(UNIUE())"    
 
 
-# Hello World
+# Prepare the sheet that lists the scouter results for consumption ny Power BI.
 def prepare_sheet_pbi_scouter_summary():
     status("Prepating Power BI Scouter Summary sheet...")
 
