@@ -41,7 +41,7 @@ def retrieveEventFromFirst(firstEventKey):
 
     # Log to file.
     rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "frc_data"))
-    filePath = os.path.join(rootPath, f"{firstEventKey}.event.json")
+    filePath = os.path.join(rootPath, f"{season}.{firstEventKey}.event.json")
     with open(filePath, 'w', newline='') as f:
         json.dump(firstEvent, f, indent=3)
 
@@ -59,7 +59,7 @@ def retrieveMatchesFromFirst(firstEventKey):
 
     # Log to file.
     rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "frc_data"))
-    filePath = os.path.join(rootPath, f"{firstEventKey}.matches.json")
+    filePath = os.path.join(rootPath, f"{season}.{firstEventKey}.matches.json")
     with open(filePath, 'w', newline='') as f:
         json.dump(firstMatches, f, indent=3)
 
@@ -76,27 +76,25 @@ def retrieveTeamsFromFirst(firstEventKey):
     
     # Log to file.
     rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "frc_data"))
-    filePath = os.path.join(rootPath, f"{firstEventKey}.teams.json")
+    filePath = os.path.join(rootPath, f"{season}.{firstEventKey}.teams.json")
     with open(filePath, 'w', newline='') as f:
         json.dump(firstTeams, f, indent=3)
 
 
 #https://frc-api.firstinspires.org/v3.0/:season/scores/:eventCode/:tournamentLevel?matchNumber=&start=&end=
-#eventUrl = f"https://frc-api.firstinspires.org/v3.0/2015/scores/ARFA/Playoff"
 def retrieveResultsFromFirst(firstEventKey):
     # Validate argument.
     if firstEventKey == "":
         return
 
     # Prepare the API call.
-    #eventUrl = f"https://frc-api.firstinspires.org/v3.0/{season}/scores/{firstEventKey}/Qualification?&start=59"
     eventUrl = f"https://frc-api.firstinspires.org/v3.0/{season}/scores/{firstEventKey}/Qualification"
     matchResults = requests.get(eventUrl, headers=firstAuthHeader)
     matchResults = json.loads(matchResults.text)
 
     # Log to file.
     rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "frc_data"))
-    filePath = os.path.join(rootPath, f"{firstEventKey}.results.json")
+    filePath = os.path.join(rootPath, f"{season}.{firstEventKey}.results.json")
     with open(filePath, 'w', newline='') as f:
         json.dump(matchResults, f, indent=3)
                                
