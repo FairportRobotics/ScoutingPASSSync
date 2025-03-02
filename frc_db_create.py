@@ -51,7 +51,7 @@ def frc_events():
 
     CREATE TABLE frc_events (
         year INTEGER NOT NULL,
-        week_number INTEGER,
+        weekNumber INTEGER,
         code TEXT COLLATE NOCASE NOT NULL,
         name TEXT COLLATE NOCASE NOT NULL,
         type TEXT COLLATE NOCASE,
@@ -60,8 +60,8 @@ def frc_events():
         stateprov TEXT COLLATE NOCASE,
         country TEXT COLLATE NOCASE,
         address TEXT COLLATE NOCASE,
-        date_start TEXT,
-        date_end TEXT
+        dateStart TEXT,
+        dateEnd TEXT
     );
 
     CREATE UNIQUE INDEX ux_events_year_code ON frc_events (year, code);
@@ -70,5 +70,45 @@ def frc_events():
     cursor.executescript(command) 
 
 
-# Retrieve data from FRC.
+"""
+{
+    "teamNumber": 245,
+    "nameFull": "General Motors/Aptiv/State of MI/Molex/Salem Steel/Thyssenkrupp/R & G Drummer/Stellantis/Fanuc/Tek Pros Today/Chris Pickard/Adambots Friends & Family/Rochester Advanced Dentistry/Thyssenkrupp Plastics&Adams High School",
+    "nameShort": "Adambots",
+    "city": "Rochester Hills",
+    "stateProv": "Michigan",
+    "country": "USA",
+    "rookieYear": 1999,
+    "robotName": "",
+    "districtCode": "FIM",
+    "schoolName": "Adams High School",
+    "website": "",
+    "homeCMP": null
+},
+"""    
+def frc_teams():
+    status("Creating table: frc_teams")
+
+    command = """
+    DROP TABLE IF EXISTS frc_teams;
+
+    CREATE TABLE frc_teams (
+        teamNumber INTEGER PRIMARY KEY,
+        nameFull TEXT COLLATE NOCASE NOT NULL,
+        nameShort TEXT COLLATE NOCASE NOT NULL,
+        city TEXT COLLATE NOCASE NOT NULL,
+        stateProv TEXT COLLATE NOCASE NOT NULL,
+        country TEXT COLLATE NOCASE NOT NULL,
+        rookieYear INTEGER,
+        robotName TEXT COLLATE NOCASE,
+        districtCode TEXT COLLATE NOCASE,
+        schoolName TEXT COLLATE NOCASE,
+        website TEXT COLLATE NOCASE
+    );
+    """
+
+    cursor.executescript(command) 
+
+# Create the tables.
 frc_events()
+frc_teams()

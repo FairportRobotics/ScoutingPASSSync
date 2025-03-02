@@ -27,26 +27,39 @@ logging.getLogger("httpx").setLevel(logging.WARNING)
 
 # Retrieve values from .env.
 firstAuthKey: str = os.getenv("FIRST_AUTH_KEY")     # From FIRST
-
 firstAuthHeader =  {"Authorization": f"Basic {firstAuthKey}"}
-season = 2025
 
-
-def retrieveEventsForYear():
+def retrieveEventsForYear(season):
     status("Retrieving Events from FIRST...")
 
     # Prepare the API call.
     eventUrl = f"https://frc-api.firstinspires.org/v3.0/{season}/events"
-    firstEvents = requests.get(eventUrl, headers=firstAuthHeader)
-    firstEvents = json.loads(firstEvents.text)
+    frcEvents = requests.get(eventUrl, headers=firstAuthHeader)
+    frcEvents = json.loads(frcEvents.text)
 
     # Log to file.
     rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "frc_data"))
     filePath = os.path.join(rootPath, f"{season}.events.json")
     with open(filePath, 'w', newline='') as f:
-        json.dump(firstEvents, f, indent=3)
+        json.dump(frcEvents, f, indent=3)
+
+
+def retrieveTeamsForYear(season):
+    status("Retrieving Teams from FIRST...")
+
+    # Prepare the API call.
+    eventUrl = f"https://frc-api.firstinspires.org/v3.0/{season}/teams"
+    frcTeams = requests.get(eventUrl, headers=firstAuthHeader)
+    frcTeams = json.loads(frcTeams.text)
+
+    # Log to file.
+    rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "frc_data"))
+    filePath = os.path.join(rootPath, f"{season}.teams.json")
+    with open(filePath, 'w', newline='') as f:
+        json.dump(frcTeams, f, indent=3)        
                            
 
 # Retrieve data from FRC.
-retrieveEventsForYear()
+retrieveEventsForYear(2025)
+retrieveTeamsForYear(2025)
 status("Complete.")
