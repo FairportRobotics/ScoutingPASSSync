@@ -35,10 +35,10 @@ def status(message):
 def flush_existing_data():
     # Perform bulk insert
     command = """
-        DELETE FROM frc_teams;
         DELETE FROM frc_match_teams;
         DELETE FROM frc_matches;
         DELETE FROM frc_events;
+        DELETE FROM frc_teams;
     """
     cursor.executescript(command)
     connection.commit()    
@@ -68,33 +68,15 @@ def frc_events_fill():
     connection.commit()
 
     # Enumerate over the events and load the associated tables.
-    for ei, event in enumerate(events):
+    for event in events:
         eventCode = event["code"]
         eventKey = f"{season}.{event["code"]}"
         status(f"Processing {eventCode}...")
         frc_teams_fill(eventCode)
         frc_matches_fill(eventCode, eventKey)
-        status(f"   Loading frc_match_teams...")
-        status(f"   Loading frc_teams...")
 
 
 
-"""
-{
-    "teamNumber": 1,
-    "nameFull": "FCA Foundation/Molex/3M&Oakland Schools Technical Campus Northeast",
-    "nameShort": "The Juggernauts",
-    "city": "Pontiac",
-    "stateProv": "Michigan",
-    "country": "USA",
-    "rookieYear": 1997,
-    "robotName": "",
-    "districtCode": "FIM",
-    "schoolName": "Oakland Schools Technical Campus Northeast",
-    "website": "",
-    "homeCMP": null
-},
-"""
 def frc_teams_fill(eventCode):
     status("   Loading frc_teams...")
 
@@ -128,6 +110,10 @@ def frc_matches_fill(eventCode, eventKey):
 
     frcMatches = data["Schedule"]
 
+    # Perform bulk insert of Match records.
+    matchRecords = [(f"{season}.{eventCode}.{ match["tournamentLevel"]}.{match["matchNumber"]}", eventKey, season, eventCode, match["tournamentLevel"], match["matchNumber"], match["startTime"], match["description"], match["field"]) for match in frcMatches]
+    cursor.executemany("INSERT INTO frc_matches (key, eventKey, year, code, tournamentLevel, matchNumber, startTime, description, field) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT (key) DO NOTHING;", matchRecords)        
+
     # Create a dictionary so we can extract the station components.
     alliance = {
         "Red1": {"alliance": "Red", "number": 1},
@@ -138,13 +124,9 @@ def frc_matches_fill(eventCode, eventKey):
         "Blue3": {"alliance": "Blue", "number": 3},
     }        
 
-    for mi, match in enumerate(frcMatches):
+    for match in frcMatches:
         # Prepare the list of tuples for bulk insert
         matchKey = f"{season}.{eventCode}.{ match["tournamentLevel"]}.{match["matchNumber"]}"
-
-        # Perform bulk insert of Match records.
-        matchRecords = [(matchKey, eventKey, season, eventCode, match["tournamentLevel"], match["matchNumber"], match["startTime"], match["description"], match["field"])]
-        cursor.executemany("INSERT INTO frc_matches (key, eventKey, year, code, tournamentLevel, matchNumber, startTime, description, field) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT (key) DO NOTHING;", matchRecords)
 
         # Perform bulk insert of Match Team records.
         teamRecords = [(matchKey, team["station"], alliance[team["station"]]["alliance"], alliance[team["station"]]["number"], team["teamNumber"], team["surrogate"]) for team in match["teams"]]
