@@ -39,7 +39,7 @@ def status(message):
     "timezone": "Eastern Standard Time"
 },
 """
-def frcEvents():
+def frc_events_create():
     status("Creating table: frc_events")
 
     command = """
@@ -218,6 +218,8 @@ def frcMatchTeams():
     CREATE TABLE frc_match_teams (
         matchKey TEXT COLLATE NOCASE NOT NULL,
         station INTEGER NOT NULL,
+        alliance TEXT COLLATE NOCASE NOT NULL,
+        number INTEGER NOT NULL,
         teamNumber INTEGER NOT NULL,
         surrogate BOOLEAN NOT NULL
     );
@@ -227,7 +229,7 @@ def frcMatchTeams():
 
 
 # Create the tables.
-frcEvents()
+frc_events_create()
 frcTeams()
 frcMatches()
 frcMatchTeams()
