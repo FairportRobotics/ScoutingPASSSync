@@ -21,7 +21,7 @@ load_dotenv()
 
 # Set the logging format.
 def status(message):
-    print(f"{datetime.now().strftime('%Y%m%d %H:%M:%S')} - {message}")
+    print(f"{datetime.now().strftime('%Y%m%d %H:%M:%S')}: {message}")
 
 # Set the logging level.
 logging.getLogger("httpx").setLevel(logging.WARNING)
@@ -32,7 +32,7 @@ firstAuthHeader =  {"Authorization": f"Basic {firstAuthKey}"}
 
 season = 2025
 
-def save_file_to_subfolder(filename, content, subfolder):
+def save_file_to_subfolder(subfolder, filename, content):
     # Get the directory of the running script
     script_dir = Path(__file__).parent  
 
@@ -47,56 +47,51 @@ def save_file_to_subfolder(filename, content, subfolder):
     with open(file_path, 'w') as f:
         f.write(content)
 
+
+# Retrieve the Events for the season then the data associated with each Event.
 def fetch_events_for_season():
     status("Fetching Events from FIRST...")
 
     # Prepare the API call.
-    eventUrl = f"https://frc-api.firstinspires.org/v3.0/{season}/events"
-    frcEvents = requests.get(eventUrl, headers=firstAuthHeader)
+    url = f"https://frc-api.firstinspires.org/v3.0/{season}/events"
+    frcEvents = requests.get(url, headers=firstAuthHeader)
     frcEvents = json.loads(frcEvents.text)
 
     # Log to file.
-    save_file_to_subfolder(f"{season}.teams.json", json.dumps(frcEvents, indent=3), "data")
+    save_file_to_subfolder("data", f"{season}.teams.json", json.dumps(frcEvents, indent=3))
 
     # Enumerate over the Events to retrieve the Matches and Results.
     for e_index, event in enumerate(frcEvents["Events"]):
+        # Display a status for the event.
         eventCode = event["code"]
         status(f"Processing Event {e_index+1} of {len(frcEvents['Events'])}: {eventCode}")
 
         # Save the Event to file.
-        save_file_to_subfolder(f"{season}.{eventCode}.event.json", json.dumps(event, indent=3), "data")
+        save_file_to_subfolder("data", f"{season}.{eventCode}.event.json", json.dumps(event, indent=3))
 
-        # Retrieve the Schedule.
+        # Retrieve the Schedule and save to file.
+        status(f"   Fetching Schedule...")
         level = "Qualification"
-        eventUrl = f"https://frc-api.firstinspires.org/v3.0/{season}/schedule/{eventCode}?tournamentLevel={level}"
-        frcMatches = requests.get(eventUrl, headers=firstAuthHeader)
+        url = f"https://frc-api.firstinspires.org/v3.0/{season}/schedule/{eventCode}?tournamentLevel={level}"
+        frcMatches = requests.get(url, headers=firstAuthHeader)
         frcMatches = json.loads(frcMatches.text)
+        save_file_to_subfolder("data", f"{season}.{eventCode}.schedule.json", json.dumps(frcMatches, indent=3))
 
-        # Log to file.
-        save_file_to_subfolder(f"{season}.{eventCode}.schedule.json", json.dumps(frcMatches, indent=3), "data")
-
-        # Retrieve the Results.
-        eventUrl = f"https://frc-api.firstinspires.org/v3.0/{season}/scores/{eventCode}/Qualification"
-        frcResults = requests.get(eventUrl, headers=firstAuthHeader)
+        # Retrieve the Results and save to file.
+        status(f"   Fetching Results...")
+        url = f"https://frc-api.firstinspires.org/v3.0/{season}/scores/{eventCode}/Qualification"
+        frcResults = requests.get(url, headers=firstAuthHeader)
         frcResults = json.loads(frcResults.text)
+        save_file_to_subfolder("data", f"{season}.{eventCode}.results.json", json.dumps(frcResults, indent=3))
 
-        # Log to file.
-        save_file_to_subfolder(f"{season}.{eventCode}.results.json", json.dumps(frcResults, indent=3), "data")        
-
-
-def fetch_teams_for_season():
-    status("Fetching Teams from FIRST...")
-
-    # Prepare the API call.
-    eventUrl = f"https://frc-api.firstinspires.org/v3.0/{season}/teams"
-    frcTeams = requests.get(eventUrl, headers=firstAuthHeader)
-    frcTeams = json.loads(frcTeams.text)
-
-    # Log to file.
-    save_file_to_subfolder(f"{season}.teams.json", json.dumps(frcTeams, indent=3), "data")
-                           
+        # Retrieve the Teams
+        status(f"   Fetching Teams...")
+        #https://frc-api.firstinspires.org/v3.0/:season/teams?teamNumber=&eventCode=&districtCode=&state=&page=
+        url = f"https://frc-api.firstinspires.org/v3.0/{season}/teams?eventCode={eventCode}"
+        frcTeams = requests.get(url, headers=firstAuthHeader)
+        frcTeams = json.loads(frcTeams.text)
+        save_file_to_subfolder("data", f"{season}.{eventCode}.teams.json", json.dumps(frcTeams, indent=3))        
 
 # Retrieve data from FRC.
 fetch_events_for_season()
-fetch_teams_for_season()
 status("Complete.")
