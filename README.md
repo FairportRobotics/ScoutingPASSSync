@@ -51,7 +51,7 @@ pip install openpyxl
 Reads the event key from .env and uses the JSON data in the `tba_data` folder
 for that key to produce tab delimited and comma delimted files for testing.
 
-### [fetch-event-from-tba.py](./fetch-event-from-tba.py)
+### [tba-fetch-event.py](./tba-fetch-event.py)
 
 Reads the event key and The Blue Alliance API key from .env and calls into The
 Blue Alliance v3 API to request the Event, Teams and Matches for that key.
@@ -65,7 +65,7 @@ The Blue Alliance API endpoint(s) called:
 - https://www.thebluealliance.com/api/v3/event/{event_key}/{teams}
 - https://www.thebluealliance.com/api/v3/event/{event_key}/{matches}
 
-### [fetch-events-for-year.py](./fetch-events-for-year.py)
+### [tba-fetch-events-for-year.py](./tba-fetch-events-for-year.py)
 
 Reads the event key and The Blue Alliance API key from .env and calls into The
 Blue Alliance v3 API to request all the events for that year.
@@ -77,7 +77,7 @@ The Blue Alliance API endpoint(s) called:
 
 - https://www.thebluealliance.com/api/v3/events/{year}
 
-### [push-into-excel.py](./push-into-excel.py)
+### [tba-push-into-excel.py](./tba-push-into-excel.py)
 
 Reads the event key from .env and uses that key to read the previously stored
 JSON data in the `tba_data` folder. The script reads the event, teams and

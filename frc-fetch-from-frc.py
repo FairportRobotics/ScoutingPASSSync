@@ -122,5 +122,4 @@ retrieveEventFromFirst(firstEventKey)
 retrieveMatchesFromFirst(firstEventKey)
 retrieveTeamsFromFirst(firstEventKey)
 retrieveResultsFromFirst(firstEventKey)
-
 status("Complete.")
