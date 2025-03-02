@@ -33,13 +33,15 @@ firstAuthHeader =  {"Authorization": f"Basic {firstAuthKey}"}
 season = 2025
 
 def save_file_to_subfolder(filename, content, subfolder):
-    # Create the subfolder if it doesn't exist
-    rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), subfolder))
-    if not os.path.exists(subfolder):
-        os.makedirs(subfolder)
+    # Get the directory of the running script
+    script_dir = Path(__file__).parent  
+
+    # Define and create the folder
+    folder_path = script_dir / subfolder
+    folder_path.mkdir(parents=True, exist_ok=True)
 
     # Construct the full file path
-    file_path = os.path.join(subfolder, filename)
+    file_path = os.path.join(folder_path, filename)
 
     # Save the content to the file
     with open(file_path, 'w') as f:
