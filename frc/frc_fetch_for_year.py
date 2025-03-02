@@ -11,6 +11,7 @@ import logging
 import os
 import requests
 import pandas as pd
+from pathlib import Path
 
 from datetime import datetime
 from dotenv import load_dotenv              
@@ -29,8 +30,23 @@ logging.getLogger("httpx").setLevel(logging.WARNING)
 firstAuthKey: str = os.getenv("FIRST_AUTH_KEY")     # From FIRST
 firstAuthHeader =  {"Authorization": f"Basic {firstAuthKey}"}
 
-def retrieveEventsForYear(season):
-    status("Retrieving Events from FIRST...")
+season = 2025
+
+def save_file_to_subfolder(filename, content, subfolder):
+    # Create the subfolder if it doesn't exist
+    rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), subfolder))
+    if not os.path.exists(subfolder):
+        os.makedirs(subfolder)
+
+    # Construct the full file path
+    file_path = os.path.join(subfolder, filename)
+
+    # Save the content to the file
+    with open(file_path, 'w') as f:
+        f.write(content)
+
+def fetch_events_for_season():
+    status("Fetching Events from FIRST...")
 
     # Prepare the API call.
     eventUrl = f"https://frc-api.firstinspires.org/v3.0/{season}/events"
@@ -38,14 +54,36 @@ def retrieveEventsForYear(season):
     frcEvents = json.loads(frcEvents.text)
 
     # Log to file.
-    rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "frc_data"))
-    filePath = os.path.join(rootPath, f"{season}.events.json")
-    with open(filePath, 'w', newline='') as f:
-        json.dump(frcEvents, f, indent=3)
+    save_file_to_subfolder(f"{season}.teams.json", json.dumps(frcEvents, indent=3), "data")
+
+    # Enumerate over the Events to retrieve the Matches and Results.
+    for e_index, event in enumerate(frcEvents["Events"]):
+        eventCode = event["code"]
+        status(f"Processing Event {e_index+1} of {len(frcEvents['Events'])}: {eventCode}")
+
+        # Save the Event to file.
+        save_file_to_subfolder(f"{season}.{eventCode}.event.json", json.dumps(event, indent=3), "data")
+
+        # Retrieve the Schedule.
+        level = "Qualification"
+        eventUrl = f"https://frc-api.firstinspires.org/v3.0/{season}/schedule/{eventCode}?tournamentLevel={level}"
+        frcMatches = requests.get(eventUrl, headers=firstAuthHeader)
+        frcMatches = json.loads(frcMatches.text)
+
+        # Log to file.
+        save_file_to_subfolder(f"{season}.{eventCode}.schedule.json", json.dumps(frcMatches, indent=3), "data")
+
+        # Retrieve the Results.
+        eventUrl = f"https://frc-api.firstinspires.org/v3.0/{season}/scores/{eventCode}/Qualification"
+        frcResults = requests.get(eventUrl, headers=firstAuthHeader)
+        frcResults = json.loads(frcResults.text)
+
+        # Log to file.
+        save_file_to_subfolder(f"{season}.{eventCode}.results.json", json.dumps(frcResults, indent=3), "data")        
 
 
-def retrieveTeamsForYear(season):
-    status("Retrieving Teams from FIRST...")
+def fetch_teams_for_season():
+    status("Fetching Teams from FIRST...")
 
     # Prepare the API call.
     eventUrl = f"https://frc-api.firstinspires.org/v3.0/{season}/teams"
@@ -53,13 +91,10 @@ def retrieveTeamsForYear(season):
     frcTeams = json.loads(frcTeams.text)
 
     # Log to file.
-    rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "frc_data"))
-    filePath = os.path.join(rootPath, f"{season}.teams.json")
-    with open(filePath, 'w', newline='') as f:
-        json.dump(frcTeams, f, indent=3)        
+    save_file_to_subfolder(f"{season}.teams.json", json.dumps(frcTeams, indent=3), "data")
                            
 
 # Retrieve data from FRC.
-retrieveEventsForYear(2025)
-retrieveTeamsForYear(2025)
+fetch_events_for_season()
+fetch_teams_for_season()
 status("Complete.")
