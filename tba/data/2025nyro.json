@@ -25,7 +25,12 @@
    "start_date": "2025-03-12",
    "state_prov": "NY",
    "timezone": "America/New_York",
-   "webcasts": [],
+   "webcasts": [
+      {
+         "channel": "firstinspires8",
+         "type": "twitch"
+      }
+   ],
    "website": "https://www.nysfirst.org/",
    "week": 2,
    "year": 2025

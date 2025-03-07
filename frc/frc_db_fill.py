@@ -76,7 +76,7 @@ def frc_events_fill():
         frc_matches_fill(eventCode, eventKey)
 
 
-
+# Fill the teams competing at the Event.
 def frc_teams_fill(eventCode):
     status("   Loading frc_teams...")
 
@@ -100,6 +100,7 @@ def frc_teams_fill(eventCode):
     connection.commit()
 
 
+# Fill the Matches scheduled at the Event.
 def frc_matches_fill(eventCode, eventKey):
     status("   Loading frc_matches and frc_match_teams...")
 
@@ -124,6 +125,7 @@ def frc_matches_fill(eventCode, eventKey):
         "Blue3": {"alliance": "Blue", "number": 3},
     }        
 
+    # Enumerate over each Match to extract the information about the teams on the alliances.
     for match in frcMatches:
         # Prepare the list of tuples for bulk insert
         matchKey = f"{season}.{eventCode}.{ match["tournamentLevel"]}.{match["matchNumber"]}"

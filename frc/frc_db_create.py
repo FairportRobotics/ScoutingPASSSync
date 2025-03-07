@@ -17,38 +17,24 @@ connection.execute('PRAGMA foreign_keys = ON;')
 def status(message):
     print(f"{datetime.now().strftime('%Y%m%d %H:%M:%S')}: {message}")
 
-"""
-An example of the schema follows:
 
-{
-    "allianceCount": "EightAlliance",
-    "weekNumber": 2,
-    "announcements": [],
-    "code": "NYSU",
-    "divisionCode": null,
-    "name": "Hudson Valley Regional",
-    "type": "Regional",
-    "districtCode": null,
-    "venue": "Rockland Community College - Athletic Center",
-    "city": "Suffern",
-    "stateprov": "NY",
-    "country": "USA",
-    "dateStart": "2025-03-05T00:00:00",
-    "dateEnd": "2025-03-08T23:59:59",
-    "address": "145 College Road",
-    "website": "https://www.nysfirst.org/",
-    "webcasts": [
-    "https://www.twitch.tv/firstinspires9"
-    ],
-    "timezone": "Eastern Standard Time"
-},
-"""
+def drop_all_tables():
+   status("Drop all tables")
+
+   command = """
+      DROP TABLE IF EXISTS frc_match_results;
+      DROP TABLE IF EXISTS frc_match_teams;
+      DROP TABLE IF EXISTS frc_matches;
+      DROP TABLE IF EXISTS frc_teams;
+      DROP TABLE IF EXISTS frc_events;
+   """
+
+   cursor.executescript(command)         
+
 def frc_events_create():
    status("Creating table: frc_events")
 
    command = """
-      DROP TABLE IF EXISTS frc_events;
-
       CREATE TABLE frc_events (
       key TEXT PRIMARY KEY,
       year INTEGER NOT NULL,
@@ -71,30 +57,10 @@ def frc_events_create():
    cursor.executescript(command) 
 
 
-"""
-An example of the schema follows:
-
-{
-    "teamNumber": 245,
-    "nameFull": "General Motors/Aptiv/State of MI/Molex/Salem Steel/Thyssenkrupp/R & G Drummer/Stellantis/Fanuc/Tek Pros Today/Chris Pickard/Adambots Friends & Family/Rochester Advanced Dentistry/Thyssenkrupp Plastics&Adams High School",
-    "nameShort": "Adambots",
-    "city": "Rochester Hills",
-    "stateProv": "Michigan",
-    "country": "USA",
-    "rookieYear": 1999,
-    "robotName": "",
-    "districtCode": "FIM",
-    "schoolName": "Adams High School",
-    "website": "",
-    "homeCMP": null
-},
-"""    
 def frc_teams_create():
     status("Creating table: frc_teams")
 
     command = """
-    DROP TABLE IF EXISTS frc_teams;
-
     CREATE TABLE frc_teams (
         teamNumber INTEGER PRIMARY KEY,
         nameShort TEXT COLLATE NOCASE NOT NULL,
@@ -113,55 +79,10 @@ def frc_teams_create():
     cursor.executescript(command) 
 
 
-"""
-An example of the schema follows:
-
-   {
-      "description": "Qualification 1",
-      "startTime": "2025-02-28T11:00:00",
-      "matchNumber": 1,
-      "field": "Primary",
-      "tournamentLevel": "Qualification",
-      "teams": [
-         {
-            "teamNumber": 4998,
-            "station": "Red1",
-            "surrogate": false
-         },
-         {
-            "teamNumber": 5260,
-            "station": "Red2",
-            "surrogate": false
-         },
-         {
-            "teamNumber": 3534,
-            "station": "Red3",
-            "surrogate": false
-         },
-         {
-            "teamNumber": 2137,
-            "station": "Blue1",
-            "surrogate": false
-         },
-         {
-            "teamNumber": 9776,
-            "station": "Blue2",
-            "surrogate": false
-         },
-         {
-            "teamNumber": 9207,
-            "station": "Blue3",
-            "surrogate": false
-         }
-      ]
-   },
-"""    
 def frc_matches_create():
     status("Creating table: frc_matches")
 
     command = """
-    DROP TABLE IF EXISTS frc_matches;
-
     CREATE TABLE frc_matches (
         key TEXT PRIMARY KEY,
         eventKey TEXT COLLATE NOCASE NOT NULL,
@@ -180,55 +101,10 @@ def frc_matches_create():
     cursor.executescript(command) 
 
 
-"""
-An example of the schema follows:
-
-{
-   "description": "Qualification 1",
-   "startTime": "2025-02-28T11:00:00",
-   "matchNumber": 1,
-   "field": "Primary",
-   "tournamentLevel": "Qualification",
-   "teams": [
-      {
-         "teamNumber": 4998,
-         "station": "Red1",
-         "surrogate": false
-      },
-      {
-         "teamNumber": 5260,
-         "station": "Red2",
-         "surrogate": false
-      },
-      {
-         "teamNumber": 3534,
-         "station": "Red3",
-         "surrogate": false
-      },
-      {
-         "teamNumber": 2137,
-         "station": "Blue1",
-         "surrogate": false
-      },
-      {
-         "teamNumber": 9776,
-         "station": "Blue2",
-         "surrogate": false
-      },
-      {
-         "teamNumber": 9207,
-         "station": "Blue3",
-         "surrogate": false
-      }
-   ]
-},
-"""    
 def frc_match_teams_create():
     status("Creating table: frc_match_teams")
 
     command = """
-    DROP TABLE IF EXISTS frc_match_teams;
-
     CREATE TABLE frc_match_teams (
         matchKey TEXT COLLATE NOCASE NOT NULL,
         station INTEGER NOT NULL,
@@ -245,8 +121,81 @@ def frc_match_teams_create():
     cursor.executescript(command) 
 
 
+def frc_match_results_create():
+   status("Creating table: frc_match_results")
+
+   command = """
+   DROP TABLE IF EXISTS frc_match_results;
+
+   CREATE TABLE frc_match_results (
+      matchKey TEXT PRIMARY KEY,
+      winningAlliance TEXT COLLATE NOCASE NOT NULL,
+      coopertitionBonusAchieved BOOLEAN,
+      coralBonusLevelsThresholdCoop INTEGER NOT NULL,
+      coralBonusLevelsThresholdNonCoop INTEGER NOT NULL,
+      coralBonusLevelsThreshold INTEGER NOT NULL,
+      bargeBonusThreshold INTEGER NOT NULL,
+      autoBonusCoralThreshold INTEGER NOT NULL,
+      autoBonusRobotsThreshold INTEGER NOT NULL,
+
+      FOREIGN KEY(matchKey) REFERENCES frc_matches(key)
+   );
+   """
+
+   cursor.executescript(command)
+
+def frc_match_results_create():
+   status("Creating table: frc_match_results")
+
+   command = """
+   DROP TABLE IF EXISTS frc_match_results;
+
+   CREATE TABLE frc_match_results (
+      matchKey TEXT PRIMARY KEY,
+      winningAlliance TEXT COLLATE NOCASE NOT NULL,
+      coopertitionBonusAchieved BOOLEAN,
+      coralBonusLevelsThresholdCoop INTEGER NOT NULL,
+      coralBonusLevelsThresholdNonCoop INTEGER NOT NULL,
+      coralBonusLevelsThreshold INTEGER NOT NULL,
+      bargeBonusThreshold INTEGER NOT NULL,
+      autoBonusCoralThreshold INTEGER NOT NULL,
+      autoBonusRobotsThreshold INTEGER NOT NULL,
+
+      FOREIGN KEY(matchKey) REFERENCES frc_matches(key)
+   );
+   """
+
+   cursor.executescript(command)
+
+
+def frc_match_results_create():
+   status("Creating table: frc_match_results_alliance")
+
+   command = """
+   CREATE TABLE frc_match_results_alliance (
+      matchKey TEXT PRIMARY KEY,
+      alliance TEXT COLLATE NOCASE NOT NULL, 
+
+      
+      winningAlliance TEXT COLLATE NOCASE NOT NULL,
+      coopertitionBonusAchieved BOOLEAN,
+      coralBonusLevelsThresholdCoop INTEGER NOT NULL,
+      coralBonusLevelsThresholdNonCoop INTEGER NOT NULL,
+      coralBonusLevelsThreshold INTEGER NOT NULL,
+      bargeBonusThreshold INTEGER NOT NULL,
+      autoBonusCoralThreshold INTEGER NOT NULL,
+      autoBonusRobotsThreshold INTEGER NOT NULL,
+
+      FOREIGN KEY(matchKey) REFERENCES frc_matches(key)
+   );
+   """
+
+   cursor.executescript(command)     
+
 # Create the tables.
+drop_all_tables()
 frc_events_create()
 frc_teams_create()
 frc_matches_create()
 frc_match_teams_create()
+frc_match_results_create()

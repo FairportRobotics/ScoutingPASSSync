@@ -47,7 +47,7 @@ def retrieveEventFromFirst(firstEventKey):
     firstEvent = firstEvent["Events"][0]
 
     # Log to file.
-    rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "frc_data"))
+    rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data"))
     filePath = os.path.join(rootPath, f"{season}.{firstEventKey}.event.json")
     with open(filePath, 'w', newline='') as f:
         json.dump(firstEvent, f, indent=3)
@@ -71,7 +71,7 @@ def retrieveMatchesFromFirst(firstEventKey):
     firstMatches = firstMatches["Schedule"]
 
     # Log to file.
-    rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "frc_data"))
+    rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data"))
     filePath = os.path.join(rootPath, f"{season}.{firstEventKey}.matches.{level}.json")
     with open(filePath, 'w', newline='') as f:
         json.dump(firstMatches, f, indent=3)
@@ -91,7 +91,7 @@ def retrieveTeamsFromFirst(firstEventKey):
     firstTeams = firstTeams["teams"] 
     
     # Log to file.
-    rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "frc_data"))
+    rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data"))
     filePath = os.path.join(rootPath, f"{season}.{firstEventKey}.teams.json")
     with open(filePath, 'w', newline='') as f:
         json.dump(firstTeams, f, indent=3)
@@ -111,7 +111,7 @@ def retrieveResultsFromFirst(firstEventKey):
     matchResults = json.loads(matchResults.text)
 
     # Log to file.
-    rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "frc_data"))
+    rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data"))
     filePath = os.path.join(rootPath, f"{season}.{firstEventKey}.results.json")
     with open(filePath, 'w', newline='') as f:
         json.dump(matchResults, f, indent=3)
