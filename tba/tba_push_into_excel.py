@@ -9,6 +9,7 @@ from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.formatting.rule import FormulaRule, ColorScaleRule
 from dotenv import load_dotenv 
 
+
 # Load the .env file and all environment variables.
 load_dotenv()
 
@@ -36,7 +37,7 @@ if not os.path.exists(template_file_name):
     status(f"{template_file_name} cannot be found")
     exit()   
 
-# 
+# Set constants we can use.
 font_header = Font(bold=True, size=12, color="FFFFFF")
 font_data = Font(bold=False, size=12, color="000000")
 

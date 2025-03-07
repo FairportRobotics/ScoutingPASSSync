@@ -35,7 +35,7 @@ def fetch_events():
     tbaEvent = json.loads(tbaEvent.text)
 
     # Log to file.
-    rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "tba_data"))
+    rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data"))
     filePath = os.path.join(rootPath, f"{tbaEventYear}.json")
     with open(filePath, 'w', newline='') as f:
         json.dump(tbaEvent, f, indent=3)
