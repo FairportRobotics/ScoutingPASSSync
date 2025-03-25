@@ -5,7 +5,7 @@ import os
 
 from datetime import datetime
 from openpyxl import load_workbook
-from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
+from openpyxl.styles import Font, PatternFill, Alignment
 from openpyxl.formatting.rule import FormulaRule, ColorScaleRule
 from dotenv import load_dotenv 
 
