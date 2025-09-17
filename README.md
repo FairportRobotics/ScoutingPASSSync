@@ -22,8 +22,9 @@ We can create a process where we:
 2. Pull the data from the stored JSON into Excel to provide a rich experience
    for tracking Scouting sessions.
 
-<div id="prerequisites"></div>
+
 <!-- Prerequisites -->
+<div id="prerequisites"></div>
 
 ## Prerequisites
 

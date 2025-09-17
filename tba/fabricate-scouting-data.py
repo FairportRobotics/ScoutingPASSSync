@@ -1,7 +1,6 @@
 import json
 import os
 import random
-import string
 import pandas as pd
 from datetime import datetime
 from dotenv import load_dotenv 
@@ -117,10 +116,13 @@ def create_record_for_team(match, alliance, keys):
 # Load the Matches json and fabricate some scouting data.
 def fabricate_data():
     status("Fabricating Scouting Match data...")
-    file=f"tba_data/{tbaEventKey}.matches.json"
+    rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data"))
+    filePath = os.path.join(rootPath, f"{tbaEventKey}.matches.json")
+
+    print(filePath)
 
     # Read the JSON data from the file.
-    with open(file, "r") as f:
+    with open(filePath, "r") as f:
         data = json.load(f)
         data = [row for row in data if row["comp_level"] == "qm"]
         data = sorted(data, key=lambda x: x["match_number"])
@@ -139,5 +141,7 @@ results = fabricate_data()
 df = pd.DataFrame(results)
 df.columns = df.columns.str.replace(" ", "_")
 df.columns = df.columns.str.lower()
-df.to_csv(f"./csv_data/{tbaEventKey}.tsv", sep="\t", index=False, header=True)
-df.to_csv(f"./csv_data/{tbaEventKey}.csv", sep=",", index=False, header=True)
+
+csvPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "excel_data"))
+df.to_csv(os.path.join(csvPath, f"{tbaEventKey}.tsv"), sep="\t", index=False, header=True)
+df.to_csv(os.path.join(csvPath, f"{tbaEventKey}.csv"), sep=",", index=False, header=True)
