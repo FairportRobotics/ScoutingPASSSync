@@ -13,14 +13,22 @@ def status(message):
     print(f"{datetime.now()}: {message}")
 
 # Retrieve values from .env.
+tbaEventYear = os.getenv("EVENT_YEAR")
+if tbaEventYear is None:
+    raise ValueError("EVENT_YEAR is not set")
+
 tbaEventKey = os.getenv("TBA_EVENT_KEY")
 if tbaEventKey is None:
     raise ValueError("TBA_EVENT_KEY is not set")
 
-# Get the directory of the current script
-current_directory = os.path.dirname(os.path.abspath(__file__))
-input_file_name = os.path.join(current_directory, "data", f"{tbaEventKey}.matches.json")
-ouput_file_name = os.path.join(current_directory, "data", "match.js")
+
+# Make sure the root path exists.
+rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data", f"{tbaEventYear}", f"{tbaEventKey}"))
+os.makedirs(rootPath, exist_ok=True)
+
+# Establish the filenames.
+input_file_name = os.path.join(rootPath, f"{tbaEventKey}.matches.json")
+ouput_file_name = os.path.join(rootPath, "match.js")
 
 
 def extract_schedule_from_file(filename):

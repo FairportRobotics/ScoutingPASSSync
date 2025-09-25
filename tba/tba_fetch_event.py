@@ -9,6 +9,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Retrieve values from .env.
+tbaEventYear = os.getenv("EVENT_YEAR")
+if tbaEventYear is None:
+    raise ValueError("EVENT_YEAR is not set")
+
 tbaEventKey = os.getenv("TBA_EVENT_KEY")
 if tbaEventKey is None:
     raise ValueError("TBA_EVENT_KEY is not set")
@@ -24,7 +28,7 @@ def status(message):
     print(f"{datetime.now()}: {message}")
 
 # Make sure the root path exists.
-rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data", f"{tbaEventKey}"))
+rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data", f"{tbaEventYear}", f"{tbaEventKey}"))
 os.makedirs(rootPath, exist_ok=True)
 
 

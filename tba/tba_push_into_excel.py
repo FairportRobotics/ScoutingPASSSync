@@ -18,6 +18,10 @@ def status(message):
     print(f"{datetime.now()}: {message}")
 
 # Retrieve values from .env.
+tbaEventYear = os.getenv("EVENT_YEAR")
+if tbaEventYear is None:
+    raise ValueError("EVENT_YEAR is not set")
+
 tbaEventKey = os.getenv("TBA_EVENT_KEY")
 if tbaEventKey is None:
     raise ValueError("TBA_EVENT_KEY is not set")
@@ -27,7 +31,7 @@ current_directory = os.path.dirname(os.path.abspath(__file__))
 template_file_name = os.path.join(current_directory, "tba_push_into_excel_template.xlsx")
 
 # Make sure the root path exists.
-rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data", f"{tbaEventKey}"))
+rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data", f"{tbaEventYear}", f"{tbaEventKey}"))
 os.makedirs(rootPath, exist_ok=True)
 
 # Set various variables we can use throughout the script.

@@ -10,18 +10,21 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Retrieve values from .env.
+tbaEventYear = os.getenv("EVENT_YEAR")
+if tbaEventYear is None:
+    raise ValueError("EVENT_YEAR is not set")
+
 tbaEventKey = os.getenv("TBA_EVENT_KEY")
 if tbaEventKey is None:
     raise ValueError("TBA_EVENT_KEY is not set")
 
+# Make sure the root path exists.
+rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data", f"{tbaEventYear}", f"{tbaEventKey}"))
+os.makedirs(rootPath, exist_ok=True)
+
 # Define the status function.
 def status(message):
     print(f"{datetime.now()}: {message}")
-
-# Validate argument.
-if tbaEventKey == "":
-    status("No event key provided.")
-    exit()    
 
 
 team_members = [
@@ -118,7 +121,6 @@ def create_record_for_team(match, alliance, keys):
 # Load the Matches json and fabricate some scouting data.
 def fabricate_data():
     status("Fabricating Scouting Match data...")
-    rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data"))
     filePath = os.path.join(rootPath, f"{tbaEventKey}.matches.json")
 
     print(filePath)
@@ -144,6 +146,5 @@ df = pd.DataFrame(results)
 df.columns = df.columns.str.replace(" ", "_")
 df.columns = df.columns.str.lower()
 
-csvPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "excel_data"))
-df.to_csv(os.path.join(csvPath, f"{tbaEventKey}.tsv"), sep="\t", index=False, header=True)
-df.to_csv(os.path.join(csvPath, f"{tbaEventKey}.csv"), sep=",", index=False, header=True)
+df.to_csv(os.path.join(rootPath, f"{tbaEventKey}.fake-data.tsv"), sep="\t", index=False, header=True)
+df.to_csv(os.path.join(rootPath, f"{tbaEventKey}.fake-data.csv"), sep=",", index=False, header=True)
