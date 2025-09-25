@@ -9,8 +9,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Retrieve values from .env.
-tbaEventKey: str = os.getenv("TBA_EVENT_KEY")   # From FIRST/The Blue Alliance
-tbaAuthKey: str = os.getenv("TBA_AUTH_KEY")     # From The Blue Alliance
+tbaEventKey = os.getenv("TBA_EVENT_KEY")
+if tbaEventKey is None:
+    raise ValueError("TBA_EVENT_KEY is not set")
+
+tbaAuthKey = os.getenv("TBA_AUTH_KEY")
+if tbaAuthKey is None:
+    raise ValueError("TBA_AUTH_KEY is not set")
+
 tbaAuthHeader =  {"X-TBA-Auth-Key": tbaAuthKey}
 
 # Define the status function.
@@ -30,7 +36,7 @@ if tbaAuthKey == "":
 def fetch_event():
     # Prepare the API call.
     status(f"Fetching event...")
-    eventUrl = "https://www.thebluealliance.com/api/v3/event/" + tbaEventKey
+    eventUrl = f"https://www.thebluealliance.com/api/v3/event/{tbaEventKey}"
     tbaEvent = requests.get(eventUrl, headers=tbaAuthHeader)
     tbaEvent = json.loads(tbaEvent.text)
 
@@ -45,7 +51,7 @@ def fetch_event():
 def fetch_teams():
     # Prepare the API call.
     status(f"Fetching teams...")
-    eventUrl = "https://www.thebluealliance.com/api/v3/event/" + tbaEventKey + "/teams"
+    eventUrl = f"https://www.thebluealliance.com/api/v3/event/{tbaEventKey}/teams"
     response = requests.get(eventUrl, headers=tbaAuthHeader)
     tbaTeams = json.loads(response.text)
 
@@ -60,7 +66,7 @@ def fetch_teams():
 def fetch_matches():
     # Prepare the API call.
     status(f"Fetching matches...")
-    eventUrl = "https://www.thebluealliance.com/api/v3/event/" + tbaEventKey + "/matches"
+    eventUrl = f"https://www.thebluealliance.com/api/v3/event/{tbaEventKey}/matches"
     tbaMatches = requests.get(eventUrl, headers=tbaAuthHeader)
     tbaMatches = json.loads(tbaMatches.text)
 

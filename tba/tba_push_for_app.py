@@ -13,7 +13,9 @@ def status(message):
     print(f"{datetime.now()}: {message}")
 
 # Retrieve values from .env.
-tbaEventKey: str = os.getenv("TBA_EVENT_KEY")   # From FIRST/The Blue Alliance
+tbaEventKey = os.getenv("TBA_EVENT_KEY")
+if tbaEventKey is None:
+    raise ValueError("TBA_EVENT_KEY is not set")
 
 # Get the directory of the current script
 current_directory = os.path.dirname(os.path.abspath(__file__))

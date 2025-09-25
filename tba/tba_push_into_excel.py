@@ -18,14 +18,16 @@ def status(message):
     print(f"{datetime.now()}: {message}")
 
 # Retrieve values from .env.
-tbaEventKey: str = os.getenv("TBA_EVENT_KEY")   # From FIRST/The Blue Alliance
+tbaEventKey = os.getenv("TBA_EVENT_KEY")
+if tbaEventKey is None:
+    raise ValueError("TBA_EVENT_KEY is not set")
 
 # Get the directory of the current script
 current_directory = os.path.dirname(os.path.abspath(__file__))
 template_file_name = os.path.join(current_directory, "tba_push_into_excel_template.xlsx")
 
 # Set various variables we can use throughout the script.
-ouput_file_name = os.path.join(current_directory, "excel_data", "Match Scouting Results.xlsx")
+ouput_file_name = os.path.join(current_directory, "excel_data", f"{tbaEventKey}.xlsx")
 
 
 # Perform validations.
@@ -410,4 +412,5 @@ prepare_sheet_pbi_scouter_summary()
 
 
 # And finally, save the spreadsheet.
+status(f"Saving to {ouput_file_name}...")
 wb.save(ouput_file_name)

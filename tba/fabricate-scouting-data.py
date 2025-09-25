@@ -10,7 +10,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Retrieve values from .env.
-tbaEventKey: str = os.getenv("TBA_EVENT_KEY")   # From FIRST/The Blue Alliance
+tbaEventKey = os.getenv("TBA_EVENT_KEY")
+if tbaEventKey is None:
+    raise ValueError("TBA_EVENT_KEY is not set")
 
 # Define the status function.
 def status(message):

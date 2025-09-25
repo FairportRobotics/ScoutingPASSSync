@@ -10,8 +10,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Retrieve values from .env.
-tbaEventYear: str = os.getenv("EVENT_YEAR")   # From FIRST/The Blue Alliance
-tbaAuthKey: str = os.getenv("TBA_AUTH_KEY")     # From The Blue Alliance
+tbaEventYear = os.getenv("EVENT_YEAR")
+if tbaEventYear is None:
+    raise ValueError("EVENT_YEAR is not set")
+
+tbaAuthKey = os.getenv("TBA_AUTH_KEY")
+if tbaAuthKey is None:
+    raise ValueError("TBA_AUTH_KEY is not set")
+
 tbaAuthHeader =  {"X-TBA-Auth-Key": tbaAuthKey}
 
 # Define the status function.
@@ -30,7 +36,7 @@ if tbaAuthKey == "":
 
 def fetch_events():
     # Prepare the API call.
-    eventUrl = "https://www.thebluealliance.com/api/v3/events/" + tbaEventYear
+    eventUrl = f"https://www.thebluealliance.com/api/v3/events/{tbaEventYear}"
     tbaEvent = requests.get(eventUrl, headers=tbaAuthHeader)
     tbaEvent = json.loads(tbaEvent.text)
 
