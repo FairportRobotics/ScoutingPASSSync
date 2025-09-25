@@ -23,14 +23,9 @@ tbaAuthHeader =  {"X-TBA-Auth-Key": tbaAuthKey}
 def status(message):
     print(f"{datetime.now()}: {message}")
 
-# Validate arguments.
-if tbaEventKey == "":
-    status("No event key provided.")
-    exit()
-
-if tbaAuthKey == "":
-    status("No TBA Auth key provided.")
-    exit()    
+# Make sure the root path exists.
+rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data", f"{tbaEventKey}"))
+os.makedirs(rootPath, exist_ok=True)
 
 
 def fetch_event():
@@ -41,7 +36,6 @@ def fetch_event():
     tbaEvent = json.loads(tbaEvent.text)
 
     # Log to file.
-    rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data"))
     filePath = os.path.join(rootPath, f"{tbaEventKey}.json")
     with open(filePath, 'w', newline='') as f:
         json.dump(tbaEvent, f, indent=3)
@@ -56,7 +50,6 @@ def fetch_teams():
     tbaTeams = json.loads(response.text)
 
     # Log to file.
-    rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data"))
     filePath = os.path.join(rootPath, f"{tbaEventKey}.teams.json")
     with open(filePath, 'w', newline='') as f:
         json.dump(tbaTeams, f, indent=3)    
@@ -71,7 +64,6 @@ def fetch_matches():
     tbaMatches = json.loads(tbaMatches.text)
 
     # Log to file.
-    rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data"))
     filePath = os.path.join(rootPath, f"{tbaEventKey}.matches.json")
     with open(filePath, 'w', newline='') as f:
         json.dump(tbaMatches, f, indent=3)

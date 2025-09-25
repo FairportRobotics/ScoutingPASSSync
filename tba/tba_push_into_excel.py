@@ -26,8 +26,12 @@ if tbaEventKey is None:
 current_directory = os.path.dirname(os.path.abspath(__file__))
 template_file_name = os.path.join(current_directory, "tba_push_into_excel_template.xlsx")
 
+# Make sure the root path exists.
+rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data", f"{tbaEventKey}"))
+os.makedirs(rootPath, exist_ok=True)
+
 # Set various variables we can use throughout the script.
-ouput_file_name = os.path.join(current_directory, "excel_data", f"{tbaEventKey}.xlsx")
+ouput_file_name = os.path.join(rootPath, f"{tbaEventKey}.xlsx")
 
 
 # Perform validations.
@@ -116,7 +120,7 @@ def prepate_sheet_event():
     status("Pushing Event data...")
 
     # Read the JSON data from the file.
-    with open(os.path.join(current_directory, "data", f"{tbaEventKey}.json"), "r") as f:
+    with open(os.path.join(rootPath, f"{tbaEventKey}.json"), "r") as f:
         data = json.load(f)
 
     # Load the Event sheet.
@@ -140,7 +144,7 @@ def prepare_sheet_teams():
     status("Pushing Team data...")
 
     # Read the JSON data from the file.
-    with open(os.path.join(current_directory, "data", f"{tbaEventKey}.teams.json"), "r") as f:
+    with open(os.path.join(rootPath, f"{tbaEventKey}.teams.json"), "r") as f:
         data = json.load(f)
         data = sorted(data, key=lambda x: x["team_number"])
 
@@ -167,7 +171,7 @@ def prepare_sheet_matches():
     status("Pushing Match data...")
 
     # Read the JSON data from the file.
-    with open(os.path.join(current_directory, "data", f"{tbaEventKey}.matches.json"), "r") as f:
+    with open(os.path.join(rootPath, f"{tbaEventKey}.matches.json"), "r") as f:
         data = json.load(f)
         data = [row for row in data if row["comp_level"] == "qm"]
         data = sorted(data, key=lambda x: x["match_number"])
@@ -211,7 +215,7 @@ def prepare_sheet_team_scores():
     status("Prepating Team Scores sheet...")
 
     # Read the JSON data from the file.
-    with open(os.path.join(current_directory, "data", f"{tbaEventKey}.teams.json"), "r") as f:
+    with open(os.path.join(rootPath, f"{tbaEventKey}.teams.json"), "r") as f:
         data = json.load(f)
         data = sorted(data, key=lambda x: x["team_number"])
 
@@ -306,7 +310,7 @@ def prepare_sheet_team_summary():
     status("Prepating Team Summary sheet...")
 
     # Read the JSON data from the file.
-    with open(os.path.join(current_directory, "data", f"{tbaEventKey}.teams.json"), "r") as f:
+    with open(os.path.join(rootPath, f"{tbaEventKey}.teams.json"), "r") as f:
         data = json.load(f)
         data = sorted(data, key=lambda x: x["team_number"])
 
@@ -378,7 +382,7 @@ def prepare_sheet_pbi_scouter_summary():
     status("Prepating Power BI Scouter Summary sheet...")
 
     # Read the JSON data from the file.
-    with open(os.path.join(current_directory, "data", f"{tbaEventKey}.teams.json"), "r") as f:
+    with open(os.path.join(rootPath, f"{tbaEventKey}.teams.json"), "r") as f:
         data = json.load(f)
         data = sorted(data, key=lambda x: x["team_number"])
 
