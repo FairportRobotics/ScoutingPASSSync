@@ -20,6 +20,10 @@ if tbaAuthKey is None:
 
 tbaAuthHeader =  {"X-TBA-Auth-Key": tbaAuthKey}
 
+# Make sure the root path exists.
+rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data", f"{tbaEventYear}"))
+os.makedirs(rootPath, exist_ok=True)
+
 # Define the status function.
 def status(message):
     print(f"{datetime.now()}: {message}")
@@ -41,7 +45,6 @@ def fetch_events():
     tbaEvent = json.loads(tbaEvent.text)
 
     # Log to file.
-    rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data"))
     filePath = os.path.join(rootPath, f"{tbaEventYear}.json")
     with open(filePath, 'w', newline='') as f:
         json.dump(tbaEvent, f, indent=3)
