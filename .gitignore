@@ -1,6 +1,4 @@
 .env
 .DS_Store
-/csv_data/
-/excel_data/
-**/data/**
+*.xlsx
 *.db
