@@ -144,31 +144,8 @@ def frc_match_results_create():
 
    cursor.executescript(command)
 
-def frc_match_results_create():
-   status("Creating table: frc_match_results")
 
-   command = """
-   DROP TABLE IF EXISTS frc_match_results;
-
-   CREATE TABLE frc_match_results (
-      matchKey TEXT PRIMARY KEY,
-      winningAlliance TEXT COLLATE NOCASE NOT NULL,
-      coopertitionBonusAchieved BOOLEAN,
-      coralBonusLevelsThresholdCoop INTEGER NOT NULL,
-      coralBonusLevelsThresholdNonCoop INTEGER NOT NULL,
-      coralBonusLevelsThreshold INTEGER NOT NULL,
-      bargeBonusThreshold INTEGER NOT NULL,
-      autoBonusCoralThreshold INTEGER NOT NULL,
-      autoBonusRobotsThreshold INTEGER NOT NULL,
-
-      FOREIGN KEY(matchKey) REFERENCES frc_matches(key)
-   );
-   """
-
-   cursor.executescript(command)
-
-
-def frc_match_results_create():
+def frc_match_results_alliance_create():
    status("Creating table: frc_match_results_alliance")
 
    command = """
