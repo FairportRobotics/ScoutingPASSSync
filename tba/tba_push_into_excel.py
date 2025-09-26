@@ -207,6 +207,7 @@ def prepare_sheet_matches():
     fill_scouted = PatternFill(start_color="C8D6A1", end_color="C8D6A1", fill_type="solid")
     fill_scouted_multiple = PatternFill(start_color="D09996", end_color="D09996", fill_type="solid")
 
+    # =COUNTIF(Where do you want to look?, What do you want to look for?)
     rule_scouted = FormulaRule(formula=["=COUNTIF(MatchScoutingData!$A$2:$A$1000,CONCATENATE($A2,\".\",C$1)) = 1"], fill=fill_scouted)
     rule_scouted_multiple = FormulaRule(formula=["=COUNTIF(MatchScoutingData!$A$2:$A$1000,CONCATENATE($A2,\".\",C$1)) > 1"], fill=fill_scouted_multiple)
 
@@ -239,49 +240,53 @@ def prepare_sheet_team_scores():
     # Apply the formulas.
     for row in range(start_row, start_row + record_count):
         # General
-        ws[f"B{row}"] = f"=COUNTIF(MatchScoutingData!G$2:G$1000, $A{row})"                                  # Scouted
+        ws[f"B{row}"] = f"=COUNTIF(MatchScoutingData!F$2:F$1000, $A{row})"                                  # Scouted
 
-        # Autos
-        ws[f"C{row}"] = f"=SUMIF(MatchScoutingData!$G$2:$G$1000, $A{row}, MatchScoutingData!J$2:J$1000)"    # L1
-        ws[f"D{row}"] = f"=SUMIF(MatchScoutingData!$G$2:$G$1000, $A{row}, MatchScoutingData!K$2:K$1000)"    # L2
-        ws[f"E{row}"] = f"=SUMIF(MatchScoutingData!$G$2:$G$1000, $A{row}, MatchScoutingData!L$2:L$1000)"    # L3
-        ws[f"F{row}"] = f"=SUMIF(MatchScoutingData!$G$2:$G$1000, $A{row}, MatchScoutingData!M$2:M$1000)"    # L4
-        ws[f"G{row}"] = f"=SUMIF(MatchScoutingData!$G$2:$G$1000, $A{row}, MatchScoutingData!N$2:N$1000)"    # Proc
-        ws[f"H{row}"] = f"=SUMIF(MatchScoutingData!$G$2:$G$1000, $A{row}, MatchScoutingData!O$2:O$1000)"    # Net
+        # Autos - Scores
+        ws[f"C{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!I$2:I$1000)"    # L4
+        ws[f"D{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!J$2:J$1000)"    # L3
+        ws[f"E{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!K$2:K$1000)"    # L2
+        ws[f"F{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!L$2:L$1000)"    # L1
+        ws[f"G{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!M$2:M$1000)"    # Proc
+        ws[f"H{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!N$2:N$1000)"    # Net
 
-        ws[f"I{row}"] = f"=C{row} * 3"    # P L1
-        ws[f"J{row}"] = f"=D{row} * 4"    # P L2
-        ws[f"K{row}"] = f"=E{row} * 6"    # P L3
-        ws[f"L{row}"] = f"=F{row} * 7"    # P L4
+        # Autos - Points
+        ws[f"I{row}"] = f"=C{row} * 7"    # P L4
+        ws[f"J{row}"] = f"=D{row} * 6"    # P L3
+        ws[f"K{row}"] = f"=E{row} * 4"    # P L2
+        ws[f"L{row}"] = f"=F{row} * 3"    # P L1
         ws[f"M{row}"] = f"=G{row} * 6"    # P Proc
         ws[f"N{row}"] = f"=H{row} * 4"    # P Net    
 
-        ws[f"O{row}"] = f"=SUMIF(MatchScoutingData!$G$2:$G$1000, $A{row}, MatchScoutingData!I$2:I$1000) * 3"    # P Leave    
-        ws[f"P{row}"] = f"=SUM(I{row}:O{row})"    # AP Total    
-        ws[f"Q{row}"] = f"=IF(P{row} > 0, P{row}/B{row}, 0)"    # AP Avg/Mat
+        # Auto - Aggregates
+        ws[f"O{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!H$2:H$1000) * 3"    # P Leave    
+        ws[f"P{row}"] = f"=SUM(I{row}:O{row})"                                                                  # AP Total    
+        ws[f"Q{row}"] = f"=IF(P{row} > 0, P{row}/B{row}, 0)"                                                    # AP Avg/Mat
 
-        # Teleop
-        ws[f"R{row}"] = f"=SUMIF(MatchScoutingData!$G$2:$G$1000, $A{row}, MatchScoutingData!P$2:P$1000)"    # L1
-        ws[f"S{row}"] = f"=SUMIF(MatchScoutingData!$G$2:$G$1000, $A{row}, MatchScoutingData!Q$2:Q$1000)"    # L2
-        ws[f"T{row}"] = f"=SUMIF(MatchScoutingData!$G$2:$G$1000, $A{row}, MatchScoutingData!R$2:R$1000)"    # L3
-        ws[f"U{row}"] = f"=SUMIF(MatchScoutingData!$G$2:$G$1000, $A{row}, MatchScoutingData!S$2:S$1000)"    # L4
-        ws[f"V{row}"] = f"=SUMIF(MatchScoutingData!$G$2:$G$1000, $A{row}, MatchScoutingData!T$2:T$1000)"    # Proc
-        ws[f"W{row}"] = f"=SUMIF(MatchScoutingData!$G$2:$G$1000, $A{row}, MatchScoutingData!U$2:U$1000)"    # Net
+        # Teleop - Scores
+        ws[f"R{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!P$2:P$1000)"    # L4
+        ws[f"S{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!Q$2:Q$1000)"    # L3
+        ws[f"T{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!R$2:R$1000)"    # L2
+        ws[f"U{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!S$2:S$1000)"    # L1
+        ws[f"V{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!T$2:T$1000)"    # Proc
+        ws[f"W{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!U$2:U$1000)"    # Net
 
-        ws[f"X{row}"]  = f"=R{row} * 2"    # P L1
-        ws[f"Y{row}"]  = f"=S{row} * 3"    # P L2
-        ws[f"Z{row}"]  = f"=T{row} * 4"    # P L3
-        ws[f"AA{row}"] = f"=U{row} * 5"    # P L4
+        # Teleop - Points
+        ws[f"X{row}"]  = f"=R{row} * 5"    # P L4
+        ws[f"Y{row}"]  = f"=S{row} * 4"    # P L3
+        ws[f"Z{row}"]  = f"=T{row} * 3"    # P L2
+        ws[f"AA{row}"] = f"=U{row} * 2"    # P L1
         ws[f"AB{row}"] = f"=V{row} * 6"    # P Proc
         ws[f"AC{row}"] = f"=W{row} * 4"    # P Net    
 
-        ws[f"AD{row}"] = f"=SUM(X{row}:AC{row})"    # TP Total    
+        # Teleop - Aggregates
+        ws[f"AD{row}"] = f"=SUM(X{row}:AC{row})"                   # TP Total    
         ws[f"AE{row}"] = f"=IF(AD{row} > 0, AD{row}/B{row}, 0)"    # TP Avg/Mat        
 
         # Endgame
-        ws[f"AF{row}"] = f"=COUNTIFS(MatchScoutingData!$G$2:$G$1000, $A{row}, MatchScoutingData!$W$2:$W$1000, \"p\")"    # Barge P
-        ws[f"AG{row}"] = f"=COUNTIFS(MatchScoutingData!$G$2:$G$1000, $A{row}, MatchScoutingData!$W$2:$W$1000, \"s\")"    # Barge S
-        ws[f"AH{row}"] = f"=COUNTIFS(MatchScoutingData!$G$2:$G$1000, $A{row}, MatchScoutingData!$W$2:$W$1000, \"d\")"    # Barge D
+        ws[f"AF{row}"] = f"=COUNTIFS(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!$X$2:$X$1000, \"p\")"    # Barge P
+        ws[f"AG{row}"] = f"=COUNTIFS(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!$X$2:$X$1000, \"s\")"    # Barge S
+        ws[f"AH{row}"] = f"=COUNTIFS(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!$X$2:$X$1000, \"d\")"    # Barge D
 
         ws[f"AI{row}"] = f"=AF{row} * 2"     # P Barge P
         ws[f"AJ{row}"] = f"=AG{row} * 6"     # P Barge S
@@ -295,12 +300,10 @@ def prepare_sheet_team_scores():
         ws[f"AO{row}"] = f"=IF(AN{row} > 0, AN{row}/B{row}, 0)"    # Avg/Mat        
 
         # Ranking Points
-        ws[f"AP{row}"] = f"=SUMIF(MatchScoutingData!$G$2:$G$1000, $A{row}, MatchScoutingData!Y$2:Y$1000)"      # Auto
-        ws[f"AQ{row}"] = f"=SUMIF(MatchScoutingData!$G$2:$G$1000, $A{row}, MatchScoutingData!Z$2:Z$1000)"      # Coral
-        ws[f"AR{row}"] = f"=SUMIF(MatchScoutingData!$G$2:$G$1000, $A{row}, MatchScoutingData!AA$2:AA$1000)"    # Barge
+        ws[f"AP{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!Z$2:Z$1000)"      # Auto
+        ws[f"AQ{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!AA$2:AA$1000)"      # Coral
+        ws[f"AR{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!AB$2:AB$1000)"    # Barge
         ws[f"AS{row}"] = f"=SUM(AP{row}, AQ{row}, AR{row})"                                                    # Total
-
-
   
     # Apply formatting to the sheet.
     apply_formats(ws, [
