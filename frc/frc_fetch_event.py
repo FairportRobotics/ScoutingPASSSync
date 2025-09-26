@@ -80,6 +80,8 @@ def retrieveMatchesFromFirst(firstEventKey):
     firstMatches = json.loads(firstMatches.text)
     firstMatches = firstMatches["Schedule"]
 
+    status(f"Retrieving Matches from FIRST: {len(firstMatches)} Matches loaded")
+
     # Log to file.
     filePath = os.path.join(rootPath, f"{firstEventYear}.{firstEventKey}.matches.{level}.json")
     with open(filePath, 'w', newline='') as f:
@@ -98,6 +100,8 @@ def retrieveTeamsFromFirst(firstEventKey):
     firstTeams = requests.get(eventUrl, headers=firstAuthHeader)
     firstTeams = json.loads(firstTeams.text)
     firstTeams = firstTeams["teams"] 
+
+    status(f"Retrieving Teams from FIRST: {len(firstTeams)} Teams loaded")
     
     # Log to file.
     filePath = os.path.join(rootPath, f"{firstEventYear}.{firstEventKey}.teams.json")
@@ -117,6 +121,8 @@ def retrieveResultsFromFirst(firstEventKey):
     eventUrl = f"https://frc-api.firstinspires.org/v3.0/{firstEventYear}/scores/{firstEventKey}/Qualification"
     matchResults = requests.get(eventUrl, headers=firstAuthHeader)
     matchResults = json.loads(matchResults.text)
+
+    status(f"Retrieving Results from FIRST: {len(matchResults)} Results loaded")
 
     # Log to file.
     filePath = os.path.join(rootPath, f"{firstEventYear}.{firstEventKey}.results.json")
