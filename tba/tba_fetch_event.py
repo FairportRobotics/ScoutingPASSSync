@@ -34,10 +34,12 @@ os.makedirs(rootPath, exist_ok=True)
 
 def fetch_event():
     # Prepare the API call.
-    status(f"Fetching event...")
+    status(f"Fetching Event...")
     eventUrl = f"https://www.thebluealliance.com/api/v3/event/{tbaEventKey}"
     tbaEvent = requests.get(eventUrl, headers=tbaAuthHeader)
     tbaEvent = json.loads(tbaEvent.text)
+
+    status(f"Fetching Event: {"1" if len(tbaEvent) > 0 else "0"} Event(s) returned")
 
     # Log to file.
     filePath = os.path.join(rootPath, f"{tbaEventKey}.json")
@@ -48,10 +50,12 @@ def fetch_event():
 
 def fetch_teams():
     # Prepare the API call.
-    status(f"Fetching teams...")
+    status(f"Fetching Teams...")
     eventUrl = f"https://www.thebluealliance.com/api/v3/event/{tbaEventKey}/teams"
     response = requests.get(eventUrl, headers=tbaAuthHeader)
     tbaTeams = json.loads(response.text)
+
+    status(f"Fetching Teams: {len(tbaTeams)} Teams returned")
 
     # Log to file.
     filePath = os.path.join(rootPath, f"{tbaEventKey}.teams.json")
@@ -62,10 +66,12 @@ def fetch_teams():
 
 def fetch_matches():
     # Prepare the API call.
-    status(f"Fetching matches...")
+    status(f"Fetching Matches...")
     eventUrl = f"https://www.thebluealliance.com/api/v3/event/{tbaEventKey}/matches"
     tbaMatches = requests.get(eventUrl, headers=tbaAuthHeader)
     tbaMatches = json.loads(tbaMatches.text)
+
+    status(f"Fetching Matches: {len(tbaMatches)} Matches returned")
 
     # Log to file.
     filePath = os.path.join(rootPath, f"{tbaEventKey}.matches.json")
@@ -78,7 +84,3 @@ status(f"Fetching data for: {tbaEventKey}")
 event = fetch_event()
 teams = fetch_teams()
 matches = fetch_matches()
-
-status(f"Event: {event['key']}, {event['name']}")
-status(f"Teams: {len(teams)}")
-status(f"Matches: {len(matches)}")   
