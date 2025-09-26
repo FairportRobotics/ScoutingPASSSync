@@ -39,7 +39,11 @@ def fetch_event():
     tbaEvent = requests.get(eventUrl, headers=tbaAuthHeader)
     tbaEvent = json.loads(tbaEvent.text)
 
-    status(f"Fetching Event: {"1" if len(tbaEvent) > 0 else "0"} Event(s) returned")
+    # Emit a status message based on results of the API call.
+    if("Error" in tbaEvent):
+        status(f"Fetching Event: '{tbaEventKey}' was not returned")
+    else:
+        status(f"Fetching Event: '{tbaEvent["short_name"]}'")
 
     # Log to file.
     filePath = os.path.join(rootPath, f"{tbaEventKey}.json")
@@ -55,7 +59,11 @@ def fetch_teams():
     response = requests.get(eventUrl, headers=tbaAuthHeader)
     tbaTeams = json.loads(response.text)
 
-    status(f"Fetching Teams: {len(tbaTeams)} Teams returned")
+    # Emit a status message based on results of the API call.
+    if("Error" in tbaTeams):
+        status(f"Fetching Teams: 0 Teams")
+    else:
+        status(f"Fetching Teams: {len(tbaTeams)} Teams")    
 
     # Log to file.
     filePath = os.path.join(rootPath, f"{tbaEventKey}.teams.json")
@@ -71,7 +79,11 @@ def fetch_matches():
     tbaMatches = requests.get(eventUrl, headers=tbaAuthHeader)
     tbaMatches = json.loads(tbaMatches.text)
 
-    status(f"Fetching Matches: {len(tbaMatches)} Matches returned")
+    # Emit a status message based on results of the API call.
+    if("Error" in tbaMatches):
+        status(f"Fetching Matches: 0 Matches")
+    else:
+        status(f"Fetching Matches: {len(tbaMatches)} Matches")      
 
     # Log to file.
     filePath = os.path.join(rootPath, f"{tbaEventKey}.matches.json")
