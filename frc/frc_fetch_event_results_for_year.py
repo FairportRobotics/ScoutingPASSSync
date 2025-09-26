@@ -27,10 +27,22 @@ def status(message):
 logging.getLogger("httpx").setLevel(logging.WARNING)
 
 # Retrieve values from .env.
-firstAuthKey: str = os.getenv("FIRST_AUTH_KEY")     # From FIRST
+# Retrieve values from .env.
+firstEventYear = os.getenv("FIRST_EVENT_YEAR")
+if firstEventYear is None:
+    raise ValueError("FIRST_EVENT_YEAR is not set")
+
+firstAuthKey = os.getenv("FIRST_AUTH_KEY")
+if firstAuthKey is None:
+    raise ValueError("FIRST_AUTH_KEY is not set")
+
 firstAuthHeader =  {"Authorization": f"Basic {firstAuthKey}"}
 
-season = 2025
+
+# Make sure the root path exists.
+rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data", f"{firstEventYear}"))
+os.makedirs(rootPath, exist_ok=True)
+
 
 def save_file_to_subfolder(subfolder, filename, content):
     # Get the directory of the running script
@@ -53,12 +65,12 @@ def fetch_events_for_season():
     status("Fetching Events from FIRST...")
 
     # Prepare the API call.
-    url = f"https://frc-api.firstinspires.org/v3.0/{season}/events"
+    url = f"https://frc-api.firstinspires.org/v3.0/{firstEventYear}/events"
     frcEvents = requests.get(url, headers=firstAuthHeader)
     frcEvents = json.loads(frcEvents.text)
 
     # Log to file.
-    save_file_to_subfolder("data", f"{season}.teams.json", json.dumps(frcEvents, indent=3))
+    save_file_to_subfolder("data", f"{firstEventYear}.teams.json", json.dumps(frcEvents, indent=3))
 
     # Enumerate over the Events to retrieve the Matches and Results.
     for e_index, event in enumerate(frcEvents["Events"]):
@@ -67,30 +79,30 @@ def fetch_events_for_season():
         status(f"Processing Event {e_index+1} of {len(frcEvents['Events'])}: {eventCode}")
 
         # Save the Event to file.
-        save_file_to_subfolder("data", f"{season}.{eventCode}.event.json", json.dumps(event, indent=3))
+        save_file_to_subfolder("data", f"{firstEventYear}.{eventCode}.event.json", json.dumps(event, indent=3))
 
         # Retrieve the Schedule and save to file.
         status(f"   Fetching Schedule...")
         level = "Qualification"
-        url = f"https://frc-api.firstinspires.org/v3.0/{season}/schedule/{eventCode}?tournamentLevel={level}"
+        url = f"https://frc-api.firstinspires.org/v3.0/{firstEventYear}/schedule/{eventCode}?tournamentLevel={level}"
         frcMatches = requests.get(url, headers=firstAuthHeader)
         frcMatches = json.loads(frcMatches.text)
-        save_file_to_subfolder("data", f"{season}.{eventCode}.schedule.json", json.dumps(frcMatches, indent=3))
+        save_file_to_subfolder("data", f"{firstEventYear}.{eventCode}.schedule.json", json.dumps(frcMatches, indent=3))
 
         # Retrieve the Results and save to file.
         status(f"   Fetching Results...")
-        url = f"https://frc-api.firstinspires.org/v3.0/{season}/scores/{eventCode}/Qualification"
+        url = f"https://frc-api.firstinspires.org/v3.0/{firstEventYear}/scores/{eventCode}/Qualification"
         frcResults = requests.get(url, headers=firstAuthHeader)
         frcResults = json.loads(frcResults.text)
-        save_file_to_subfolder("data", f"{season}.{eventCode}.results.json", json.dumps(frcResults, indent=3))
+        save_file_to_subfolder("data", f"{firstEventYear}.{eventCode}.results.json", json.dumps(frcResults, indent=3))
 
         # Retrieve the Teams
         status(f"   Fetching Teams...")
         #https://frc-api.firstinspires.org/v3.0/:season/teams?teamNumber=&eventCode=&districtCode=&state=&page=
-        url = f"https://frc-api.firstinspires.org/v3.0/{season}/teams?eventCode={eventCode}"
+        url = f"https://frc-api.firstinspires.org/v3.0/{firstEventYear}/teams?eventCode={eventCode}"
         frcTeams = requests.get(url, headers=firstAuthHeader)
         frcTeams = json.loads(frcTeams.text)
-        save_file_to_subfolder("data", f"{season}.{eventCode}.teams.json", json.dumps(frcTeams, indent=3))        
+        save_file_to_subfolder("data", f"{firstEventYear}.{eventCode}.teams.json", json.dumps(frcTeams, indent=3))        
 
 # Retrieve data from FRC.
 fetch_events_for_season()
