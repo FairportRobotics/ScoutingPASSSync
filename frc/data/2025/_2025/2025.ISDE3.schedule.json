@@ -1,0 +1,2266 @@
+{
+   "Schedule": [
+      {
+         "description": "Qualification 1",
+         "startTime": "2025-03-09T11:10:00",
+         "matchNumber": 1,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 3075,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1574,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5291,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3065,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5987,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2096,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 2",
+         "startTime": "2025-03-09T11:19:00",
+         "matchNumber": 2,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 5990,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1576,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1690,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5135,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3339,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 10695,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 3",
+         "startTime": "2025-03-09T11:28:00",
+         "matchNumber": 3,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 7177,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7067,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6740,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6230,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2679,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3211,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 4",
+         "startTime": "2025-03-09T11:37:00",
+         "matchNumber": 4,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 7845,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5654,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3316,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5928,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4590,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3083,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 5",
+         "startTime": "2025-03-09T11:46:00",
+         "matchNumber": 5,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 6168,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4416,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4744,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1576,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1943,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9738,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 6",
+         "startTime": "2025-03-09T11:55:00",
+         "matchNumber": 6,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 7177,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 10695,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5987,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6230,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1690,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3065,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 7",
+         "startTime": "2025-03-09T12:04:00",
+         "matchNumber": 7,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 7845,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2096,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6740,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5990,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3075,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5928,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 8",
+         "startTime": "2025-03-09T12:13:00",
+         "matchNumber": 8,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 3083,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3211,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3316,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5135,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5291,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7067,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 9",
+         "startTime": "2025-03-09T12:22:00",
+         "matchNumber": 9,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 5654,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4590,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4744,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6168,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3339,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9738,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 10",
+         "startTime": "2025-03-09T12:31:00",
+         "matchNumber": 10,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 1943,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4416,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7845,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1576,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1574,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2679,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 11",
+         "startTime": "2025-03-09T12:40:00",
+         "matchNumber": 11,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 7067,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3065,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3083,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7177,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3211,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5987,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 12",
+         "startTime": "2025-03-09T12:49:00",
+         "matchNumber": 12,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 4590,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1690,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 10695,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5654,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5291,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2096,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 13",
+         "startTime": "2025-03-09T13:43:00",
+         "matchNumber": 13,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 6230,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3075,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9738,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2679,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4744,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5928,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 14",
+         "startTime": "2025-03-09T13:52:00",
+         "matchNumber": 14,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 4416,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5990,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3339,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1574,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1943,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3316,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 15",
+         "startTime": "2025-03-09T14:01:00",
+         "matchNumber": 15,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 1690,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5135,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2096,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6740,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6168,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3065,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 16",
+         "startTime": "2025-03-09T14:10:00",
+         "matchNumber": 16,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 9738,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2679,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4590,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 10695,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7845,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7177,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 17",
+         "startTime": "2025-03-09T14:19:00",
+         "matchNumber": 17,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 3316,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7067,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5928,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3075,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4744,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1576,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 18",
+         "startTime": "2025-03-09T14:28:00",
+         "matchNumber": 18,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 6168,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5291,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5987,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4416,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5135,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6230,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 19",
+         "startTime": "2025-03-09T14:37:00",
+         "matchNumber": 19,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 1943,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6740,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5654,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5990,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1574,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3083,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 20",
+         "startTime": "2025-03-09T14:46:00",
+         "matchNumber": 20,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 3339,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1576,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7845,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3211,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7177,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1690,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 21",
+         "startTime": "2025-03-09T14:55:00",
+         "matchNumber": 21,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 9738,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5987,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7067,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5291,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3316,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2679,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 22",
+         "startTime": "2025-03-09T15:04:00",
+         "matchNumber": 22,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 10695,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6230,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5990,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6740,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5135,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3075,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 23",
+         "startTime": "2025-03-09T15:13:00",
+         "matchNumber": 23,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 3339,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4744,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1574,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3211,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6168,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3083,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 24",
+         "startTime": "2025-03-09T15:22:00",
+         "matchNumber": 24,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 2096,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1943,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5928,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3065,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4590,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4416,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 25",
+         "startTime": "2025-03-09T15:31:00",
+         "matchNumber": 25,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 5654,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6230,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7177,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1576,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3316,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5135,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 26",
+         "startTime": "2025-03-09T15:40:00",
+         "matchNumber": 26,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 1574,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6740,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5987,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1690,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6168,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7067,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 27",
+         "startTime": "2025-03-09T15:49:00",
+         "matchNumber": 27,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 7845,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9738,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5291,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4590,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3075,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3065,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 28",
+         "startTime": "2025-03-09T15:58:00",
+         "matchNumber": 28,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 2679,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2096,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 10695,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1943,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5990,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3211,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 29",
+         "startTime": "2025-03-09T16:07:00",
+         "matchNumber": 29,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 4416,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3083,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4744,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5654,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5928,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3339,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 30",
+         "startTime": "2025-03-09T16:16:00",
+         "matchNumber": 30,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 1690,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3316,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1574,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5291,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9738,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6740,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 31",
+         "startTime": "2025-03-09T16:25:00",
+         "matchNumber": 31,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 5987,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5990,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2679,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6230,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7845,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4590,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 32",
+         "startTime": "2025-03-09T16:34:00",
+         "matchNumber": 32,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 10695,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3075,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7067,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3339,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7177,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1943,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 33",
+         "startTime": "2025-03-09T16:43:00",
+         "matchNumber": 33,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 4744,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3065,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3211,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4416,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1576,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5654,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 34",
+         "startTime": "2025-03-09T16:52:00",
+         "matchNumber": 34,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 6168,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5928,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5135,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3083,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2096,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9738,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 35",
+         "startTime": "2025-03-09T17:01:00",
+         "matchNumber": 35,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 1574,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3339,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6230,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7845,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7067,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5990,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 36",
+         "startTime": "2025-03-09T17:10:00",
+         "matchNumber": 36,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 3075,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2679,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1943,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3065,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 10695,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5654,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 37",
+         "startTime": "2025-03-10T08:00:00",
+         "matchNumber": 37,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 3211,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1576,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4590,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2096,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3316,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6168,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 38",
+         "startTime": "2025-03-10T08:09:00",
+         "matchNumber": 38,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 5291,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3083,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7177,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1690,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5928,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4416,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 39",
+         "startTime": "2025-03-10T08:18:00",
+         "matchNumber": 39,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 4744,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6740,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5990,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5135,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5987,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7845,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 40",
+         "startTime": "2025-03-10T08:27:00",
+         "matchNumber": 40,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 7067,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6230,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1576,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2096,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1574,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5654,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 41",
+         "startTime": "2025-03-10T08:36:00",
+         "matchNumber": 41,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 5291,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3211,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6168,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3075,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7177,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4416,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 42",
+         "startTime": "2025-03-10T08:45:00",
+         "matchNumber": 42,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 2679,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3065,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5135,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3316,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4590,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6740,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 43",
+         "startTime": "2025-03-10T08:54:00",
+         "matchNumber": 43,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 3083,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1690,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1943,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9738,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 10695,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4744,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 44",
+         "startTime": "2025-03-10T09:03:00",
+         "matchNumber": 44,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 3339,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5654,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3211,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5987,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5928,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6230,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 45",
+         "startTime": "2025-03-10T09:12:00",
+         "matchNumber": 45,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 1576,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2096,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3075,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6740,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4416,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2679,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 46",
+         "startTime": "2025-03-10T09:21:00",
+         "matchNumber": 46,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 5135,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9738,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1574,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7177,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5990,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6168,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 47",
+         "startTime": "2025-03-10T09:30:00",
+         "matchNumber": 47,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 5987,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1943,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3316,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4744,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7845,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1690,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 48",
+         "startTime": "2025-03-10T09:39:00",
+         "matchNumber": 48,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 5928,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 10695,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5291,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7067,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3339,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4590,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 49",
+         "startTime": "2025-03-10T09:48:00",
+         "matchNumber": 49,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 3065,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7177,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3075,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3083,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5654,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5135,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 50",
+         "startTime": "2025-03-10T09:57:00",
+         "matchNumber": 50,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 2096,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3211,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4416,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3316,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4744,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5990,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 51",
+         "startTime": "2025-03-10T10:06:00",
+         "matchNumber": 51,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 7067,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2679,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7845,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 10695,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6168,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1576,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 52",
+         "startTime": "2025-03-10T10:15:00",
+         "matchNumber": 52,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 6740,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3083,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6230,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4590,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5291,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1943,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 53",
+         "startTime": "2025-03-10T10:24:00",
+         "matchNumber": 53,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 5928,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9738,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3065,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5987,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1690,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3339,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 54",
+         "startTime": "2025-03-10T10:33:00",
+         "matchNumber": 54,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 1574,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7845,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6168,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3316,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4416,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 10695,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 55",
+         "startTime": "2025-03-10T10:42:00",
+         "matchNumber": 55,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 1943,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5135,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7177,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4744,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6230,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2096,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 56",
+         "startTime": "2025-03-10T10:51:00",
+         "matchNumber": 56,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 4590,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5987,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1576,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9738,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5654,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3075,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 57",
+         "startTime": "2025-03-10T11:00:00",
+         "matchNumber": 57,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 5928,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6740,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1690,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3211,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7067,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1574,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 58",
+         "startTime": "2025-03-10T11:09:00",
+         "matchNumber": 58,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 5990,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3065,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 5291,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2679,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3083,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 3339,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      }
+   ]
+}

@@ -1,0 +1,1291 @@
+{
+   "Schedule": [
+      {
+         "description": "Qualification 1",
+         "startTime": "2024-07-27T08:45:00",
+         "matchNumber": 1,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 2375,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6352,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7755,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 8848,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 60,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2478,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 2",
+         "startTime": "2024-07-27T08:53:00",
+         "matchNumber": 2,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 1165,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4183,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9995,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9091,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9992,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4146,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 3",
+         "startTime": "2024-07-27T09:01:00",
+         "matchNumber": 3,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 9996,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9997,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9991,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9990,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6413,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9994,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 4",
+         "startTime": "2024-07-27T09:09:00",
+         "matchNumber": 4,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 2403,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9993,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9091,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9432,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7703,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6352,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 5",
+         "startTime": "2024-07-27T09:17:00",
+         "matchNumber": 5,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 9994,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2478,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9997,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6413,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9992,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7755,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 6",
+         "startTime": "2024-07-27T09:25:00",
+         "matchNumber": 6,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 4183,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2403,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9996,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9993,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4146,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2375,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 7",
+         "startTime": "2024-07-27T09:33:00",
+         "matchNumber": 7,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 9991,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 8848,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1165,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 60,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9990,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9432,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 8",
+         "startTime": "2024-07-27T09:41:00",
+         "matchNumber": 8,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 9995,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7755,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9091,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9996,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6413,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7703,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 9",
+         "startTime": "2024-07-27T09:49:00",
+         "matchNumber": 9,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 2478,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9432,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9991,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9992,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2375,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9997,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 10",
+         "startTime": "2024-07-27T09:57:00",
+         "matchNumber": 10,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 2403,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9995,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4146,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1165,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 60,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9993,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 11",
+         "startTime": "2024-07-27T10:05:00",
+         "matchNumber": 11,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 7703,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9994,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4183,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6352,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 8848,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9990,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 12",
+         "startTime": "2024-07-27T10:13:00",
+         "matchNumber": 12,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 4146,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1165,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9432,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9993,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9997,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7755,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 13",
+         "startTime": "2024-07-27T10:21:00",
+         "matchNumber": 13,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 2403,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6352,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6413,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9990,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9996,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9992,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 14",
+         "startTime": "2024-07-27T10:29:00",
+         "matchNumber": 14,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 7703,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9995,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 60,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4183,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2375,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2478,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 15",
+         "startTime": "2024-07-27T10:37:00",
+         "matchNumber": 15,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 9091,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9991,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6413,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4146,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9994,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 8848,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 16",
+         "startTime": "2024-07-27T10:45:00",
+         "matchNumber": 16,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 9432,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9996,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2375,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 60,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4183,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9992,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 17",
+         "startTime": "2024-07-27T10:53:00",
+         "matchNumber": 17,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 9997,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9091,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7703,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2478,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1165,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2403,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 18",
+         "startTime": "2024-07-27T11:01:00",
+         "matchNumber": 18,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 6352,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9993,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9995,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7755,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9991,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9994,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 19",
+         "startTime": "2024-07-27T11:09:00",
+         "matchNumber": 19,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 2375,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 8848,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9091,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9997,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2403,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9990,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 20",
+         "startTime": "2024-07-27T11:17:00",
+         "matchNumber": 20,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 9991,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4183,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6352,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6413,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 60,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1165,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 21",
+         "startTime": "2024-07-27T11:25:00",
+         "matchNumber": 21,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 9992,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9995,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9432,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4146,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9990,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2478,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 22",
+         "startTime": "2024-07-27T12:30:00",
+         "matchNumber": 22,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 9996,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9994,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9993,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7755,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7703,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 8848,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 23",
+         "startTime": "2024-07-27T12:38:00",
+         "matchNumber": 23,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 9995,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6413,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2375,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9997,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6352,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1165,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 24",
+         "startTime": "2024-07-27T12:46:00",
+         "matchNumber": 24,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 9994,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2403,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 60,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9990,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9091,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4183,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 25",
+         "startTime": "2024-07-27T12:54:00",
+         "matchNumber": 25,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 7703,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4146,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9991,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 8848,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9993,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9992,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 26",
+         "startTime": "2024-07-27T13:02:00",
+         "matchNumber": 26,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 2478,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9996,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9995,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9432,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7755,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2403,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 27",
+         "startTime": "2024-07-27T13:10:00",
+         "matchNumber": 27,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 6352,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9091,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 60,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 6413,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4146,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9997,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 28",
+         "startTime": "2024-07-27T13:18:00",
+         "matchNumber": 28,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 9992,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 2478,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7703,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 8848,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9432,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 4183,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 29",
+         "startTime": "2024-07-27T13:26:00",
+         "matchNumber": 29,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 7755,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 1165,
+               "station": "Red2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9996,
+               "station": "Red3",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9991,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9990,
+               "station": "Blue2",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9993,
+               "station": "Blue3",
+               "surrogate": false
+            }
+         ]
+      },
+      {
+         "description": "Qualification 30",
+         "startTime": "2024-07-27T13:34:00",
+         "matchNumber": 30,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 9994,
+               "station": "Red1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 9992,
+               "station": "Red2",
+               "surrogate": true
+            },
+            {
+               "teamNumber": 6352,
+               "station": "Red3",
+               "surrogate": true
+            },
+            {
+               "teamNumber": 2375,
+               "station": "Blue1",
+               "surrogate": false
+            },
+            {
+               "teamNumber": 7703,
+               "station": "Blue2",
+               "surrogate": true
+            },
+            {
+               "teamNumber": 2403,
+               "station": "Blue3",
+               "surrogate": true
+            }
+         ]
+      },
+      {
+         "description": "Qualification 31",
+         "startTime": null,
+         "matchNumber": 31,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 4183,
+               "station": "Red1",
+               "surrogate": true
+            },
+            {
+               "teamNumber": 7755,
+               "station": "Red2",
+               "surrogate": true
+            },
+            {
+               "teamNumber": 4146,
+               "station": "Red3",
+               "surrogate": true
+            },
+            {
+               "teamNumber": 9995,
+               "station": "Blue1",
+               "surrogate": true
+            },
+            {
+               "teamNumber": 9997,
+               "station": "Blue2",
+               "surrogate": true
+            },
+            {
+               "teamNumber": 8848,
+               "station": "Blue3",
+               "surrogate": true
+            }
+         ]
+      },
+      {
+         "description": "Qualification 32",
+         "startTime": null,
+         "matchNumber": 32,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 9091,
+               "station": "Red1",
+               "surrogate": true
+            },
+            {
+               "teamNumber": 9432,
+               "station": "Red2",
+               "surrogate": true
+            },
+            {
+               "teamNumber": 9994,
+               "station": "Red3",
+               "surrogate": true
+            },
+            {
+               "teamNumber": 60,
+               "station": "Blue1",
+               "surrogate": true
+            },
+            {
+               "teamNumber": 9991,
+               "station": "Blue2",
+               "surrogate": true
+            },
+            {
+               "teamNumber": 9996,
+               "station": "Blue3",
+               "surrogate": true
+            }
+         ]
+      },
+      {
+         "description": "Qualification 33",
+         "startTime": null,
+         "matchNumber": 33,
+         "field": "Primary",
+         "tournamentLevel": "Qualification",
+         "teams": [
+            {
+               "teamNumber": 1165,
+               "station": "Red1",
+               "surrogate": true
+            },
+            {
+               "teamNumber": 2375,
+               "station": "Red2",
+               "surrogate": true
+            },
+            {
+               "teamNumber": 9990,
+               "station": "Red3",
+               "surrogate": true
+            },
+            {
+               "teamNumber": 9993,
+               "station": "Blue1",
+               "surrogate": true
+            },
+            {
+               "teamNumber": 2478,
+               "station": "Blue2",
+               "surrogate": true
+            },
+            {
+               "teamNumber": 6413,
+               "station": "Blue3",
+               "surrogate": true
+            }
+         ]
+      }
+   ]
+}
