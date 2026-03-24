@@ -171,12 +171,6 @@ def prepare_sheet_matches():
     fill_duplicate_match = PatternFill(start_color="FFFF54", end_color="FFFF54", fill_type="solid")
     fill_wrong_team = PatternFill(start_color="F5C242", end_color="F5C242", fill_type="solid")
 
-    # Match has not yet been scouted    : white
-    # Match has been scouted            : green
-    # Match was scouted more than once  : yellow
-    # Wrong team was scouted            : red
-
-
     # Read the JSON data from the file.
     with open(os.path.join(current_directory, f"{tbaEventKey}.matches.json"), "r") as f:
         data = json.load(f)
