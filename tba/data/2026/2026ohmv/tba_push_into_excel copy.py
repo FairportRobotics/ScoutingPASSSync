@@ -40,17 +40,16 @@ ouput_file_name = os.path.join(current_directory, f"{tbaEventKey}.xlsx")
 
 # Set constants we can use.
 font_header = Font(bold=True, size=12, color="FFFFFF")
-font_data   = Font(bold=False, size=12, color="000000")
-font_error   = Font(bold=True, size=12, color="FF0000")
+font_data = Font(bold=False, size=12, color="000000")
 
-align_center   = Alignment(horizontal="center", vertical="center")
+align_center = Alignment(horizontal="center", vertical="center")
 align_vertical = Alignment(horizontal="left", vertical="bottom", text_rotation=90) 
 
 fill_default = PatternFill(start_color="595959", end_color="595959", fill_type="solid") 
-fill_blue    = PatternFill(start_color="2471a3", end_color="2471a3", fill_type="solid")   
-fill_red     = PatternFill(start_color="cb4335", end_color="cb4335", fill_type="solid")   
-fill_green   = PatternFill(start_color="229954", end_color="229954", fill_type="solid")   
-fill_orange  = PatternFill(start_color="D68910", end_color="D68910", fill_type="solid")  
+fill_blue = PatternFill(start_color="2471a3", end_color="2471a3", fill_type="solid")   
+fill_red = PatternFill(start_color="cb4335", end_color="cb4335", fill_type="solid")   
+fill_green = PatternFill(start_color="229954", end_color="229954", fill_type="solid")   
+fill_orange = PatternFill(start_color="D68910", end_color="D68910", fill_type="solid")  
 
 color_scale_rule = ColorScaleRule(
     start_type="min", start_color="cb4335",                     # Red for minimum value
@@ -58,7 +57,7 @@ color_scale_rule = ColorScaleRule(
     end_type="max", end_color="229954"                          # Green for maximum value
 )
 
-format_comma = '#,##0;-[Red]#,##0;"-"'
+format_comma = '#,##0;[Red]#,##0;"-"'
 format_percent = '0.0%'
 
 # Load the workbook and save it as the destination workbook.
@@ -166,12 +165,6 @@ def prepare_sheet_teams():
 def prepare_sheet_matches():
     status("Pushing Match data...")
 
-
-    # Set the conditional formatting rules.
-    fill_scouted = PatternFill(start_color="C8D6A1", end_color="C8D6A1", fill_type="solid")
-    fill_scouted_multiple = PatternFill(start_color="D09996", end_color="D09996", fill_type="solid")
-
-
     # Read the JSON data from the file.
     with open(os.path.join(current_directory, f"{tbaEventKey}.matches.json"), "r") as f:
         data = json.load(f)
@@ -192,25 +185,6 @@ def prepare_sheet_matches():
         ws.cell(row=row_num, column=6, value=int(row["alliances"]["red"]["team_keys"][0].replace("frc", "")))
         ws.cell(row=row_num, column=7, value=int(row["alliances"]["red"]["team_keys"][1].replace("frc", "")))
         ws.cell(row=row_num, column=8, value=int(row["alliances"]["red"]["team_keys"][2].replace("frc", "")))
-
-        ws[f"I{row_num}"] = f"=VLOOKUP(CONCATENATE($A{row_num}, \".\", C$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE)"
-        ws[f"J{row_num}"] = f"=VLOOKUP(CONCATENATE($A{row_num}, \".\", D$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE)"
-        ws[f"K{row_num}"] = f"=VLOOKUP(CONCATENATE($A{row_num}, \".\", E$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE)"
-        ws[f"L{row_num}"] = f"=VLOOKUP(CONCATENATE($A{row_num}, \".\", F$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE)"
-        ws[f"M{row_num}"] = f"=VLOOKUP(CONCATENATE($A{row_num}, \".\", G$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE)"
-        ws[f"N{row_num}"] = f"=VLOOKUP(CONCATENATE($A{row_num}, \".\", H$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE)"
-
-        ws[f"O{row_num}"] = f"=IF(VLOOKUP(CONCATENATE($A{row_num}, \".\", $C$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE) = $C{row_num}, FALSE, TRUE)"
-        ws[f"P{row_num}"] = f"=IF(VLOOKUP(CONCATENATE($A{row_num}, \".\", $D$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE) = $D{row_num}, FALSE, TRUE)"
-        ws[f"Q{row_num}"] = f"=IF(VLOOKUP(CONCATENATE($A{row_num}, \".\", $E$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE) = $E{row_num}, FALSE, TRUE)"
-        ws[f"R{row_num}"] = f"=IF(VLOOKUP(CONCATENATE($A{row_num}, \".\", $F$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE) = $F{row_num}, FALSE, TRUE)"
-        ws[f"S{row_num}"] = f"=IF(VLOOKUP(CONCATENATE($A{row_num}, \".\", $G$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE) = $G{row_num}, FALSE, TRUE)"
-        ws[f"T{row_num}"] = f"=IF(VLOOKUP(CONCATENATE($A{row_num}, \".\", $H$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE) = $H{row_num}, FALSE, TRUE)"
-
-        for col in ["C", "D", "E", "F", "G", "H"]:
-            scouted_wrong_team = FormulaRule(formula=[f"=IF(VLOOKUP(CONCATENATE($A{row_num}, \".\", ${col}$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE) = ${col}{row_num}, FALSE, TRUE)"], font=font_error)
-            ws.conditional_formatting.add(f"{col}{row_num}", scouted_wrong_team)
-
   
     # Apply formatting to the sheet.
     apply_formats(ws, [
@@ -220,13 +194,14 @@ def prepare_sheet_matches():
         { "range": f"A2:H{str(len(data) + 1)}", "font": font_data, "alignment": align_center },
     ])
 
+    # Set the conditional formatting rules.
+    fill_scouted = PatternFill(start_color="C8D6A1", end_color="C8D6A1", fill_type="solid")
+    fill_scouted_multiple = PatternFill(start_color="D09996", end_color="D09996", fill_type="solid")
 
     # =COUNTIF(Where do you want to look?, What do you want to look for?)
-    rule_scouted = FormulaRule(formula=["=COUNTIF(MatchScoutingData!$A$2:$A$1000, CONCATENATE($A2,\".\",C$1)) = 1"], fill=fill_scouted)
-    rule_scouted_multiple = FormulaRule(formula=["=COUNTIF(MatchScoutingData!$A$2:$A$1000, CONCATENATE($A2,\".\",C$1)) > 1"], fill=fill_scouted_multiple)
-    #rule_scouted_wrong_team = FormulaRule(formula=["=IF(VLOOKUP(CONCATENATE($A2,\".\",C$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE) = C2, FALSE, TRUE)"], fill=fill_scouted_wrong_team)
+    rule_scouted = FormulaRule(formula=["=COUNTIF(MatchScoutingData!$A$2:$A$1000,CONCATENATE($A2,\".\",C$1)) = 1"], fill=fill_scouted)
+    rule_scouted_multiple = FormulaRule(formula=["=COUNTIF(MatchScoutingData!$A$2:$A$1000,CONCATENATE($A2,\".\",C$1)) > 1"], fill=fill_scouted_multiple)
 
-    #ws.conditional_formatting.add("C2:H1000", rule_scouted_wrong_team)
     ws.conditional_formatting.add("C2:H1000", rule_scouted)
     ws.conditional_formatting.add("C2:H1000", rule_scouted_multiple)
 
@@ -256,45 +231,81 @@ def prepare_sheet_team_scores():
     # Apply the formulas.
     for row in range(start_row, start_row + record_count):
         # General
-        ws[f"B{row}"] = f"=COUNTIF(MatchScoutingData!E$2:E$1000, $A{row})"                                  # Matches Scouted
+        ws[f"B{row}"] = f"=COUNTIF(MatchScoutingData!E$2:E$1000, $A{row})"                                  # Scouted
 
-        # Auto
+        # Autos - Scores
         ws[f"C{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!F$2:F$1000)"    # Climbed
         ws[f"D{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!G$2:G$1000)"    # Level 1
         ws[f"E{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!H$2:H$1000)"    # Moved
         ws[f"F{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!I$2:I$1000)"    # A-Stop
         ws[f"G{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!J$2:J$1000)"    # Fuel Score
 
-        # Teleop
-        ws[f"H{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!K$2:K$1000)"    # Shooting Speed
-        ws[f"I{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!L$2:L$1000)"    # Accuracy
-        ws[f"J{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!M$2:M$1000)"    # Fuel Collected
-        ws[f"K{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!N$2:N$1000)"    # Collect Inactive
-        ws[f"L{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!O$2:O$1000)"    # Did Pass
-        ws[f"M{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!P$2:P$1000)"    # Collect Alliance Zone
-        ws[f"N{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!Q$2:Q$1000)"    # Collect Neutral Zone
-        ws[f"O{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!R$2:R$1000)"    # Was Intake Good
+        # # Autos - Points
+        # ws[f"I{row}"] = f"=C{row} * 7"    # P L4
+        # ws[f"J{row}"] = f"=D{row} * 6"    # P L3
+        # ws[f"K{row}"] = f"=E{row} * 4"    # P L2
+        # ws[f"L{row}"] = f"=F{row} * 3"    # P L1
+        # ws[f"M{row}"] = f"=G{row} * 6"    # P Proc
+        # ws[f"N{row}"] = f"=H{row} * 4"    # P Net    
 
-        # Endgame        
-        ws[f"P{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!S$2:S$1000)"    # Climb Success
-        ws[f"Q{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!T$2:T$1000)"    # Defense Whole Game
-        ws[f"R{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!U$2:U$1000)"    # Shot from Same Position
-        ws[f"S{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!V$2:V$1000)"    # Shoot to End
-        ws[f"T{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!W$2:W$1000)"    # Performance
-        ws[f"U{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!X$2:X$1000)"    # Result
-        ws[f"V{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!AB$2:AB$1000)"  # Total Points
+        # # Auto - Aggregates
+        # ws[f"O{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!H$2:H$1000) * 3"    # P Leave    
+        # ws[f"P{row}"] = f"=SUM(I{row}:O{row})"                                                                  # AP Total    
+        # ws[f"Q{row}"] = f"=IF(P{row} > 0, P{row}/B{row}, 0)"                                                    # AP Avg/Mat
 
-        # Ranking Points
-        ws[f"W{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!Y$2:Y$1000)"    # Energized Ranking Point
-        ws[f"X{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!Z$2:Z$1000)"    # Supercharged Ranking Point
-        ws[f"Y{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!AA$2:AA$1000)"  # Traversal Ranking Point
-        ws[f"Z{row}"] = f"=SUM(W{row}:Y{row})"                                                              # Total Ranking Points
+        # # Teleop - Scores
+        # ws[f"R{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!P$2:P$1000)"    # L4
+        # ws[f"S{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!Q$2:Q$1000)"    # L3
+        # ws[f"T{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!R$2:R$1000)"    # L2
+        # ws[f"U{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!S$2:S$1000)"    # L1
+        # ws[f"V{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!T$2:T$1000)"    # Proc
+        # ws[f"W{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!U$2:U$1000)"    # Net
 
+        # # Teleop - Points
+        # ws[f"X{row}"]  = f"=R{row} * 5"    # P L4
+        # ws[f"Y{row}"]  = f"=S{row} * 4"    # P L3
+        # ws[f"Z{row}"]  = f"=T{row} * 3"    # P L2
+        # ws[f"AA{row}"] = f"=U{row} * 2"    # P L1
+        # ws[f"AB{row}"] = f"=V{row} * 6"    # P Proc
+        # ws[f"AC{row}"] = f"=W{row} * 4"    # P Net    
+
+        # # Teleop - Aggregates
+        # ws[f"AD{row}"] = f"=SUM(X{row}:AC{row})"                   # TP Total    
+        # ws[f"AE{row}"] = f"=IF(AD{row} > 0, AD{row}/B{row}, 0)"    # TP Avg/Mat        
+
+        # # Endgame
+        # ws[f"AF{row}"] = f"=COUNTIFS(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!$X$2:$X$1000, \"p\")"    # Barge P
+        # ws[f"AG{row}"] = f"=COUNTIFS(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!$X$2:$X$1000, \"s\")"    # Barge S
+        # ws[f"AH{row}"] = f"=COUNTIFS(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!$X$2:$X$1000, \"d\")"    # Barge D
+
+        # ws[f"AI{row}"] = f"=AF{row} * 2"     # P Barge P
+        # ws[f"AJ{row}"] = f"=AG{row} * 6"     # P Barge S
+        # ws[f"AK{row}"] = f"=AH{row} * 12"    # P Barge D
+
+        # ws[f"AL{row}"] = f"=SUM(AI{row}:AK{row})"               # EP Total    
+        # ws[f"AM{row}"] = f"=IF(AD{row} > 0, AL{row}/B{row}, 0)" # EP Avg/Mat     
+
+        # # Totals
+        # ws[f"AN{row}"] = f"=SUM(P{row}, AD{row}, AL{row})"         # P Total
+        # ws[f"AO{row}"] = f"=IF(AN{row} > 0, AN{row}/B{row}, 0)"    # Avg/Mat        
+
+        # # Ranking Points
+        # ws[f"AP{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!Z$2:Z$1000)"      # Auto
+        # ws[f"AQ{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!AA$2:AA$1000)"    # Coral
+        # ws[f"AR{row}"] = f"=SUMIF(MatchScoutingData!$F$2:$F$1000, $A{row}, MatchScoutingData!AB$2:AB$1000)"    # Barge
+        # ws[f"AS{row}"] = f"=SUM(AP{row}, AQ{row}, AR{row})"                                                    # Total
   
     # Apply formatting to the sheet.
     apply_formats(ws, [
         # Format the data cells.
-        { "range": f"B{start_row}:Z{last_row}", "font": font_data, "number_format": format_comma },        
+        { "range": f"B{start_row}:AS{last_row}", "font": font_data, "number_format": format_comma },        
+
+        # Format the fill color of the data rows.
+        { "range": f"A{start_row}:A{last_row}", "font": font_header ,"fill": fill_default },
+        { "range": f"P{start_row}:Q{last_row}", "font": font_header ,"fill": fill_blue },
+        { "range": f"AD{start_row}:AE{last_row}", "font": font_header ,"fill": fill_red },
+        { "range": f"AL{start_row}:AM{last_row}", "font": font_header ,"fill": fill_orange },
+        { "range": f"AN{start_row}:AO{last_row}", "font": font_header ,"fill": fill_green },
     ])
 
 
@@ -309,9 +320,9 @@ def prepare_sheet_team_summary():
 
     # Capture the extents of the sheet and data.
     record_count = len(data)
-    start_row = 3
+    start_row = 4
     end_row = start_row + record_count - 1
-    source_start_row = 3
+    source_start_row = 4
     source_end_row = source_start_row + record_count - 1        
 
     # Open the Teams sheet.
@@ -325,47 +336,37 @@ def prepare_sheet_team_summary():
     # Apply the formulas.
     for row in range(start_row, end_row + 1):
 
-        # General
-        ws[f"B{row}"] = f"=COUNTIF(MatchScoutingData!E$2:E$1000, $A{row})"                       # Matches Scouted
+        # Points Scored
+        ws[f"B{row}"] = f"=INDEX('Team Scores'!P${source_start_row}:P${source_end_row}, MATCH(A{row},'Team Scores'!A$4:A${source_end_row}, 0))"
+        ws[f"C{row}"] = f"=INDEX('Team Scores'!Q${source_start_row}:Q${source_end_row}, MATCH(A{row},'Team Scores'!A$4:A${source_end_row}, 0))"
 
-        # Auto
-        ws[f"C{row}"] = f"=PERCENTRANK('Team Scores'!$C$3:$C$1000, 'Team Scores'!$C{row}, 3)"    # Climbed
-        ws[f"D{row}"] = f"=PERCENTRANK('Team Scores'!$D$3:$D$1000, 'Team Scores'!$D{row}, 3)"    # Level 1
-        ws[f"E{row}"] = f"=PERCENTRANK('Team Scores'!$E$3:$E$1000, 'Team Scores'!$E{row}, 3)"    # Moved
-        ws[f"F{row}"] = f"=PERCENTRANK('Team Scores'!$F$3:$F$1000, 'Team Scores'!$F{row}, 3)"    # A-Stop
-        ws[f"G{row}"] = f"=PERCENTRANK('Team Scores'!$G$3:$G$1000, 'Team Scores'!$G{row}, 3)"    # Fuel Score
+        ws[f"D{row}"] = f"=INDEX('Team Scores'!AD${source_start_row}:AD${source_end_row}, MATCH(A{row},'Team Scores'!A$4:A${source_end_row}, 0))"
+        ws[f"E{row}"] = f"=INDEX('Team Scores'!AE${source_start_row}:AE${source_end_row}, MATCH(A{row},'Team Scores'!A$4:A${source_end_row}, 0))"
 
-        # Teleop
-        ws[f"H{row}"] = f"=PERCENTRANK('Team Scores'!$H$3:$H$1000, 'Team Scores'!$H{row}, 3)"    # Shooting Speed
-        ws[f"I{row}"] = f"=PERCENTRANK('Team Scores'!$I$3:$I$1000, 'Team Scores'!$I{row}, 3)"    # Accuracy
-        ws[f"J{row}"] = f"=PERCENTRANK('Team Scores'!$J$3:$J$1000, 'Team Scores'!$J{row}, 3)"    # Fuel Collected
-        ws[f"K{row}"] = f"=PERCENTRANK('Team Scores'!$K$3:$K$1000, 'Team Scores'!$K{row}, 3)"    # Collect Inactive
-        ws[f"L{row}"] = f"=PERCENTRANK('Team Scores'!$L$3:$L$1000, 'Team Scores'!$L{row}, 3)"    # Did Pass
-        ws[f"M{row}"] = f"=PERCENTRANK('Team Scores'!$M$3:$M$1000, 'Team Scores'!$M{row}, 3)"    # Collect Alliance Zone
-        ws[f"N{row}"] = f"=PERCENTRANK('Team Scores'!$N$3:$N$1000, 'Team Scores'!$N{row}, 3)"    # Collect Neutral Zone
-        ws[f"O{row}"] = f"=PERCENTRANK('Team Scores'!$O$3:$O$1000, 'Team Scores'!$O{row}, 3)"    # Was Intake Good
+        ws[f"F{row}"] = f"=INDEX('Team Scores'!AL${source_start_row}:AL${source_end_row}, MATCH(A{row},'Team Scores'!A$4:A${source_end_row}, 0))"
+        ws[f"G{row}"] = f"=INDEX('Team Scores'!AM${source_start_row}:AM${source_end_row}, MATCH(A{row},'Team Scores'!A$4:A${source_end_row}, 0))"
 
-        # Endgame        
-        ws[f"P{row}"] = f"=PERCENTRANK('Team Scores'!$P$3:$P$1000, 'Team Scores'!$P{row}, 3)"    # Climb Success
-        ws[f"Q{row}"] = f"=PERCENTRANK('Team Scores'!$Q$3:$Q$1000, 'Team Scores'!$Q{row}, 3)"    # Defense Whole Game
-        ws[f"R{row}"] = f"=PERCENTRANK('Team Scores'!$R$3:$R$1000, 'Team Scores'!$R{row}, 3)"    # Shot from Same Position
-        ws[f"S{row}"] = f"=PERCENTRANK('Team Scores'!$S$3:$S$1000, 'Team Scores'!$S{row}, 3)"    # Shoot to End
-        ws[f"T{row}"] = f"=PERCENTRANK('Team Scores'!$T$3:$T$1000, 'Team Scores'!$T{row}, 3)"    # Performance
+        ws[f"H{row}"] = f"=INDEX('Team Scores'!AN${source_start_row}:AN${source_end_row}, MATCH(A{row},'Team Scores'!A$4:A${source_end_row}, 0))"
+        ws[f"I{row}"] = f"=INDEX('Team Scores'!AO${source_start_row}:AO${source_end_row}, MATCH(A{row},'Team Scores'!A$4:A${source_end_row}, 0))"
 
-        # Ranking Points
-        ws[f"U{row}"] = f"=PERCENTRANK('Team Scores'!$U$3:$U$1000, 'Team Scores'!$U{row}, 3)"    # Result
-        ws[f"V{row}"] = f"=PERCENTRANK('Team Scores'!$V$3:$V$1000, 'Team Scores'!$V{row}, 3)"    # Total Points
-        ws[f"W{row}"] = f"=PERCENTRANK('Team Scores'!$W$3:$W$1000, 'Team Scores'!$W{row}, 3)"    # Energized Ranking Point
-        ws[f"X{row}"] = f"=PERCENTRANK('Team Scores'!$X$3:$X$1000, 'Team Scores'!$X{row}, 3)"    # Supercharged Ranking Point
-        ws[f"Y{row}"] = f"=PERCENTRANK('Team Scores'!$Y$3:$Y$1000, 'Team Scores'!$Y{row}, 3)"    # Traversal Ranking Point
-        ws[f"Z{row}"] = f"=PERCENTRANK('Team Scores'!$Z$3:$Z$1000, 'Team Scores'!$Z{row}, 3)"    # Total Ranking Points
+        # Points Percentile
+        ws[f"J{row}"] = f"=PERCENTRANK(B$4:B${end_row}, B{row}, 3)"
+        ws[f"K{row}"] = f"=PERCENTRANK(D$4:D${end_row}, D{row}, 3)"
+        ws[f"L{row}"] = f"=PERCENTRANK(F$4:F${end_row}, F{row}, 3)"
+        ws[f"M{row}"] = f"=PERCENTRANK(H$4:H${end_row}, H{row}, 3)"
 
-        # Overall
-        ws[f"AA{row}"] = f"=AVERAGE(C{row}:G{row})"  
-        ws[f"AB{row}"] = f"=AVERAGE(H{row}:O{row})"  
-        ws[f"AC{row}"] = f"=AVERAGE(P{row}:T{row})"  
-        ws[f"AD{row}"] = f"=AVERAGE(U{row}:X{row})"  
-        ws[f"AE{row}"] = f"=AVERAGE(AA{row}:AD{row})"  
+
+        # Ranking Points Scored
+        ws[f"N{row}"] = f"=INDEX('Team Scores'!AP${source_start_row}:AP${source_end_row}, MATCH(A{row},'Team Scores'!A$4:A${source_end_row}, 0))"
+        ws[f"O{row}"] = f"=INDEX('Team Scores'!AQ${source_start_row}:AQ${source_end_row}, MATCH(A{row},'Team Scores'!A$4:A${source_end_row}, 0))"
+        ws[f"P{row}"] = f"=INDEX('Team Scores'!AR${source_start_row}:AR${source_end_row}, MATCH(A{row},'Team Scores'!A$4:A${source_end_row}, 0))"
+        ws[f"Q{row}"] = f"=INDEX('Team Scores'!AS${source_start_row}:AS${source_end_row}, MATCH(A{row},'Team Scores'!A$4:A${source_end_row}, 0))"
+
+        # Ranking Points Percentile
+        ws[f"R{row}"] = f"=PERCENTRANK(N$4:N${end_row}, N{row}, 3)"
+        ws[f"S{row}"] = f"=PERCENTRANK(O$4:O${end_row}, O{row}, 3)"
+        ws[f"T{row}"] = f"=PERCENTRANK(P$4:P${end_row}, P{row}, 3)"
+        ws[f"U{row}"] = f"=PERCENTRANK(Q$4:Q${end_row}, Q{row}, 3)"        
 
 
     # Apply the formats to the cells.
@@ -374,12 +375,14 @@ def prepare_sheet_team_summary():
         { "range": f"A{start_row}:A{end_row}", "font": font_header, "fill": fill_default },
 
         # All data cells.
-        { "range": f"B{start_row}:B{end_row}", "number_format": format_comma },
-        { "range": f"C{start_row}:AE{end_row}", "number_format": format_percent },
+        { "range": f"B{start_row}:U{end_row}", "font": font_data, "number_format": format_comma },
+        { "range": f"J{start_row}:M{end_row}", "number_format": format_percent },
+        { "range": f"R{start_row}:U{end_row}", "number_format": format_percent },
     ])
 
     # Build and apply the conditional formatting rules to produce a heatmap for percentiles.
-    ws.conditional_formatting.add(f"C{start_row}:AE{end_row}", color_scale_rule)
+    ws.conditional_formatting.add(f"J{start_row}:M{end_row}", color_scale_rule)
+    ws.conditional_formatting.add(f"R{start_row}:U{end_row}", color_scale_rule)
 
 
 # Prepare the sheet that lists the team results for consumption ny Power BI.
@@ -393,7 +396,7 @@ def prepare_sheet_pbi_scouter_summary():
     #ws["A2"] = "=SORT(UNIQUE(MatchScoutingData!$B$2:$B$9999))"
 
 
-# Prepare the sheet that lists the scouter results for consumption by Power BI.
+# Prepare the sheet that lists the scouter results for consumption ny Power BI.
 def prepare_sheet_pbi_team_summary():
     status("Prepating Power BI Team Summary sheet...")
 

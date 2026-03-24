@@ -1,0 +1,131 @@
+import json
+import os
+import random
+import pandas as pd
+from datetime import datetime
+from dotenv import load_dotenv 
+
+# Define the status function.
+def status(message):
+    print(f"{datetime.now()}: {message}")
+
+# Get the directory of the current script
+current_directory = os.path.dirname(os.path.abspath(__file__))
+
+# Load the .env file and all environment variables.
+load_dotenv()
+
+# Retrieve values from .env.
+tbaEventYear = os.getenv("EVENT_YEAR")
+if tbaEventYear is None:
+    raise ValueError("EVENT_YEAR is not set")
+
+tbaEventKey = os.getenv("TBA_EVENT_KEY")
+if tbaEventKey is None:
+    raise ValueError("TBA_EVENT_KEY is not set")
+
+
+team_members = [
+    "Amanah Obaji ",
+    "Andrew Crawford  ",
+    "Arthur Sayre ",
+    "Autumn Schoenfeld ",
+    "Caitlin Munier ",
+    "Carter Silva ",
+    "Celton Norter ",
+    "Colby Jackson ",
+    "Connor Rapp ",
+    "Dean Blanchard ",
+    "Domenic Giammusso ",
+    "Eli Harrison ",
+    "Ethan Stiffler ",
+    "Gianmarco D'Angelo  ",
+    "Jonah Woika "
+    "Kai  Wilbur ",
+    "Madison DeCicca ",
+    "Matthew Mazzota ",
+    "Nathan DeVito ",
+    "Nicholas Munier ",
+    "Rachel Case ",
+    "Runa Hunt ",
+    "Ruth Christensen ",
+    "Tetra Ukav ",
+    "Tyler Hignett ",
+]
+
+
+# Define a function that accepts the match number, the alliance, and the team keys.
+# This function will fabricate scouting data for each team in the alliance.
+def create_record_for_team(match, alliance, keys):
+
+    results = []
+    for a, team in enumerate(keys):
+        key = f"{match}.{"Blue" if alliance == "b" else "Red"} {a+1}"
+
+        results.append({
+                "Key": key,
+                "Scouter PIN": random.choice(team_members),
+                "Match": match,
+                "Alliance": f"{alliance}{a+1}",
+                "Team": team.replace("frc", ""),
+
+                "Climbing Attempted": random.choices([0, 1])[0],
+                "Robot Reach Level 1": random.choices([0, 1])[0],
+                "Robot Move in Auto": random.choices([0, 1])[0],
+                "A-Stop Activated": random.choices([0, 1])[0],
+                "Total Fuel Scored": random.choices([1, 2, 3, 4, 5])[0],
+
+                "Speed to Shoot Fuel": random.choices([1, 2, 3])[0],
+                "Accuracy to Shoot Fuel": random.choices([1, 2, 3])[0],
+                "Number of Fuel Collected": random.choices([1, 2, 3, 4, 5])[0],
+                "Duirng Inactive, did Collect": random.choices([0, 1])[0],
+                "During Inactive, did Pass": random.choices([0, 1])[0],
+                "Collect from Alliance Zone": random.choices([0, 1])[0],
+                "Collect from Neutral Zone": random.choices([0, 1])[0],
+                "Was Intake Good": random.choices([0, 1])[0],
+
+                "Climb, Scucess, Level (Endgame)": random.choices([-1, 0, 1, 2, 3])[0],
+                "Defensive Whole Game": random.choices([0, 1])[0],
+                "Shot from Same Position": random.choices([0, 1])[0],
+                "Continue to Shoot Until End": random.choices([0, 1])[0],
+                "Grade Robot's Performance": random.choices([1, 2, 3, 4, 5])[0],
+                "Result of Match (Postmatch)": random.choices([-1, 0, 1])[0],
+                "Energized Ranking Point": random.choices([0, 1])[0],
+                "Supercharged Ranking Point": random.choices([0, 1])[0],
+                "Traversal Ranking Point": random.choices([0, 1])[0],
+                "Total Points Scored": random.randint(0, 300),
+                "Comments": "Hello World!",
+            })
+        
+    return results
+
+# Load the Matches json and fabricate some scouting data.
+def fabricate_data():
+    status("Fabricating Scouting Match data...")
+    filePath = os.path.join(current_directory, f"{tbaEventKey}.matches.json")
+
+    print(filePath)
+
+    # Read the JSON data from the file.
+    with open(filePath, "r") as f:
+        data = json.load(f)
+        data = [row for row in data if row["comp_level"] == "qm"]
+        data = sorted(data, key=lambda x: x["match_number"])
+
+    # Create a Pandas DataFrame.
+    results = []
+    for match, row in enumerate(data):
+        match_number = row["match_number"]
+        results = results + create_record_for_team(match_number, "b", row["alliances"]["blue"]["team_keys"])
+        results = results + create_record_for_team(match_number, "r", row["alliances"]["red"]["team_keys"])
+
+    return results
+
+# Fabricate the data and save it to a file.
+results = fabricate_data()
+df = pd.DataFrame(results)
+# df.columns = df.columns.str.replace(" ", "_")
+# df.columns = df.columns.str.lower()
+
+df.to_csv(os.path.join(current_directory, f"{tbaEventKey}.fake-data.tsv"), sep="\t", index=False, header=True)
+df.to_csv(os.path.join(current_directory, f"{tbaEventKey}.fake-data.csv"), sep=",", index=False, header=True)
