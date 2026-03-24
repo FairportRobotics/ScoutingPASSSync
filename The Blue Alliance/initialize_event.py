@@ -107,7 +107,7 @@ def fetch_matches():
     return tbaMatches
 
 def copy_excel_template():
-    # Prepare the API call.
+    # Prepare the copy.
     source_file = "tba_push_into_excel_template.xlsx"    
     source = os.path.join(template_directory, source_file)
     dest = os.path.join(target_event_directory, source_file)
@@ -124,7 +124,7 @@ def copy_excel_template():
         status("ERROR: Unable to copy")
 
 def copy_excel_populate_script():
-    # Prepare the API call.
+    # Prepare the copy.
     source_file = "tba_push_into_excel.py"
     source = os.path.join(template_directory, source_file)
     dest = os.path.join(target_event_directory, source_file)
@@ -141,7 +141,7 @@ def copy_excel_populate_script():
         status("ERROR: Unable to copy")
 
 def copy_fabricate_data_script():
-    # Prepare the API call.
+    # Prepare the copy.
     source_file = "fabricate-scouting-data.py"
     source = os.path.join(template_directory, source_file)
     dest = os.path.join(target_event_directory, source_file)
@@ -158,7 +158,7 @@ def copy_fabricate_data_script():
         status("ERROR: Unable to copy")
 
 def copy_create_scouting_app_match_javascript():
-    # Prepare the API call.
+    # Prepare the copy.
     source_file = "tba_push_for_app.py"
     source = os.path.join(template_directory, source_file)
     dest = os.path.join(target_event_directory, source_file)
@@ -174,6 +174,23 @@ def copy_create_scouting_app_match_javascript():
     except:
         status("ERROR: Unable to copy") 
 
+def copy_env():
+    # Prepare the copy.
+    source_file = ".env"
+    source = os.path.join(current_directory, source_file)
+    dest = os.path.join(target_event_directory, source_file)
+
+    status(f"Copying {source_file}...")
+    if os.path.exists(dest):
+        status(f"WARNING: Skipping {source_file} (exists at destination)")
+        status(f"WARNING: delete {source_file} and run again to copy")
+        return
+    
+    try:
+        shutil.copy2(source, dest)
+    except:
+        status("ERROR: Unable to copy")   
+
 
 fetch_event()
 fetch_teams()
@@ -183,3 +200,4 @@ copy_excel_template()
 copy_excel_populate_script()
 copy_fabricate_data_script()
 copy_create_scouting_app_match_javascript()
+copy_env()

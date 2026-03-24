@@ -29,7 +29,7 @@ We can create a process where we:
 
 1. Python 3.12 or greater
 2. Microsoft Excel
-3. Configure .env to speficy The Blue Alliance API key and other lookups.
+3. Configure `The Blue Alliance\.env` to speficy The Blue Alliance API key and other lookups.
 
 Additionally, the following Python packages need to be installed using the commands below:
 
