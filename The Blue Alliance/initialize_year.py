@@ -10,19 +10,21 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Retrieve values from .env.
-tbaEventYear = os.getenv("EVENT_YEAR")
-if tbaEventYear is None:
-    raise ValueError("EVENT_YEAR is not set")
-
 tbaAuthKey = os.getenv("TBA_AUTH_KEY")
+tbaAuthHeader =  {"X-TBA-Auth-Key": tbaAuthKey}
 if tbaAuthKey is None:
     raise ValueError("TBA_AUTH_KEY is not set")
 
-tbaAuthHeader =  {"X-TBA-Auth-Key": tbaAuthKey}
+tbaEventYear = os.getenv("TBA_EVENT_YEAR")
+if tbaEventYear is None:
+    raise ValueError("TBA_EVENT_YEAR is not set")
 
-# Make sure the root path exists.
-rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data", f"{tbaEventYear}"))
-os.makedirs(rootPath, exist_ok=True)
+
+
+# Make sure the path to the correct Game Year exists.
+current_directory = os.path.dirname(os.path.abspath(__file__))
+target_year_directory = os.path.join(current_directory, "Game Years", tbaEventYear)
+os.makedirs(target_year_directory, exist_ok=True)
 
 # Define the status function.
 def status(message):
@@ -45,7 +47,7 @@ def fetch_events():
     tbaEvent = json.loads(tbaEvent.text)
 
     # Log to file.
-    filePath = os.path.join(rootPath, f"{tbaEventYear}.json")
+    filePath = os.path.join(target_year_directory, f"{tbaEventYear}.json")
     with open(filePath, 'w', newline='') as f:
         json.dump(tbaEvent, f, indent=3)
 

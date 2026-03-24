@@ -8,11 +8,16 @@ from dotenv import load_dotenv
 # Load the .env file and all environment variables.
 load_dotenv()
 
-# Define the status message function.
+# Define the status function.
 def status(message):
     print(f"{datetime.now()}: {message}")
 
 # Retrieve values from .env.
+tbaAuthKey = os.getenv("TBA_AUTH_KEY")
+tbaAuthHeader =  {"X-TBA-Auth-Key": tbaAuthKey}
+if tbaAuthKey is None:
+    raise ValueError("TBA_AUTH_KEY is not set")
+
 tbaEventYear = os.getenv("EVENT_YEAR")
 if tbaEventYear is None:
     raise ValueError("EVENT_YEAR is not set")
@@ -22,13 +27,22 @@ if tbaEventKey is None:
     raise ValueError("TBA_EVENT_KEY is not set")
 
 
-# Make sure the root path exists.
-rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data", f"{tbaEventYear}", f"{tbaEventKey}"))
-os.makedirs(rootPath, exist_ok=True)
+# Validate arguments.
+if tbaEventYear == "":
+    status("No event year provided.")
+    exit()
+
+if tbaAuthKey == "":
+    status("No TBA Auth key provided.")
+    exit()   
+
+
+# Get the directory of the current script
+current_directory = os.path.dirname(os.path.abspath(__file__))
 
 # Establish the filenames.
-input_file_name = os.path.join(rootPath, f"{tbaEventKey}.matches.json")
-ouput_file_name = os.path.join(rootPath, "match.js")
+input_file_name = os.path.join(current_directory, f"{tbaEventKey}.matches.json")
+ouput_file_name = os.path.join(current_directory, "match.js")
 
 
 def extract_schedule_from_file(filename):

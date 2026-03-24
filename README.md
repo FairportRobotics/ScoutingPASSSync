@@ -6,6 +6,7 @@
   <ol>
     <li><a href="#tba">Purpose</a></li>
     <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#how-to-use">How to Use</a></li>
     <li><a href="#scripts">Scripts</a></li>
     <li><a href="#todo">Todo</a></li>
   </ol>
@@ -19,9 +20,7 @@
 We can create a process where we:
 
 1. Pull data for an Event from The Blue Alliance and cache locally as JSON.
-2. Pull the data from the stored JSON into Excel to provide a rich experience
-   for tracking Scouting sessions.
-
+2. Pull the data from the stored JSON into Excel to provide a rich experience for tracking Scouting sessions.
 
 <!-- Prerequisites -->
 <div id="prerequisites"></div>
@@ -32,8 +31,7 @@ We can create a process where we:
 2. Microsoft Excel
 3. Configure .env to speficy The Blue Alliance API key and other lookups.
 
-Additionally, the following Python packages need to be installed using the
-commands below:
+Additionally, the following Python packages need to be installed using the commands below:
 
 ```shell
 pip install pandas
@@ -42,6 +40,18 @@ pip install load_dotenv
 pip install openpyxl
 ```
 
+<!-- How to Use -->
+<div id="how-to-use"></div>
+
+## How to Use
+
+1. Navigate to the `The Blue Alliance` folder. We source data from The Blue Alliance.
+2. Navigate to the `Game Years` folder. This is where we store and manage the files for each competition year.
+3. Create a fodler for the year, unless the folder already exists. For example, if the year is 2027, create a folder
+   `2027`. Pretty simple.
+4. Create a folder for the Event for which we want to collect scouting data. Note that the folder should reflect the
+   **key** specified by The Blue Alliance.
+
 <!-- Purpose -->
 <div id="purpose"></div>
 
@@ -49,16 +59,15 @@ pip install openpyxl
 
 ### [fabricate-scouting-data.py](./fabricate-scouting-data.py)
 
-Reads the event key from .env and uses the JSON data in the `tba_data` folder
-for that key to produce tab delimited and comma delimted files for testing.
+Reads the event key from .env and uses the JSON data in the `tba_data` folder for that key to produce tab delimited and
+comma delimted files for testing.
 
 ### [tba-fetch-event.py](./tba-fetch-event.py)
 
-Reads the event key and The Blue Alliance API key from .env and calls into The
-Blue Alliance v3 API to request the Event, Teams and Matches for that key.
+Reads the event key and The Blue Alliance API key from .env and calls into The Blue Alliance v3 API to request the
+Event, Teams and Matches for that key.
 
-The JSON returned is saved into the `tba_data` folder for examination or later
-use.
+The JSON returned is saved into the `tba_data` folder for examination or later use.
 
 The Blue Alliance API endpoint(s) called:
 
@@ -68,11 +77,10 @@ The Blue Alliance API endpoint(s) called:
 
 ### [tba-fetch-events-for-year.py](./tba-fetch-events-for-year.py)
 
-Reads the event key and The Blue Alliance API key from .env and calls into The
-Blue Alliance v3 API to request all the events for that year.
+Reads the event key and The Blue Alliance API key from .env and calls into The Blue Alliance v3 API to request all the
+events for that year.
 
-The JSON returned is saved into the `tba_data` folder for examination or later
-use.
+The JSON returned is saved into the `tba_data` folder for examination or later use.
 
 The Blue Alliance API endpoint(s) called:
 
@@ -80,29 +88,24 @@ The Blue Alliance API endpoint(s) called:
 
 ### [tba-push-into-excel.py](./tba-push-into-excel.py)
 
-Reads the event key from .env and uses that key to read the previously stored
-JSON data in the `tba_data` folder. The script reads the event, teams and
-matches files and transforms that data into the Excel Spreadsheet template
+Reads the event key from .env and uses that key to read the previously stored JSON data in the `tba_data` folder. The
+script reads the event, teams and matches files and transforms that data into the Excel Spreadsheet template
 [push-into-excel-template.xlsx](./push-into-excel-template.xlsx)
 
-This spreadsheet will be used to receive match data from the QR Code scanner and
-presents various sheets for examing the data.
+This spreadsheet will be used to receive match data from the QR Code scanner and presents various sheets for examing the
+data.
 
 <!-- Todo -->
 <div id="todo"></div>
 
 ## Todo
 
-We can use conditional formatting on the Matches sheet to provide quick, visual
-indicators regarding the state of uploaded data. Here are the different
-conditions we want to color-code:
+We can use conditional formatting on the Matches sheet to provide quick, visual indicators regarding the state of
+uploaded data. Here are the different conditions we want to color-code:
 
 1. Match has not yet been scouted. (white)/default
-2. Match was scouted once and the scouted team matches the scheduled team.
-   (light green)
-3. Match was scouted once and the scouted team does NOT match the scheduled.
-   team. (orange)
+2. Match was scouted once and the scouted team matches the scheduled team. (light green)
+3. Match was scouted once and the scouted team does NOT match the scheduled. team. (orange)
 4. Match was scouted more than once. (red)
 
-These color codes would allow Games Management to triage issues with scouting
-sessions.
+These color codes would allow Games Management to triage issues with scouting sessions.
