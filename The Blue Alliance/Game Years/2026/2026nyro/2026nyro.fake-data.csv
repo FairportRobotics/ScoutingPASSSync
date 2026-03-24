@@ -1,0 +1,499 @@
+key,scouter_pin,match,alliance,team,climbing_attempted,robot_reach_level_1,robot_move_in_auto,a-stop_activated,total_fuel_scored,speed_to_shoot_fuel,accuracy_to_shoot_fuel,number_of_fuel_collected,"duirng_inactive,_did_collect","during_inactive,_did_pass",collect_from_alliance_zone,collect_from_neutral_zone,was_intake_good,"climb,_scucess,_level_(endgame)",defensive_whole_game,shot_from_same_position,continue_to_shoot_until_end,grade_robot's_performance,result_of_match_(postmatch),energized_ranking_point,supercharged_ranking_point,traversal_ranking_point,total_points_scored,comments
+1.Blue 1,Andrew Crawford,1,b1,5528,1,1,1,-1,4,2,3,2,1,0,0,0,0,1,0,0,1,5,1,0,1,0,110,Hello World!
+1.Blue 2,Colby Jackson,1,b2,1405,1,0,1,0,2,1,3,3,0,1,1,0,0,0,1,1,0,5,1,1,0,1,248,Hello World!
+1.Blue 3,Nicholas Munier,1,b3,7030,1,1,0,1,5,3,2,4,0,1,1,1,0,2,1,1,0,1,1,0,1,0,36,Hello World!
+1.Red 1,Connor Rapp,1,r1,810,1,0,0,1,5,2,3,2,1,0,0,0,0,0,0,0,0,2,1,1,1,1,274,Hello World!
+1.Red 2,Gianmarco D'Angelo,1,r2,564,1,1,0,-1,5,2,1,3,1,0,1,0,0,3,1,1,1,4,0,0,0,1,68,Hello World!
+1.Red 3,Runa Hunt,1,r3,10922,0,0,1,0,4,2,2,2,1,1,0,1,1,2,1,1,0,1,-1,0,1,0,260,Hello World!
+2.Blue 1,Carter Silva,2,b1,1591,1,0,1,-1,2,2,3,3,0,1,0,1,1,3,1,0,0,5,-1,1,1,1,284,Hello World!
+2.Blue 2,Caitlin Munier,2,b2,432,1,1,1,-1,4,2,3,1,1,1,1,0,0,1,0,0,1,4,0,0,1,1,34,Hello World!
+2.Blue 3,Autumn Schoenfeld,2,b3,1468,1,1,0,-1,2,3,2,5,1,1,1,1,1,2,1,0,0,4,-1,0,1,0,188,Hello World!
+2.Red 1,Runa Hunt,2,r1,1559,0,1,1,1,3,1,1,4,0,1,0,0,1,2,0,1,1,4,1,1,0,0,159,Hello World!
+2.Red 2,Nathan DeVito,2,r2,4253,0,0,0,1,2,3,2,3,1,0,0,0,1,-1,0,1,0,5,0,1,1,0,198,Hello World!
+2.Red 3,Colby Jackson,2,r3,271,0,0,0,-1,2,3,2,1,1,1,0,0,0,-1,0,1,0,5,0,1,1,0,41,Hello World!
+3.Blue 1,Ethan Stiffler,3,b1,10223,0,1,1,0,1,2,2,4,1,1,0,1,1,0,1,1,1,3,0,1,1,1,106,Hello World!
+3.Blue 2,Connor Rapp,3,b2,191,0,1,1,1,4,2,1,3,0,1,1,0,1,0,1,0,1,4,-1,0,0,1,80,Hello World!
+3.Blue 3,Colby Jackson,3,b3,578,0,1,0,0,4,2,1,5,1,0,0,0,1,-1,0,0,1,5,-1,0,0,1,269,Hello World!
+3.Red 1,Ethan Stiffler,3,r1,3173,1,1,0,1,1,3,1,2,1,1,1,1,0,-1,1,0,1,2,0,1,0,1,166,Hello World!
+3.Red 2,Domenic Giammusso,3,r2,7903,1,0,1,-1,5,1,2,1,1,0,1,0,0,-1,0,1,0,4,1,0,0,1,108,Hello World!
+3.Red 3,Dean Blanchard,3,r3,3015,1,1,0,0,5,2,3,4,0,0,0,1,0,2,0,0,0,5,0,0,0,1,153,Hello World!
+4.Blue 1,Autumn Schoenfeld,4,b1,1511,1,1,1,-1,1,3,1,2,1,1,0,1,1,-1,0,1,1,5,1,0,1,0,117,Hello World!
+4.Blue 2,Celton Norter,4,b2,3951,1,0,0,-1,1,3,1,4,1,1,1,1,0,1,0,1,0,4,-1,1,1,0,283,Hello World!
+4.Blue 3,Autumn Schoenfeld,4,b3,4458,0,0,0,1,4,3,2,2,1,1,0,0,0,2,0,1,0,4,0,0,0,0,231,Hello World!
+4.Red 1,Ruth Christensen ,4,r1,1518,1,0,1,-1,3,3,1,4,1,0,1,0,0,3,1,1,0,3,-1,0,0,1,158,Hello World!
+4.Red 2,Eli Harrison,4,r2,3799,0,0,1,-1,5,2,3,2,1,0,0,0,0,3,1,1,1,5,0,0,1,0,22,Hello World!
+4.Red 3,Madison DeCicca,4,r3,378,1,1,0,-1,4,1,1,5,1,0,0,0,0,0,1,0,0,4,-1,1,1,1,83,Hello World!
+5.Blue 1,Arthur Sayre,5,b1,5590,0,0,1,1,5,1,1,5,1,1,1,0,0,0,0,1,0,4,-1,0,1,0,83,Hello World!
+5.Blue 2,Dean Blanchard,5,b2,6423,0,0,1,-1,5,1,1,4,0,1,1,1,1,3,1,1,0,1,-1,1,1,0,214,Hello World!
+5.Blue 3,Runa Hunt,5,b3,325,0,1,1,0,4,2,1,4,0,0,0,1,1,0,0,0,0,2,1,1,0,1,125,Hello World!
+5.Red 1,Ruth Christensen ,5,r1,3181,0,0,0,0,1,2,1,5,0,0,0,1,1,2,0,1,0,1,0,1,0,0,178,Hello World!
+5.Red 2,Runa Hunt,5,r2,1126,1,0,1,0,5,1,2,4,0,1,0,1,1,0,1,1,1,1,0,0,0,1,53,Hello World!
+5.Red 3,Tyler Hignett ,5,r3,20,1,1,1,1,5,2,2,2,1,1,1,0,1,2,1,0,1,2,-1,0,1,0,160,Hello World!
+6.Blue 1,Ruth Christensen ,6,b1,1507,0,0,1,1,5,3,2,4,1,0,0,0,0,-1,1,0,0,4,0,0,0,1,257,Hello World!
+6.Blue 2,Colby Jackson,6,b2,144,0,1,1,1,3,3,1,4,1,1,0,0,0,-1,1,0,0,1,0,1,0,0,242,Hello World!
+6.Blue 3,Tetra Ukav ,6,b3,424,0,1,0,1,1,1,1,3,1,1,1,1,1,1,1,0,1,3,0,1,0,0,211,Hello World!
+6.Red 1,Runa Hunt,6,r1,3003,1,1,1,-1,1,1,3,3,1,1,1,0,1,0,0,0,0,3,1,1,1,1,219,Hello World!
+6.Red 2,Arthur Sayre,6,r2,4093,1,0,0,0,2,2,3,3,0,0,1,0,0,3,1,1,1,5,-1,0,1,1,138,Hello World!
+6.Red 3,Amanah Obaji,6,r3,9767,1,0,1,1,2,2,2,5,1,1,0,1,0,1,0,1,1,4,0,1,1,0,133,Hello World!
+7.Blue 1,Amanah Obaji,7,b1,4930,0,0,1,1,1,3,1,2,0,1,0,0,1,-1,0,1,1,3,-1,1,0,0,92,Hello World!
+7.Blue 2,Autumn Schoenfeld,7,b2,1056,1,1,0,0,4,1,3,4,1,0,1,1,0,-1,0,1,0,1,1,1,1,0,208,Hello World!
+7.Blue 3,Nicholas Munier,7,b3,3044,1,1,1,-1,1,2,3,5,0,1,0,1,0,2,0,0,0,1,1,1,0,0,273,Hello World!
+7.Red 1,Arthur Sayre,7,r1,1781,0,1,1,0,4,3,3,5,0,1,1,1,1,2,1,1,0,3,0,0,0,0,206,Hello World!
+7.Red 2,Madison DeCicca,7,r2,1450,0,1,0,1,2,2,1,2,0,1,1,0,0,3,1,1,1,4,1,1,0,1,24,Hello World!
+7.Red 3,Autumn Schoenfeld,7,r3,8503,1,1,1,-1,4,1,3,2,0,0,1,1,0,0,1,0,1,2,1,1,0,0,109,Hello World!
+8.Blue 1,Jonah WoikaKai Wilbur,8,b1,9016,0,0,0,0,3,3,3,1,1,1,1,0,0,2,1,1,0,3,1,0,0,0,138,Hello World!
+8.Blue 2,Nicholas Munier,8,b2,6947,1,1,1,1,4,2,1,3,1,0,1,0,0,-1,1,0,0,2,0,0,0,0,97,Hello World!
+8.Blue 3,Connor Rapp,8,b3,6868,0,1,1,0,2,2,2,5,1,0,1,1,0,0,1,0,1,2,-1,0,1,1,139,Hello World!
+8.Red 1,Tetra Ukav ,8,r1,340,0,0,0,0,3,2,2,3,1,1,1,1,0,0,0,1,0,1,0,1,1,0,244,Hello World!
+8.Red 2,Jonah WoikaKai Wilbur,8,r2,1787,0,0,0,0,2,3,2,2,1,0,1,1,0,1,0,1,0,2,0,1,1,0,51,Hello World!
+8.Red 3,Runa Hunt,8,r3,3838,0,0,1,0,5,3,3,1,0,0,1,1,0,1,1,1,0,3,1,1,0,0,65,Hello World!
+9.Blue 1,Nathan DeVito,9,b1,2340,0,1,0,1,5,3,2,2,0,1,1,1,0,2,1,1,1,3,1,0,1,1,109,Hello World!
+9.Blue 2,Tyler Hignett ,9,b2,639,0,0,0,1,3,3,1,2,0,0,0,1,0,0,0,1,1,1,-1,0,0,1,163,Hello World!
+9.Blue 3,Autumn Schoenfeld,9,b3,2228,0,1,1,1,5,3,3,5,0,0,0,1,1,1,0,0,0,2,0,1,1,0,23,Hello World!
+9.Red 1,Celton Norter,9,r1,1585,0,1,0,0,5,3,2,5,1,0,0,1,0,0,1,1,1,1,0,1,1,0,124,Hello World!
+9.Red 2,Arthur Sayre,9,r2,353,0,1,1,0,2,1,3,3,0,0,1,0,0,-1,0,0,0,1,1,0,1,0,298,Hello World!
+9.Red 3,Nathan DeVito,9,r3,694,1,1,0,-1,3,3,3,4,1,0,0,0,1,-1,0,0,0,4,1,1,0,1,115,Hello World!
+10.Blue 1,Nathan DeVito,10,b1,48,1,0,0,0,3,2,1,4,1,1,1,1,0,-1,0,1,0,5,0,0,1,1,147,Hello World!
+10.Blue 2,Connor Rapp,10,b2,7030,1,1,0,1,4,2,2,5,1,1,1,1,0,0,1,0,1,1,0,1,0,0,208,Hello World!
+10.Blue 3,Caitlin Munier,10,b3,7903,0,0,0,-1,4,2,3,4,0,0,1,1,1,-1,0,1,0,4,-1,1,0,1,293,Hello World!
+10.Red 1,Madison DeCicca,10,r1,271,1,1,0,-1,3,1,2,1,1,1,1,1,0,2,1,1,0,5,1,0,1,1,95,Hello World!
+10.Red 2,Autumn Schoenfeld,10,r2,1405,0,0,0,1,5,1,2,4,1,0,1,0,0,3,0,1,1,3,1,0,1,1,27,Hello World!
+10.Red 3,Nicholas Munier,10,r3,4458,0,0,0,-1,4,2,2,4,1,0,0,0,1,1,0,0,1,2,0,1,1,1,71,Hello World!
+11.Blue 1,Runa Hunt,11,b1,3173,0,1,1,1,3,2,3,4,1,0,1,1,1,0,1,0,0,2,-1,1,0,1,44,Hello World!
+11.Blue 2,Matthew Mazzota,11,b2,578,0,1,0,1,3,1,3,5,1,1,0,0,0,3,1,1,0,1,-1,1,1,0,199,Hello World!
+11.Blue 3,Tetra Ukav ,11,b3,432,1,0,0,1,5,2,2,5,0,0,1,0,0,2,0,1,1,2,-1,0,0,1,97,Hello World!
+11.Red 1,Tyler Hignett ,11,r1,20,0,1,1,1,3,2,1,3,0,1,0,1,0,3,1,0,1,1,1,1,1,0,96,Hello World!
+11.Red 2,Dean Blanchard,11,r2,10922,1,0,0,-1,3,3,3,5,0,0,0,0,1,0,1,1,1,1,0,1,1,0,216,Hello World!
+11.Red 3,Arthur Sayre,11,r3,1468,0,0,0,1,1,2,1,5,0,0,1,1,1,3,1,0,0,2,0,1,0,1,21,Hello World!
+12.Blue 1,Colby Jackson,12,b1,9767,0,0,1,0,5,2,2,3,1,0,1,1,0,-1,0,0,1,1,-1,0,1,0,282,Hello World!
+12.Blue 2,Matthew Mazzota,12,b2,6423,1,0,1,1,2,2,3,4,0,1,0,0,1,-1,1,1,1,1,-1,0,0,0,19,Hello World!
+12.Blue 3,Eli Harrison,12,b3,1126,1,0,0,0,4,1,3,4,0,1,1,1,0,0,0,0,1,1,-1,1,1,1,251,Hello World!
+12.Red 1,Ruth Christensen ,12,r1,564,1,0,1,-1,2,1,3,4,1,1,1,0,1,3,1,1,0,4,0,1,1,0,46,Hello World!
+12.Red 2,Dean Blanchard,12,r2,4093,1,0,1,0,2,3,1,4,1,1,0,1,0,-1,0,0,0,5,0,0,1,0,125,Hello World!
+12.Red 3,Madison DeCicca,12,r3,1518,1,0,1,0,2,2,3,2,0,1,0,1,0,2,0,1,0,2,0,1,1,1,154,Hello World!
+13.Blue 1,Domenic Giammusso,13,b1,3799,0,1,1,-1,3,3,2,4,0,1,1,0,1,1,0,1,0,5,0,0,1,0,83,Hello World!
+13.Blue 2,Andrew Crawford,13,b2,3003,0,0,0,1,2,2,1,2,1,1,1,1,0,0,1,1,0,1,0,0,1,1,8,Hello World!
+13.Blue 3,Gianmarco D'Angelo,13,b3,4253,1,1,0,-1,2,2,1,4,1,0,0,1,0,1,0,0,0,4,1,0,0,1,115,Hello World!
+13.Red 1,Arthur Sayre,13,r1,1056,1,0,0,-1,4,1,3,2,1,0,0,1,1,0,1,0,1,4,1,0,1,0,118,Hello World!
+13.Red 2,Carter Silva,13,r2,10223,1,0,1,1,4,2,1,2,0,1,0,0,0,-1,1,1,1,3,-1,1,1,1,20,Hello World!
+13.Red 3,Domenic Giammusso,13,r3,3181,1,0,0,-1,1,2,2,5,1,1,1,1,1,2,0,0,1,3,-1,1,0,1,113,Hello World!
+14.Blue 1,Andrew Crawford,14,b1,3838,1,0,1,-1,2,2,1,1,0,0,0,0,0,1,1,0,1,2,1,0,0,0,287,Hello World!
+14.Blue 2,Nathan DeVito,14,b2,3951,0,1,1,1,5,1,2,1,1,1,0,1,1,3,0,1,0,5,-1,0,1,1,155,Hello World!
+14.Blue 3,Jonah WoikaKai Wilbur,14,b3,8503,1,1,0,0,3,2,2,1,0,0,1,1,0,3,0,1,1,1,0,0,1,1,47,Hello World!
+14.Red 1,Eli Harrison,14,r1,810,1,1,1,1,2,2,3,1,1,0,0,1,1,-1,1,1,0,4,1,1,1,1,85,Hello World!
+14.Red 2,Madison DeCicca,14,r2,144,0,1,0,1,1,1,1,5,0,0,1,0,1,0,0,1,1,5,1,0,0,0,285,Hello World!
+14.Red 3,Eli Harrison,14,r3,5590,1,0,0,0,2,1,3,1,0,0,0,0,1,3,0,1,1,1,0,1,0,0,52,Hello World!
+15.Blue 1,Colby Jackson,15,b1,1450,0,1,1,-1,5,2,1,4,1,1,0,1,0,-1,1,0,1,1,0,1,1,1,239,Hello World!
+15.Blue 2,Domenic Giammusso,15,b2,3015,1,1,0,-1,3,2,3,2,1,1,1,0,1,3,0,1,1,4,1,0,0,1,78,Hello World!
+15.Blue 3,Tyler Hignett ,15,b3,9016,0,1,0,-1,2,1,3,4,1,1,1,1,0,-1,1,1,0,3,0,0,0,0,74,Hello World!
+15.Red 1,Andrew Crawford,15,r1,639,0,0,0,0,3,1,1,1,1,0,1,0,1,1,0,0,0,5,-1,1,0,0,192,Hello World!
+15.Red 2,Domenic Giammusso,15,r2,5528,1,1,1,-1,5,2,3,3,0,1,1,1,0,0,1,0,0,2,-1,0,0,1,201,Hello World!
+15.Red 3,Jonah WoikaKai Wilbur,15,r3,1591,1,1,0,1,2,3,1,4,0,0,0,1,0,0,0,0,1,4,-1,0,0,1,12,Hello World!
+16.Blue 1,Gianmarco D'Angelo,16,b1,378,1,1,0,-1,3,2,2,3,0,1,1,1,0,1,0,0,0,3,1,1,1,0,1,Hello World!
+16.Blue 2,Andrew Crawford,16,b2,1585,1,0,0,0,3,1,3,1,0,1,1,0,0,2,0,0,1,3,-1,1,1,0,240,Hello World!
+16.Blue 3,Gianmarco D'Angelo,16,b3,6947,0,1,1,1,2,2,2,2,1,0,0,0,1,3,0,1,0,3,1,1,1,1,199,Hello World!
+16.Red 1,Eli Harrison,16,r1,353,1,0,0,1,3,2,2,1,0,0,0,1,1,2,0,1,1,3,-1,1,0,1,225,Hello World!
+16.Red 2,Gianmarco D'Angelo,16,r2,4930,0,0,0,0,4,3,2,3,1,1,0,0,0,0,1,1,1,4,1,0,1,1,122,Hello World!
+16.Red 3,Nicholas Munier,16,r3,48,0,0,1,1,4,2,2,1,1,0,0,0,1,1,0,1,0,5,0,0,1,1,216,Hello World!
+17.Blue 1,Autumn Schoenfeld,17,b1,424,0,0,1,-1,4,3,3,3,1,1,1,0,1,0,1,0,0,4,0,1,1,0,173,Hello World!
+17.Blue 2,Dean Blanchard,17,b2,2228,0,1,1,-1,5,3,1,3,0,1,1,1,0,-1,0,0,1,5,0,0,1,0,241,Hello World!
+17.Blue 3,Carter Silva,17,b3,1787,1,0,0,1,5,3,3,2,1,1,0,0,1,0,0,0,1,3,1,0,1,0,195,Hello World!
+17.Red 1,Dean Blanchard,17,r1,1781,1,1,0,0,4,3,3,1,1,0,0,1,1,0,0,0,1,1,-1,0,0,1,298,Hello World!
+17.Red 2,Matthew Mazzota,17,r2,1507,1,1,1,0,5,2,2,1,1,1,1,1,0,3,1,1,0,1,0,1,0,0,280,Hello World!
+17.Red 3,Ethan Stiffler,17,r3,2340,0,0,1,0,3,1,1,2,1,1,1,1,1,-1,0,0,1,3,1,1,1,0,122,Hello World!
+18.Blue 1,Runa Hunt,18,b1,325,1,0,1,0,1,2,2,4,0,1,1,1,0,2,1,1,1,5,0,0,0,1,163,Hello World!
+18.Blue 2,Tyler Hignett ,18,b2,694,1,0,1,-1,2,3,3,1,0,0,0,1,0,2,0,1,1,2,0,1,1,1,193,Hello World!
+18.Blue 3,Matthew Mazzota,18,b3,1559,0,1,0,-1,3,3,3,4,0,0,0,1,0,3,1,0,0,4,0,1,1,0,135,Hello World!
+18.Red 1,Amanah Obaji,18,r1,191,0,1,0,1,2,2,1,5,1,0,1,0,0,-1,1,0,0,1,0,1,1,1,282,Hello World!
+18.Red 2,Connor Rapp,18,r2,340,1,0,1,1,2,1,1,5,0,0,1,0,1,2,1,0,0,2,-1,1,1,1,299,Hello World!
+18.Red 3,Ethan Stiffler,18,r3,3044,1,1,0,1,5,2,1,1,0,1,1,1,1,0,0,1,1,3,0,1,0,1,280,Hello World!
+19.Blue 1,Caitlin Munier,19,b1,4253,1,0,1,0,5,2,2,1,1,1,1,0,0,-1,0,1,1,2,0,0,1,1,298,Hello World!
+19.Blue 2,Gianmarco D'Angelo,19,b2,3173,0,0,0,0,3,3,1,4,0,0,0,1,1,1,0,1,0,2,-1,1,0,1,177,Hello World!
+19.Blue 3,Runa Hunt,19,b3,6868,0,0,0,1,4,1,2,5,1,1,1,0,0,0,0,0,0,4,1,0,0,0,176,Hello World!
+19.Red 1,Ruth Christensen ,19,r1,1511,0,1,0,1,5,1,2,4,0,1,0,1,0,3,1,1,1,3,-1,0,0,1,74,Hello World!
+19.Red 2,Eli Harrison,19,r2,1126,0,0,1,-1,1,1,1,5,0,1,1,0,1,1,1,1,1,4,0,0,1,0,14,Hello World!
+19.Red 3,Connor Rapp,19,r3,1405,0,1,1,1,3,3,2,5,1,0,0,1,1,0,0,1,1,5,-1,0,1,1,183,Hello World!
+20.Blue 1,Arthur Sayre,20,b1,7903,1,1,0,-1,3,1,2,4,0,0,1,1,1,3,1,0,0,5,1,1,0,0,8,Hello World!
+20.Blue 2,Ethan Stiffler,20,b2,3003,1,1,1,-1,2,2,2,5,1,1,0,1,0,0,0,0,0,3,1,1,1,1,196,Hello World!
+20.Blue 3,Tyler Hignett ,20,b3,3181,1,1,1,-1,4,2,1,1,1,1,1,0,1,3,0,1,1,3,0,1,0,0,9,Hello World!
+20.Red 1,Arthur Sayre,20,r1,9767,0,0,0,1,3,3,3,3,1,0,0,0,1,3,0,1,0,3,0,0,1,0,113,Hello World!
+20.Red 2,Nicholas Munier,20,r2,10922,1,0,0,1,2,3,3,1,1,0,0,0,0,0,1,1,1,2,-1,1,1,1,98,Hello World!
+20.Red 3,Nicholas Munier,20,r3,3838,1,0,0,1,3,1,1,5,0,0,1,0,1,2,1,1,1,2,1,0,1,0,186,Hello World!
+21.Blue 1,Nicholas Munier,21,b1,9016,1,0,1,0,1,1,1,3,1,1,0,0,1,1,1,1,1,4,-1,0,0,0,208,Hello World!
+21.Blue 2,Andrew Crawford,21,b2,144,0,0,1,-1,1,1,2,1,1,1,1,1,0,3,0,0,0,4,-1,0,1,0,225,Hello World!
+21.Blue 3,Celton Norter,21,b3,3799,1,0,0,1,2,1,1,2,1,0,0,1,1,3,1,0,0,3,-1,1,1,0,37,Hello World!
+21.Red 1,Tetra Ukav ,21,r1,7030,0,0,0,1,2,3,1,3,1,1,1,1,0,2,1,0,1,5,-1,0,1,1,1,Hello World!
+21.Red 2,Dean Blanchard,21,r2,20,0,0,1,0,3,2,3,5,1,0,0,1,1,0,0,0,1,1,0,1,0,1,166,Hello World!
+21.Red 3,Madison DeCicca,21,r3,3015,0,1,1,1,4,1,2,2,0,1,1,0,0,3,1,0,1,1,1,0,0,0,61,Hello World!
+22.Blue 1,Autumn Schoenfeld,22,b1,1585,0,1,0,1,1,2,2,4,1,1,0,0,1,2,1,1,0,5,-1,0,1,1,146,Hello World!
+22.Blue 2,Ruth Christensen ,22,b2,432,0,1,1,-1,5,3,3,1,1,1,0,0,0,1,0,1,1,5,-1,0,0,0,257,Hello World!
+22.Blue 3,Caitlin Munier,22,b3,564,1,0,1,-1,5,3,3,4,1,1,1,1,0,2,0,0,0,5,-1,1,0,0,191,Hello World!
+22.Red 1,Arthur Sayre,22,r1,3951,0,0,0,-1,2,2,1,4,1,1,1,1,1,-1,1,0,1,5,0,0,0,0,62,Hello World!
+22.Red 2,Celton Norter,22,r2,1450,1,1,0,1,2,3,3,4,1,1,1,1,0,1,1,0,0,2,1,1,1,0,196,Hello World!
+22.Red 3,Tyler Hignett ,22,r3,6947,0,0,0,1,2,2,1,5,0,0,0,1,0,0,0,0,1,4,0,1,0,0,224,Hello World!
+23.Blue 1,Gianmarco D'Angelo,23,b1,4093,0,0,1,0,4,2,2,1,1,0,0,1,1,0,1,0,1,4,1,0,0,1,243,Hello World!
+23.Blue 2,Tyler Hignett ,23,b2,2228,1,1,0,1,1,1,2,4,0,1,1,1,0,2,0,0,0,1,0,0,1,1,222,Hello World!
+23.Blue 3,Runa Hunt,23,b3,578,1,1,1,-1,5,3,2,1,0,0,1,0,1,1,0,1,1,4,0,1,1,1,217,Hello World!
+23.Red 1,Nathan DeVito,23,r1,1787,0,1,0,-1,4,3,1,1,0,1,0,1,1,2,0,0,1,5,0,0,0,1,281,Hello World!
+23.Red 2,Colby Jackson,23,r2,378,1,0,1,0,4,1,2,4,1,0,1,1,1,3,1,1,0,2,0,1,1,0,244,Hello World!
+23.Red 3,Colby Jackson,23,r3,1056,1,0,0,0,3,3,2,1,0,0,0,0,1,0,1,0,1,5,0,0,1,1,287,Hello World!
+24.Blue 1,Nathan DeVito,24,b1,48,0,0,0,-1,1,3,1,4,0,1,1,0,1,-1,1,1,1,4,0,0,0,0,183,Hello World!
+24.Blue 2,Nathan DeVito,24,b2,1781,0,1,0,-1,5,2,1,3,1,1,0,0,0,0,1,0,0,5,1,0,0,0,20,Hello World!
+24.Blue 3,Caitlin Munier,24,b3,810,1,0,0,0,4,2,2,4,0,1,1,0,1,-1,0,1,0,5,-1,0,1,0,266,Hello World!
+24.Red 1,Runa Hunt,24,r1,639,1,1,1,1,5,2,2,4,1,1,0,1,0,-1,0,0,1,2,-1,0,0,0,136,Hello World!
+24.Red 2,Tetra Ukav ,24,r2,325,0,1,0,1,1,3,2,4,1,1,0,0,1,3,0,1,0,3,-1,1,1,1,152,Hello World!
+24.Red 3,Nathan DeVito,24,r3,1518,1,0,0,1,2,2,1,3,0,0,0,1,1,3,1,1,0,2,-1,1,0,0,293,Hello World!
+25.Blue 1,Carter Silva,25,b1,2340,0,0,0,0,2,2,2,1,1,1,0,1,0,2,1,0,0,1,1,1,1,1,64,Hello World!
+25.Blue 2,Tyler Hignett ,25,b2,5590,1,0,0,1,4,1,3,1,0,0,1,1,1,3,0,0,0,3,-1,1,1,1,258,Hello World!
+25.Blue 3,Andrew Crawford,25,b3,191,0,0,1,1,3,3,2,1,0,1,0,0,0,2,0,0,1,3,-1,1,1,0,88,Hello World!
+25.Red 1,Caitlin Munier,25,r1,1559,0,1,1,0,2,1,2,2,0,1,1,1,0,2,1,1,0,5,-1,1,1,0,297,Hello World!
+25.Red 2,Arthur Sayre,25,r2,1507,1,1,0,0,1,3,1,3,0,0,1,0,0,1,0,0,1,2,-1,0,1,0,158,Hello World!
+25.Red 3,Nathan DeVito,25,r3,4930,0,1,0,1,3,2,3,1,1,1,1,0,0,2,0,1,1,1,-1,1,1,1,168,Hello World!
+26.Blue 1,Colby Jackson,26,b1,694,0,0,1,0,5,3,3,3,1,0,0,1,1,-1,1,1,1,5,0,1,1,0,223,Hello World!
+26.Blue 2,Amanah Obaji,26,b2,271,0,0,0,0,1,3,3,5,1,1,0,1,1,0,0,0,0,1,1,1,0,1,211,Hello World!
+26.Blue 3,Nathan DeVito,26,b3,1591,1,1,1,1,2,2,3,1,1,1,1,1,1,2,1,1,1,1,0,0,1,0,142,Hello World!
+26.Red 1,Madison DeCicca,26,r1,6868,0,0,1,1,5,3,1,4,1,0,1,1,1,2,0,0,1,4,-1,1,0,0,18,Hello World!
+26.Red 2,Nicholas Munier,26,r2,8503,0,0,1,1,5,2,1,2,0,1,1,1,0,0,0,0,0,1,1,1,0,0,175,Hello World!
+26.Red 3,Andrew Crawford,26,r3,424,1,1,0,1,4,3,1,4,0,0,1,0,1,1,1,1,0,2,-1,0,0,0,0,Hello World!
+27.Blue 1,Gianmarco D'Angelo,27,b1,353,0,0,0,0,2,3,3,5,0,1,1,1,1,2,1,0,1,5,-1,0,0,0,257,Hello World!
+27.Blue 2,Domenic Giammusso,27,b2,1511,1,1,1,1,2,1,1,1,1,0,0,1,1,1,1,0,0,1,0,0,1,0,22,Hello World!
+27.Blue 3,Andrew Crawford,27,b3,340,0,1,0,0,5,3,1,3,1,0,1,1,0,1,1,1,0,5,-1,0,1,1,298,Hello World!
+27.Red 1,Carter Silva,27,r1,4458,1,1,0,0,2,3,3,2,0,0,0,1,1,0,1,1,1,3,1,0,0,1,9,Hello World!
+27.Red 2,Gianmarco D'Angelo,27,r2,3044,0,1,1,-1,1,3,1,1,0,0,0,0,1,-1,0,1,0,2,1,1,0,0,62,Hello World!
+27.Red 3,Colby Jackson,27,r3,10223,0,1,1,-1,1,2,2,1,0,1,1,0,1,-1,1,0,0,3,-1,1,1,0,92,Hello World!
+28.Blue 1,Dean Blanchard,28,b1,7903,1,0,0,0,4,2,3,3,1,1,1,0,1,-1,1,1,0,3,0,1,0,0,191,Hello World!
+28.Blue 2,Caitlin Munier,28,b2,6947,1,1,0,-1,4,1,3,4,0,0,0,0,0,3,0,1,1,5,1,1,1,1,163,Hello World!
+28.Blue 3,Ethan Stiffler,28,b3,6423,0,0,0,0,3,3,3,2,1,0,0,0,1,1,0,0,0,3,-1,0,0,0,97,Hello World!
+28.Red 1,Carter Silva,28,r1,5528,1,1,0,0,1,2,2,2,1,0,0,0,1,0,0,1,1,3,1,0,0,1,59,Hello World!
+28.Red 2,Celton Norter,28,r2,1468,1,1,0,0,5,2,2,1,0,1,0,0,0,1,0,1,0,5,0,1,0,1,35,Hello World!
+28.Red 3,Domenic Giammusso,28,r3,144,0,0,1,1,4,2,3,3,0,1,1,1,1,1,1,0,1,1,-1,0,1,1,17,Hello World!
+29.Blue 1,Tyler Hignett ,29,b1,20,0,0,1,0,4,3,1,1,0,0,0,0,1,0,0,1,0,4,0,1,0,0,246,Hello World!
+29.Blue 2,Tetra Ukav ,29,b2,1405,0,1,0,0,5,3,2,2,0,1,0,1,0,2,0,0,1,4,0,0,1,0,102,Hello World!
+29.Blue 3,Autumn Schoenfeld,29,b3,4093,0,1,0,-1,3,2,1,1,1,1,0,1,1,-1,1,1,1,4,1,1,1,0,46,Hello World!
+29.Red 1,Gianmarco D'Angelo,29,r1,3951,1,1,1,0,2,2,2,5,1,0,1,1,0,2,0,0,0,5,-1,0,0,1,138,Hello World!
+29.Red 2,Domenic Giammusso,29,r2,3015,0,1,1,1,3,1,1,5,1,1,0,1,0,2,1,0,0,4,-1,1,0,0,300,Hello World!
+29.Red 3,Arthur Sayre,29,r3,2228,1,0,0,1,3,1,3,3,0,1,1,0,1,0,1,1,1,5,-1,0,0,0,299,Hello World!
+30.Blue 1,Dean Blanchard,30,b1,1126,0,1,0,1,3,2,1,2,0,0,1,1,0,-1,0,1,0,3,0,1,0,1,184,Hello World!
+30.Blue 2,Andrew Crawford,30,b2,7030,1,0,0,-1,5,1,3,4,1,0,0,0,1,2,0,1,1,3,-1,1,1,1,279,Hello World!
+30.Blue 3,Nathan DeVito,30,b3,1781,1,1,0,-1,3,1,2,1,1,0,0,1,1,-1,0,1,0,1,-1,0,0,1,26,Hello World!
+30.Red 1,Autumn Schoenfeld,30,r1,1450,0,1,0,1,1,3,1,5,1,1,1,0,1,3,0,1,1,2,0,0,1,0,88,Hello World!
+30.Red 2,Tyler Hignett ,30,r2,578,0,1,1,-1,4,1,3,4,1,0,0,1,1,0,0,1,1,5,0,1,1,0,6,Hello World!
+30.Red 3,Dean Blanchard,30,r3,3003,1,0,0,-1,1,2,3,3,1,0,0,1,1,0,1,1,0,2,1,1,1,0,249,Hello World!
+31.Blue 1,Tyler Hignett ,31,b1,9767,1,0,1,-1,1,3,1,3,1,1,0,1,1,-1,1,1,0,3,-1,0,0,0,237,Hello World!
+31.Blue 2,Madison DeCicca,31,b2,1787,0,1,0,0,1,3,3,1,1,1,1,0,0,3,1,1,0,2,1,1,1,1,50,Hello World!
+31.Blue 3,Runa Hunt,31,b3,564,1,1,0,0,4,2,1,4,1,0,0,0,0,2,1,0,1,1,-1,0,1,0,174,Hello World!
+31.Red 1,Arthur Sayre,31,r1,1559,0,1,0,-1,2,3,2,5,0,0,1,1,0,2,1,1,1,2,-1,1,1,0,249,Hello World!
+31.Red 2,Jonah WoikaKai Wilbur,31,r2,639,0,0,0,1,4,2,3,4,1,1,1,0,0,3,1,0,0,4,1,0,0,0,215,Hello World!
+31.Red 3,Madison DeCicca,31,r3,191,0,1,1,0,2,1,2,1,0,1,1,1,0,2,0,0,1,3,1,1,1,0,230,Hello World!
+32.Blue 1,Tetra Ukav ,32,b1,1518,0,1,1,0,3,2,3,1,1,0,1,1,0,3,1,1,1,4,-1,0,0,0,234,Hello World!
+32.Blue 2,Nicholas Munier,32,b2,4253,1,1,1,1,5,3,3,4,0,1,0,1,1,3,1,1,1,4,1,0,0,0,249,Hello World!
+32.Blue 3,Gianmarco D'Angelo,32,b3,1585,0,0,0,0,5,2,2,1,0,1,0,0,1,-1,0,1,0,5,-1,1,1,1,300,Hello World!
+32.Red 1,Tyler Hignett ,32,r1,271,0,0,0,-1,2,2,2,5,1,1,1,1,0,-1,0,1,1,4,0,0,0,0,137,Hello World!
+32.Red 2,Jonah WoikaKai Wilbur,32,r2,5590,1,1,1,0,5,2,1,2,1,1,1,1,0,2,0,0,0,3,1,0,0,1,212,Hello World!
+32.Red 3,Nicholas Munier,32,r3,10922,0,1,0,-1,3,1,1,2,0,0,1,0,1,3,1,0,1,2,0,1,1,1,20,Hello World!
+33.Blue 1,Nicholas Munier,33,b1,3181,1,1,0,0,4,3,3,3,1,1,1,1,1,0,1,0,1,2,1,0,0,1,245,Hello World!
+33.Blue 2,Gianmarco D'Angelo,33,b2,3838,0,1,1,0,5,3,3,5,1,0,1,1,1,1,0,0,1,5,-1,0,1,0,59,Hello World!
+33.Blue 3,Carter Silva,33,b3,810,1,1,0,-1,5,2,2,5,0,0,1,0,0,2,0,0,1,1,1,0,0,0,201,Hello World!
+33.Red 1,Ruth Christensen ,33,r1,3044,0,0,1,-1,1,3,1,2,0,1,0,0,0,0,1,0,0,2,0,1,1,1,24,Hello World!
+33.Red 2,Caitlin Munier,33,r2,424,1,1,1,0,2,1,1,2,0,1,0,1,0,0,0,0,1,1,1,1,0,0,216,Hello World!
+33.Red 3,Nicholas Munier,33,r3,1511,0,1,0,1,1,3,1,4,0,1,0,1,0,1,1,0,1,4,0,1,0,0,281,Hello World!
+34.Blue 1,Caitlin Munier,34,b1,1468,0,0,1,-1,5,1,1,5,0,0,0,0,0,-1,1,1,1,1,-1,1,0,1,16,Hello World!
+34.Blue 2,Nathan DeVito,34,b2,4458,0,0,0,1,1,2,3,3,1,1,0,0,0,3,1,1,0,5,1,1,1,1,201,Hello World!
+34.Blue 3,Domenic Giammusso,34,b3,8503,0,0,1,1,4,1,1,2,0,1,1,0,0,2,1,1,1,3,1,1,0,0,203,Hello World!
+34.Red 1,Carter Silva,34,r1,2340,0,1,0,1,5,3,1,4,0,0,0,1,1,2,1,0,1,1,1,1,0,0,109,Hello World!
+34.Red 2,Jonah WoikaKai Wilbur,34,r2,10223,1,1,0,-1,1,2,2,2,0,0,1,1,1,0,0,0,1,5,-1,0,1,0,190,Hello World!
+34.Red 3,Colby Jackson,34,r3,9016,1,1,1,0,4,2,2,5,1,0,0,1,1,1,0,0,0,2,0,1,0,0,24,Hello World!
+35.Blue 1,Amanah Obaji,35,b1,694,0,0,0,0,2,1,3,1,0,0,0,1,0,0,1,0,0,4,-1,0,0,0,131,Hello World!
+35.Blue 2,Carter Silva,35,b2,6423,0,1,0,0,4,1,3,4,1,1,1,1,0,3,1,0,1,4,0,0,1,0,292,Hello World!
+35.Blue 3,Gianmarco D'Angelo,35,b3,1056,0,0,1,1,4,2,3,1,0,0,1,1,0,3,1,1,0,5,1,1,1,0,70,Hello World!
+35.Red 1,Arthur Sayre,35,r1,48,0,1,1,-1,4,2,1,3,0,1,0,0,1,1,0,0,0,1,1,1,1,1,5,Hello World!
+35.Red 2,Andrew Crawford,35,r2,378,1,0,1,-1,5,3,3,1,0,0,1,0,0,1,0,1,1,2,0,0,1,1,175,Hello World!
+35.Red 3,Eli Harrison,35,r3,1591,1,0,1,1,2,1,3,2,0,0,0,0,0,2,0,1,1,3,-1,0,0,0,11,Hello World!
+36.Blue 1,Dean Blanchard,36,b1,340,1,0,1,1,5,2,2,4,1,1,0,1,0,3,1,0,1,3,-1,0,0,1,134,Hello World!
+36.Blue 2,Nathan DeVito,36,b2,3173,0,0,1,-1,1,1,1,3,0,0,0,0,0,1,0,1,1,2,0,1,1,0,49,Hello World!
+36.Blue 3,Ruth Christensen ,36,b3,3799,1,0,1,-1,2,2,3,3,1,1,0,1,0,-1,1,0,0,2,-1,0,0,1,41,Hello World!
+36.Red 1,Colby Jackson,36,r1,1507,0,0,0,1,2,2,1,2,0,0,0,0,0,2,1,1,1,5,0,0,1,1,105,Hello World!
+36.Red 2,Colby Jackson,36,r2,353,1,1,1,-1,4,3,2,4,0,0,0,0,1,-1,0,0,1,2,1,1,1,1,181,Hello World!
+36.Red 3,Celton Norter,36,r3,5528,0,1,1,0,1,3,2,4,1,0,1,1,1,0,1,1,0,5,0,0,1,0,43,Hello World!
+37.Blue 1,Tyler Hignett ,37,b1,6868,0,1,1,-1,3,2,3,4,0,1,1,1,0,1,1,1,0,5,0,0,1,1,263,Hello World!
+37.Blue 2,Celton Norter,37,b2,4930,1,1,1,-1,3,2,2,3,0,0,0,1,1,2,1,0,1,3,-1,1,0,1,91,Hello World!
+37.Blue 3,Ruth Christensen ,37,b3,4093,1,1,1,0,2,3,3,1,1,0,1,0,1,2,0,0,0,4,0,0,0,1,231,Hello World!
+37.Red 1,Nathan DeVito,37,r1,432,1,1,1,-1,5,1,2,4,1,0,0,1,0,0,1,0,1,5,0,1,1,1,54,Hello World!
+37.Red 2,Tyler Hignett ,37,r2,7030,0,0,1,1,5,3,2,3,0,0,1,1,1,3,1,0,1,4,-1,0,1,0,37,Hello World!
+37.Red 3,Tetra Ukav ,37,r3,325,1,1,0,0,1,1,3,2,0,1,1,1,1,2,1,0,0,2,0,0,1,0,1,Hello World!
+38.Blue 1,Domenic Giammusso,38,b1,3015,1,1,1,-1,5,1,2,2,0,1,0,0,0,0,1,1,1,5,-1,1,0,0,73,Hello World!
+38.Blue 2,Domenic Giammusso,38,b2,1559,0,1,1,-1,5,2,2,2,0,0,0,1,0,-1,1,0,1,2,0,1,0,0,68,Hello World!
+38.Blue 3,Nicholas Munier,38,b3,1787,1,0,0,0,2,1,1,1,0,0,0,1,0,1,0,0,0,5,-1,0,0,1,174,Hello World!
+38.Red 1,Ruth Christensen ,38,r1,10922,1,0,1,-1,5,1,1,2,1,1,0,0,0,2,0,0,1,4,-1,1,1,0,59,Hello World!
+38.Red 2,Amanah Obaji,38,r2,3951,1,1,0,1,2,1,1,5,1,0,1,1,1,3,0,0,1,1,1,0,0,1,65,Hello World!
+38.Red 3,Colby Jackson,38,r3,1585,0,1,0,-1,3,2,2,4,0,1,1,0,1,2,1,1,0,2,1,0,1,0,50,Hello World!
+39.Blue 1,Carter Silva,39,b1,578,0,1,0,0,1,1,3,5,1,1,0,0,0,-1,0,1,1,3,-1,1,1,0,141,Hello World!
+39.Blue 2,Caitlin Munier,39,b2,1781,1,0,0,0,5,3,2,2,0,1,0,1,1,-1,0,0,1,5,0,1,1,0,44,Hello World!
+39.Blue 3,Autumn Schoenfeld,39,b3,144,1,1,0,0,4,2,1,1,0,0,0,0,0,0,0,0,1,5,1,0,1,1,208,Hello World!
+39.Red 1,Nicholas Munier,39,r1,191,0,0,1,0,2,2,3,4,1,1,0,1,1,-1,1,1,1,2,-1,0,1,1,55,Hello World!
+39.Red 2,Nathan DeVito,39,r2,1511,0,0,0,1,3,1,1,4,0,1,1,0,1,1,1,0,0,5,1,1,0,0,73,Hello World!
+39.Red 3,Runa Hunt,39,r3,271,1,0,0,-1,4,3,2,2,0,1,1,0,1,3,1,0,1,1,1,0,1,1,93,Hello World!
+40.Blue 1,Jonah WoikaKai Wilbur,40,b1,4253,0,0,1,0,3,3,2,5,1,1,1,1,0,-1,0,0,0,4,1,0,1,1,142,Hello World!
+40.Blue 2,Tetra Ukav ,40,b2,3044,1,0,0,0,4,1,3,4,0,1,0,1,0,1,1,1,1,1,1,0,0,1,289,Hello World!
+40.Blue 3,Eli Harrison,40,b3,2340,0,1,1,-1,5,1,3,4,0,0,0,1,0,-1,1,0,1,1,-1,0,0,1,129,Hello World!
+40.Red 1,Ethan Stiffler,40,r1,3003,1,1,1,1,3,1,2,4,1,1,1,1,0,1,1,0,1,2,-1,0,0,1,278,Hello World!
+40.Red 2,Runa Hunt,40,r2,20,0,1,0,0,2,3,2,4,0,1,0,0,1,3,0,0,0,5,1,0,1,0,48,Hello World!
+40.Red 3,Nathan DeVito,40,r3,9016,0,1,1,0,5,3,3,2,1,1,0,1,0,2,1,0,0,3,1,1,1,0,68,Hello World!
+41.Blue 1,Nicholas Munier,41,b1,2228,1,0,0,-1,1,1,1,4,0,0,0,1,0,-1,1,1,0,2,1,1,0,1,66,Hello World!
+41.Blue 2,Ruth Christensen ,41,b2,9767,0,0,0,-1,2,2,1,3,1,0,0,0,0,3,0,0,1,5,1,1,0,1,233,Hello World!
+41.Blue 3,Tyler Hignett ,41,b3,48,0,1,0,0,3,1,2,4,1,1,1,1,1,2,1,0,1,2,-1,1,0,1,206,Hello World!
+41.Red 1,Autumn Schoenfeld,41,r1,3838,0,1,1,-1,3,3,3,4,1,1,1,1,1,-1,0,1,1,3,1,1,1,0,268,Hello World!
+41.Red 2,Nicholas Munier,41,r2,1468,0,0,1,0,2,1,2,1,1,0,0,0,1,0,1,1,1,2,0,1,1,1,145,Hello World!
+41.Red 3,Jonah WoikaKai Wilbur,41,r3,5590,0,1,1,-1,5,3,3,4,1,0,0,0,0,3,0,0,1,1,0,1,0,0,297,Hello World!
+42.Blue 1,Dean Blanchard,42,b1,424,0,0,0,1,5,2,3,2,0,0,0,1,0,3,0,0,0,1,1,0,0,1,181,Hello World!
+42.Blue 2,Tyler Hignett ,42,b2,340,1,0,0,1,2,1,1,2,0,1,1,0,1,3,0,0,1,3,-1,0,1,0,147,Hello World!
+42.Blue 3,Colby Jackson,42,b3,4458,0,0,1,-1,1,2,3,3,0,1,0,0,1,2,0,0,1,2,-1,0,1,0,76,Hello World!
+42.Red 1,Eli Harrison,42,r1,1450,1,1,0,1,1,3,2,1,1,0,0,0,0,1,1,1,1,5,1,1,1,0,90,Hello World!
+42.Red 2,Ruth Christensen ,42,r2,564,1,1,1,-1,1,3,1,5,1,0,1,1,1,-1,1,0,1,1,1,1,1,0,50,Hello World!
+42.Red 3,Colby Jackson,42,r3,1056,1,0,1,-1,4,1,2,2,0,1,1,1,1,1,1,0,0,3,0,1,0,1,47,Hello World!
+43.Blue 1,Amanah Obaji,43,b1,378,1,0,1,-1,1,3,3,1,0,0,0,0,0,-1,1,1,1,5,0,0,1,0,258,Hello World!
+43.Blue 2,Jonah WoikaKai Wilbur,43,b2,1507,0,0,0,1,5,2,1,4,0,1,1,0,0,1,1,1,0,4,-1,0,0,1,248,Hello World!
+43.Blue 3,Tyler Hignett ,43,b3,10223,0,1,0,0,3,1,1,4,0,0,1,1,1,-1,1,0,1,2,1,1,0,0,1,Hello World!
+43.Red 1,Jonah WoikaKai Wilbur,43,r1,6868,0,0,0,-1,1,2,3,2,0,0,0,0,1,1,1,1,0,1,1,1,0,0,135,Hello World!
+43.Red 2,Ruth Christensen ,43,r2,5528,1,1,0,0,4,2,2,2,1,0,1,0,1,0,1,1,0,4,-1,1,1,1,50,Hello World!
+43.Red 3,Connor Rapp,43,r3,432,0,1,1,0,3,3,1,3,1,0,1,0,1,2,1,0,1,3,-1,0,0,0,47,Hello World!
+44.Blue 1,Nicholas Munier,44,b1,3173,1,1,1,1,4,3,1,3,0,1,1,1,0,3,0,0,1,1,0,1,1,1,283,Hello World!
+44.Blue 2,Jonah WoikaKai Wilbur,44,b2,3181,0,1,0,-1,3,3,3,3,0,0,1,0,0,2,0,0,1,2,1,0,0,1,282,Hello World!
+44.Blue 3,Ruth Christensen ,44,b3,325,1,0,1,0,5,3,1,2,1,0,0,1,0,0,0,0,0,2,-1,1,0,1,43,Hello World!
+44.Red 1,Autumn Schoenfeld,44,r1,1518,1,1,1,1,3,3,1,5,0,0,1,1,0,3,0,0,1,2,-1,0,1,0,58,Hello World!
+44.Red 2,Tetra Ukav ,44,r2,6947,0,1,0,-1,4,2,1,5,0,0,0,0,0,1,0,0,0,5,1,1,1,0,256,Hello World!
+44.Red 3,Amanah Obaji,44,r3,694,0,1,1,0,4,3,3,5,0,0,1,1,0,1,1,1,0,4,1,1,1,0,167,Hello World!
+45.Blue 1,Dean Blanchard,45,b1,4930,1,1,0,-1,5,3,2,2,1,0,1,0,1,3,1,1,0,3,0,1,0,0,90,Hello World!
+45.Blue 2,Madison DeCicca,45,b2,1591,0,0,1,-1,1,1,2,1,0,1,1,1,0,0,1,1,1,5,-1,1,1,0,194,Hello World!
+45.Blue 3,Connor Rapp,45,b3,7903,0,0,1,-1,4,2,3,5,0,0,1,0,0,2,0,0,0,4,-1,1,1,0,2,Hello World!
+45.Red 1,Matthew Mazzota,45,r1,1126,1,0,1,-1,4,2,2,2,1,0,0,0,1,2,0,1,0,4,0,1,0,1,252,Hello World!
+45.Red 2,Dean Blanchard,45,r2,3799,0,1,0,-1,1,1,2,3,1,0,0,1,1,0,0,0,1,5,-1,1,1,1,249,Hello World!
+45.Red 3,Andrew Crawford,45,r3,810,0,1,1,0,3,3,2,2,0,0,1,0,0,0,0,1,0,4,1,1,0,1,44,Hello World!
+46.Blue 1,Ethan Stiffler,46,b1,639,0,0,1,-1,5,1,3,3,1,0,0,1,1,0,0,1,1,5,-1,0,0,1,273,Hello World!
+46.Blue 2,Connor Rapp,46,b2,353,1,1,1,0,4,1,2,5,0,0,0,0,0,1,0,1,1,4,1,1,1,1,161,Hello World!
+46.Blue 3,Amanah Obaji,46,b3,3003,0,1,1,1,1,2,1,1,1,0,0,1,0,3,1,0,1,3,0,0,0,0,73,Hello World!
+46.Red 1,Autumn Schoenfeld,46,r1,1405,0,1,1,0,3,3,2,5,1,0,1,1,1,2,1,0,1,1,0,1,0,0,133,Hello World!
+46.Red 2,Nathan DeVito,46,r2,8503,0,1,0,1,1,3,2,5,1,0,0,1,0,0,1,1,1,1,0,1,0,1,258,Hello World!
+46.Red 3,Nicholas Munier,46,r3,6423,1,0,1,0,4,2,1,1,0,1,0,0,0,-1,0,0,1,1,1,0,0,1,28,Hello World!
+47.Blue 1,Nathan DeVito,47,b1,191,1,0,0,-1,3,1,3,5,0,1,1,1,0,3,1,0,0,1,0,1,1,1,186,Hello World!
+47.Blue 2,Connor Rapp,47,b2,1585,0,0,1,-1,3,2,3,3,1,0,0,0,0,2,0,1,0,5,-1,0,0,0,218,Hello World!
+47.Blue 3,Gianmarco D'Angelo,47,b3,3838,1,1,1,-1,5,1,3,3,1,0,0,0,1,3,1,1,1,5,1,1,0,0,171,Hello World!
+47.Red 1,Domenic Giammusso,47,r1,4253,0,0,0,0,2,3,2,3,0,1,0,1,0,2,0,1,1,4,1,0,0,1,39,Hello World!
+47.Red 2,Nicholas Munier,47,r2,4093,1,1,0,-1,4,1,2,2,0,1,0,0,0,0,0,0,1,2,0,1,0,1,196,Hello World!
+47.Red 3,Gianmarco D'Angelo,47,r3,7030,0,1,0,1,1,1,3,1,0,1,1,1,1,0,1,0,0,4,-1,0,1,1,207,Hello World!
+48.Blue 1,Matthew Mazzota,48,b1,1787,1,0,0,1,2,1,2,2,1,1,0,0,1,0,0,0,1,2,-1,1,1,1,36,Hello World!
+48.Blue 2,Gianmarco D'Angelo,48,b2,10922,0,0,0,0,1,1,1,5,0,1,0,1,0,-1,1,1,1,5,1,0,1,0,88,Hello World!
+48.Blue 3,Gianmarco D'Angelo,48,b3,48,0,0,0,0,2,3,1,4,1,1,0,1,1,1,0,0,0,2,-1,0,0,1,226,Hello World!
+48.Red 1,Gianmarco D'Angelo,48,r1,144,0,0,0,1,2,1,1,1,1,0,1,0,1,0,1,0,0,1,-1,0,0,0,272,Hello World!
+48.Red 2,Connor Rapp,48,r2,20,0,1,1,0,3,2,2,2,1,0,1,0,0,1,1,1,0,3,1,1,0,1,180,Hello World!
+48.Red 3,Carter Silva,48,r3,3044,0,0,1,0,2,1,1,4,1,0,1,1,0,2,1,1,0,4,0,1,0,1,21,Hello World!
+49.Blue 1,Gianmarco D'Angelo,49,b1,4458,1,0,0,0,1,1,3,2,1,0,1,1,0,1,0,1,0,4,1,0,0,0,145,Hello World!
+49.Blue 2,Madison DeCicca,49,b2,5528,0,1,1,-1,2,3,3,2,1,0,1,1,1,0,0,0,1,2,1,0,0,1,288,Hello World!
+49.Blue 3,Connor Rapp,49,b3,1781,0,0,1,1,2,3,2,5,1,1,1,1,0,3,0,1,1,1,1,1,0,0,198,Hello World!
+49.Red 1,Jonah WoikaKai Wilbur,49,r1,5590,1,1,1,1,2,3,3,1,0,1,0,0,0,2,1,0,1,3,1,1,0,1,64,Hello World!
+49.Red 2,Runa Hunt,49,r2,6868,0,0,1,-1,2,3,1,5,1,1,1,0,0,2,1,1,1,2,-1,0,0,0,153,Hello World!
+49.Red 3,Andrew Crawford,49,r3,9767,1,0,0,0,1,2,1,3,1,1,0,1,1,-1,1,1,0,1,1,0,1,1,244,Hello World!
+50.Blue 1,Madison DeCicca,50,b1,10223,0,1,1,1,1,1,1,4,0,1,1,0,0,2,1,1,1,3,-1,0,0,0,2,Hello World!
+50.Blue 2,Jonah WoikaKai Wilbur,50,b2,1518,1,0,1,-1,1,2,2,1,1,1,0,1,1,0,1,1,0,1,0,1,1,0,23,Hello World!
+50.Blue 3,Domenic Giammusso,50,b3,1450,0,1,0,1,4,1,2,1,1,1,1,1,0,3,0,1,0,3,-1,0,0,1,137,Hello World!
+50.Red 1,Eli Harrison,50,r1,6947,0,0,0,-1,1,1,2,1,1,1,1,0,0,2,0,0,1,4,-1,0,0,1,73,Hello World!
+50.Red 2,Arthur Sayre,50,r2,2228,1,1,0,-1,2,2,2,2,0,1,1,0,0,3,1,1,1,4,1,0,1,1,35,Hello World!
+50.Red 3,Arthur Sayre,50,r3,1559,0,0,0,0,4,2,3,4,0,1,1,1,1,3,0,0,0,1,0,0,1,1,55,Hello World!
+51.Blue 1,Tyler Hignett ,51,b1,1126,1,1,0,1,4,3,1,2,0,0,1,0,0,1,0,0,0,2,0,0,0,1,212,Hello World!
+51.Blue 2,Carter Silva,51,b2,1056,0,0,1,-1,3,2,2,2,1,1,1,0,0,1,1,0,1,4,1,0,1,0,223,Hello World!
+51.Blue 3,Colby Jackson,51,b3,271,0,1,0,1,4,3,2,2,1,0,0,0,1,0,1,0,1,1,0,0,0,1,116,Hello World!
+51.Red 1,Tetra Ukav ,51,r1,3015,0,0,1,1,3,1,2,4,0,0,0,0,0,-1,0,0,1,1,1,1,1,1,83,Hello World!
+51.Red 2,Connor Rapp,51,r2,3181,1,1,1,1,2,2,3,5,0,0,0,1,1,3,1,0,0,3,-1,1,0,0,81,Hello World!
+51.Red 3,Andrew Crawford,51,r3,1507,1,0,0,0,4,3,1,4,1,0,1,1,1,-1,0,1,0,3,1,0,0,0,105,Hello World!
+52.Blue 1,Ethan Stiffler,52,b1,1468,0,0,1,1,1,2,1,4,1,1,0,0,1,1,0,1,0,5,-1,0,0,1,188,Hello World!
+52.Blue 2,Arthur Sayre,52,b2,9016,0,1,1,-1,3,1,1,2,1,0,1,0,1,1,0,0,0,3,1,1,0,0,55,Hello World!
+52.Blue 3,Ethan Stiffler,52,b3,1405,0,1,1,0,2,1,2,4,0,1,1,0,0,-1,0,1,1,2,1,1,1,1,2,Hello World!
+52.Red 1,Nathan DeVito,52,r1,4930,0,0,0,0,1,1,2,4,0,0,0,1,0,-1,1,1,0,3,-1,1,0,0,201,Hello World!
+52.Red 2,Carter Silva,52,r2,694,1,1,0,-1,3,2,1,2,1,0,1,1,0,1,1,0,0,3,1,1,1,1,274,Hello World!
+52.Red 3,Caitlin Munier,52,r3,1511,0,0,0,-1,1,3,2,3,0,1,1,0,1,2,0,1,1,2,-1,1,1,0,208,Hello World!
+53.Blue 1,Madison DeCicca,53,b1,1591,0,0,1,0,1,1,1,4,1,0,1,1,0,0,1,0,0,4,1,0,1,0,77,Hello World!
+53.Blue 2,Madison DeCicca,53,b2,2340,1,0,1,0,4,2,1,3,1,0,1,0,0,1,1,0,0,2,-1,0,0,0,142,Hello World!
+53.Blue 3,Madison DeCicca,53,b3,353,1,1,0,-1,5,3,1,5,0,1,0,0,0,2,1,1,1,3,0,1,0,0,117,Hello World!
+53.Red 1,Madison DeCicca,53,r1,7903,0,1,1,0,3,2,2,1,0,1,1,1,1,1,1,1,0,4,0,1,1,1,158,Hello World!
+53.Red 2,Amanah Obaji,53,r2,564,0,0,1,-1,1,1,3,1,1,1,1,1,1,-1,1,1,1,1,-1,1,1,0,203,Hello World!
+53.Red 3,Dean Blanchard,53,r3,3951,0,1,0,1,1,2,2,5,1,1,1,1,0,1,0,0,1,3,1,1,0,1,228,Hello World!
+54.Blue 1,Dean Blanchard,54,b1,8503,0,0,0,1,1,2,1,2,0,1,0,1,0,1,1,0,0,2,-1,0,1,1,102,Hello World!
+54.Blue 2,Andrew Crawford,54,b2,810,1,1,0,1,1,3,1,4,1,1,0,1,1,1,1,1,0,3,0,1,0,1,63,Hello World!
+54.Blue 3,Tyler Hignett ,54,b3,3173,0,1,1,0,5,3,1,5,1,0,0,0,0,2,1,0,1,5,-1,0,0,1,14,Hello World!
+54.Red 1,Runa Hunt,54,r1,6423,1,1,0,-1,4,1,1,3,0,0,1,1,1,-1,0,1,0,3,-1,1,1,1,126,Hello World!
+54.Red 2,Colby Jackson,54,r2,340,1,1,1,1,2,1,1,4,1,1,1,1,0,0,1,1,0,2,1,1,0,1,150,Hello World!
+54.Red 3,Tetra Ukav ,54,r3,432,0,1,1,-1,2,2,3,2,1,0,1,1,1,1,0,0,1,4,-1,0,1,1,27,Hello World!
+55.Blue 1,Eli Harrison,55,b1,578,0,1,0,-1,5,2,3,5,0,0,1,0,1,2,1,0,0,2,-1,1,0,1,113,Hello World!
+55.Blue 2,Jonah WoikaKai Wilbur,55,b2,378,1,0,0,0,5,1,1,5,0,0,0,1,0,3,0,0,1,2,-1,0,0,0,106,Hello World!
+55.Blue 3,Arthur Sayre,55,b3,639,0,0,1,1,5,2,1,1,0,0,0,1,1,3,0,1,1,1,1,1,0,0,103,Hello World!
+55.Red 1,Nicholas Munier,55,r1,325,1,0,0,1,4,2,2,5,0,1,1,0,1,3,0,0,1,5,-1,1,0,0,138,Hello World!
+55.Red 2,Autumn Schoenfeld,55,r2,424,1,0,0,1,5,2,2,5,0,0,1,1,0,0,0,1,1,3,0,0,0,1,199,Hello World!
+55.Red 3,Celton Norter,55,r3,3799,0,0,0,0,1,3,2,3,1,0,0,1,1,1,0,0,0,3,0,1,1,1,23,Hello World!
+56.Blue 1,Colby Jackson,56,b1,5528,1,1,1,0,5,3,2,2,1,0,1,0,0,2,1,1,1,5,-1,1,1,0,90,Hello World!
+56.Blue 2,Tyler Hignett ,56,b2,1518,0,0,1,0,1,1,2,4,0,0,0,1,0,2,0,1,0,2,0,1,1,1,218,Hello World!
+56.Blue 3,Amanah Obaji,56,b3,1559,1,0,0,0,5,2,1,1,0,0,0,1,1,1,1,1,0,3,1,1,0,0,110,Hello World!
+56.Red 1,Ethan Stiffler,56,r1,2228,0,0,0,-1,2,3,3,1,0,1,0,0,0,1,0,1,1,2,0,1,1,0,17,Hello World!
+56.Red 2,Tyler Hignett ,56,r2,3838,1,1,1,0,3,2,3,4,0,0,1,1,0,1,0,1,0,5,-1,0,0,1,17,Hello World!
+56.Red 3,Caitlin Munier,56,r3,3003,0,0,0,1,4,3,3,3,0,0,0,0,0,0,0,0,1,3,-1,0,1,0,242,Hello World!
+57.Blue 1,Autumn Schoenfeld,57,b1,7030,0,1,0,-1,1,2,2,3,0,0,0,0,0,0,1,0,1,1,0,1,0,0,34,Hello World!
+57.Blue 2,Nathan DeVito,57,b2,271,0,1,0,1,3,2,3,4,1,0,0,1,0,-1,0,0,0,5,0,1,0,0,35,Hello World!
+57.Blue 3,Tyler Hignett ,57,b3,1450,0,0,0,0,5,2,1,1,1,1,0,1,0,-1,1,1,1,1,0,0,1,0,29,Hello World!
+57.Red 1,Gianmarco D'Angelo,57,r1,10223,0,0,0,-1,1,2,3,3,1,1,0,1,1,0,0,1,1,1,1,1,0,0,296,Hello World!
+57.Red 2,Carter Silva,57,r2,5590,1,1,0,1,3,3,2,1,1,0,1,1,0,1,0,0,0,2,0,1,0,0,159,Hello World!
+57.Red 3,Caitlin Munier,57,r3,1787,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,0,1,3,-1,1,1,0,228,Hello World!
+58.Blue 1,Andrew Crawford,58,b1,10922,0,0,0,0,3,2,2,1,0,1,0,1,1,0,1,1,1,2,0,0,1,0,52,Hello World!
+58.Blue 2,Nicholas Munier,58,b2,4458,0,1,1,1,5,2,2,1,0,1,0,1,0,2,1,1,0,1,-1,0,0,0,88,Hello World!
+58.Blue 3,Autumn Schoenfeld,58,b3,6947,0,0,1,-1,3,1,2,3,1,1,1,0,0,3,0,0,1,1,-1,1,1,1,37,Hello World!
+58.Red 1,Arthur Sayre,58,r1,694,0,0,1,-1,1,1,3,3,0,0,1,0,0,-1,1,1,1,2,0,0,1,1,34,Hello World!
+58.Red 2,Autumn Schoenfeld,58,r2,191,0,0,0,-1,5,3,1,5,1,1,1,0,1,-1,0,1,1,2,-1,0,1,1,152,Hello World!
+58.Red 3,Celton Norter,58,r3,1126,0,0,0,1,4,1,3,5,0,0,1,1,0,-1,0,0,1,4,0,0,0,0,21,Hello World!
+59.Blue 1,Colby Jackson,59,b1,20,0,0,0,-1,3,3,2,4,1,1,0,1,0,0,1,0,1,2,0,1,1,0,252,Hello World!
+59.Blue 2,Tyler Hignett ,59,b2,7903,0,1,1,0,3,1,2,4,1,1,0,0,1,3,0,0,0,5,1,1,0,0,58,Hello World!
+59.Blue 3,Autumn Schoenfeld,59,b3,1511,1,1,1,0,5,2,1,4,1,0,1,1,0,1,1,0,0,5,1,1,1,0,90,Hello World!
+59.Red 1,Andrew Crawford,59,r1,1507,0,1,1,-1,2,1,2,4,0,0,1,0,0,-1,0,0,0,3,-1,0,0,1,294,Hello World!
+59.Red 2,Caitlin Munier,59,r2,1591,1,0,0,-1,3,3,2,1,0,1,1,1,1,1,0,0,0,4,1,1,1,0,197,Hello World!
+59.Red 3,Matthew Mazzota,59,r3,1585,0,1,1,1,1,2,1,1,1,1,1,1,0,3,1,1,0,5,1,0,0,0,11,Hello World!
+60.Blue 1,Celton Norter,60,b1,340,0,0,0,1,2,2,1,1,0,1,0,0,1,-1,1,0,0,3,-1,0,0,0,106,Hello World!
+60.Blue 2,Dean Blanchard,60,b2,9767,0,1,1,-1,4,3,3,3,1,0,0,1,0,3,1,0,1,2,0,1,1,0,285,Hello World!
+60.Blue 3,Tetra Ukav ,60,b3,4930,1,1,0,0,2,2,3,5,0,1,0,1,1,0,0,0,1,3,0,1,0,1,154,Hello World!
+60.Red 1,Domenic Giammusso,60,r1,3015,0,1,0,-1,2,3,3,4,1,1,0,1,0,0,0,1,1,3,1,0,0,0,20,Hello World!
+60.Red 2,Nathan DeVito,60,r2,48,0,0,0,1,3,2,3,4,1,1,1,0,1,1,0,0,0,4,1,1,1,1,156,Hello World!
+60.Red 3,Runa Hunt,60,r3,4253,1,0,0,0,1,2,1,4,1,0,0,0,0,2,0,0,1,1,0,1,0,0,278,Hello World!
+61.Blue 1,Ethan Stiffler,61,b1,3799,0,0,1,-1,2,3,3,1,0,1,1,0,1,-1,0,0,1,2,1,0,0,1,24,Hello World!
+61.Blue 2,Ruth Christensen ,61,b2,432,0,1,0,0,4,2,2,3,0,0,0,0,1,3,0,1,0,1,0,1,0,1,31,Hello World!
+61.Blue 3,Tetra Ukav ,61,b3,3951,1,0,1,1,1,3,1,3,1,0,1,0,0,1,0,1,0,3,-1,0,1,1,221,Hello World!
+61.Red 1,Tetra Ukav ,61,r1,6423,1,1,0,1,5,3,1,2,1,1,0,0,1,-1,1,0,0,5,0,1,0,0,6,Hello World!
+61.Red 2,Colby Jackson,61,r2,1781,1,0,0,0,1,3,2,1,1,0,1,0,1,1,0,1,1,3,-1,0,1,0,165,Hello World!
+61.Red 3,Matthew Mazzota,61,r3,424,0,1,0,0,3,2,3,2,1,0,0,1,0,2,1,0,1,2,1,0,0,1,109,Hello World!
+62.Blue 1,Amanah Obaji,62,b1,353,1,0,0,0,4,2,1,2,1,1,1,1,0,-1,1,0,1,3,0,1,0,0,105,Hello World!
+62.Blue 2,Amanah Obaji,62,b2,9016,1,0,1,1,3,1,3,4,0,0,1,0,0,1,1,0,0,5,0,1,1,1,19,Hello World!
+62.Blue 3,Nicholas Munier,62,b3,564,0,1,1,0,1,1,2,4,0,0,0,0,1,2,1,1,1,4,0,0,0,0,275,Hello World!
+62.Red 1,Colby Jackson,62,r1,3181,0,1,1,1,3,2,3,5,1,0,1,1,1,3,0,1,1,4,1,0,0,0,228,Hello World!
+62.Red 2,Connor Rapp,62,r2,6868,1,0,0,1,2,3,3,1,1,1,1,0,1,1,1,0,1,2,1,0,1,1,115,Hello World!
+62.Red 3,Celton Norter,62,r3,578,1,0,1,-1,2,1,2,5,0,0,1,1,1,-1,1,1,1,5,0,0,1,1,205,Hello World!
+63.Blue 1,Domenic Giammusso,63,b1,1056,0,1,1,1,1,3,2,4,0,0,1,1,1,2,0,1,1,4,0,1,0,0,32,Hello World!
+63.Blue 2,Carter Silva,63,b2,325,0,1,0,1,5,1,3,4,0,0,1,0,0,2,1,1,1,4,-1,1,0,1,185,Hello World!
+63.Blue 3,Eli Harrison,63,b3,144,0,1,1,-1,4,3,2,1,1,1,0,1,0,-1,1,1,1,5,0,1,0,1,63,Hello World!
+63.Red 1,Celton Norter,63,r1,1405,1,0,1,0,5,1,1,1,1,0,0,0,0,1,0,0,0,4,-1,1,0,0,293,Hello World!
+63.Red 2,Amanah Obaji,63,r2,3173,1,1,1,-1,5,2,2,4,1,1,1,0,0,-1,0,0,0,1,1,1,0,1,53,Hello World!
+63.Red 3,Nathan DeVito,63,r3,2340,0,1,0,1,1,1,2,2,0,1,0,1,0,1,0,1,0,3,-1,0,1,0,17,Hello World!
+64.Blue 1,Runa Hunt,64,b1,3044,1,0,0,-1,4,2,1,1,0,1,0,0,0,3,0,1,0,5,1,0,1,0,150,Hello World!
+64.Blue 2,Ethan Stiffler,64,b2,810,0,1,0,0,2,1,1,3,0,1,0,1,1,3,1,0,0,4,0,0,1,1,139,Hello World!
+64.Blue 3,Dean Blanchard,64,b3,639,0,0,1,0,3,2,3,5,0,1,0,1,0,2,0,1,0,4,1,1,0,0,50,Hello World!
+64.Red 1,Ruth Christensen ,64,r1,4093,0,0,1,0,4,1,2,5,1,0,1,0,0,-1,0,0,0,5,-1,0,1,0,174,Hello World!
+64.Red 2,Madison DeCicca,64,r2,1468,1,1,0,0,1,2,3,1,0,1,0,1,1,-1,0,1,0,3,-1,1,1,0,289,Hello World!
+64.Red 3,Celton Norter,64,r3,378,0,0,0,-1,3,2,1,3,1,0,1,1,1,3,1,0,1,5,-1,1,1,1,279,Hello World!
+65.Blue 1,Ruth Christensen ,65,b1,7903,0,0,1,1,5,1,3,5,0,0,0,0,0,3,0,0,1,2,-1,0,1,1,220,Hello World!
+65.Blue 2,Colby Jackson,65,b2,1126,0,0,0,-1,2,3,2,5,1,1,1,1,1,3,0,0,1,5,1,1,0,0,161,Hello World!
+65.Blue 3,Autumn Schoenfeld,65,b3,1518,0,0,1,-1,2,3,1,1,1,1,0,1,0,3,1,1,0,4,-1,0,1,1,180,Hello World!
+65.Red 1,Tetra Ukav ,65,r1,8503,1,0,0,0,3,2,3,3,1,0,1,0,0,2,1,0,0,3,1,1,1,0,23,Hello World!
+65.Red 2,Runa Hunt,65,r2,1559,1,0,0,1,1,1,1,3,1,0,0,1,0,0,0,0,0,5,-1,1,1,0,210,Hello World!
+65.Red 3,Tyler Hignett ,65,r3,7030,0,1,1,1,5,3,1,2,0,0,1,1,1,0,1,1,1,2,1,1,0,1,41,Hello World!
+66.Blue 1,Ruth Christensen ,66,b1,6947,0,0,0,-1,4,3,3,1,1,0,0,1,1,0,0,0,0,5,0,0,0,0,100,Hello World!
+66.Blue 2,Madison DeCicca,66,b2,3003,0,0,0,-1,3,3,2,4,0,0,0,1,0,0,1,0,1,5,0,1,0,1,57,Hello World!
+66.Blue 3,Gianmarco D'Angelo,66,b3,340,1,0,1,0,1,1,3,3,0,1,1,1,1,2,1,0,0,2,1,1,1,1,38,Hello World!
+66.Red 1,Tyler Hignett ,66,r1,1591,0,1,1,1,1,2,2,5,1,0,0,1,0,0,0,0,0,2,1,0,0,1,271,Hello World!
+66.Red 2,Arthur Sayre,66,r2,20,1,1,1,-1,2,1,1,4,1,0,1,0,0,3,0,0,0,2,-1,0,1,0,258,Hello World!
+66.Red 3,Amanah Obaji,66,r3,2228,0,0,0,1,3,1,1,1,0,1,1,0,0,0,1,0,0,5,-1,0,1,1,114,Hello World!
+67.Blue 1,Celton Norter,67,b1,1511,1,0,1,-1,5,1,3,3,1,0,1,1,1,1,1,0,0,4,0,0,1,0,17,Hello World!
+67.Blue 2,Domenic Giammusso,67,b2,3015,0,0,1,0,3,1,3,3,0,1,1,0,0,0,0,0,1,1,-1,0,0,0,98,Hello World!
+67.Blue 3,Andrew Crawford,67,b3,5590,0,1,1,-1,5,1,2,4,1,1,1,1,0,2,0,1,0,4,-1,1,0,1,277,Hello World!
+67.Red 1,Eli Harrison,67,r1,432,0,1,0,-1,4,2,3,5,1,0,1,0,0,-1,0,0,0,2,-1,1,0,1,181,Hello World!
+67.Red 2,Jonah WoikaKai Wilbur,67,r2,424,0,1,0,0,3,2,2,2,1,1,0,0,1,3,0,1,1,1,-1,0,1,1,212,Hello World!
+67.Red 3,Celton Norter,67,r3,694,0,1,0,0,2,1,3,3,0,1,1,0,1,1,0,0,1,4,1,1,0,1,11,Hello World!
+68.Blue 1,Domenic Giammusso,68,b1,3838,0,1,0,-1,2,3,2,4,1,0,0,0,0,-1,0,0,1,2,0,0,0,0,144,Hello World!
+68.Blue 2,Andrew Crawford,68,b2,578,1,1,0,0,1,3,1,3,0,1,1,0,1,3,0,0,0,1,1,1,1,0,3,Hello World!
+68.Blue 3,Dean Blanchard,68,b3,1507,0,1,0,1,3,2,2,1,1,0,0,1,0,2,1,0,1,2,0,1,1,0,40,Hello World!
+68.Red 1,Arthur Sayre,68,r1,6423,1,0,1,-1,3,3,1,1,0,1,0,0,1,2,0,0,0,4,0,0,1,1,42,Hello World!
+68.Red 2,Amanah Obaji,68,r2,1585,0,1,0,1,4,1,1,3,1,0,1,1,1,2,1,0,1,2,0,1,1,0,184,Hello World!
+68.Red 3,Matthew Mazzota,68,r3,10223,1,1,1,-1,3,1,1,4,0,1,0,1,1,-1,1,1,0,2,0,0,1,1,56,Hello World!
+69.Blue 1,Connor Rapp,69,b1,1405,1,0,1,-1,3,2,2,5,0,1,1,0,1,0,0,0,0,1,-1,0,1,1,253,Hello World!
+69.Blue 2,Ruth Christensen ,69,b2,6868,0,1,0,-1,1,2,1,2,1,0,1,1,1,3,1,0,1,4,-1,1,1,1,127,Hello World!
+69.Blue 3,Nathan DeVito,69,b3,10922,0,0,1,0,3,1,2,4,1,1,0,0,0,2,0,1,0,2,0,1,0,1,9,Hello World!
+69.Red 1,Amanah Obaji,69,r1,3799,1,1,1,0,4,1,2,2,0,0,1,1,0,1,0,1,0,2,-1,1,1,1,211,Hello World!
+69.Red 2,Eli Harrison,69,r2,2340,1,0,1,1,2,1,2,2,0,0,1,1,1,-1,0,1,0,1,0,0,0,1,6,Hello World!
+69.Red 3,Caitlin Munier,69,r3,1450,1,1,0,0,2,1,1,3,0,1,0,1,0,0,0,1,1,3,-1,0,0,1,278,Hello World!
+70.Blue 1,Eli Harrison,70,b1,810,0,0,0,1,1,1,2,3,1,1,0,0,1,-1,0,1,1,2,0,0,1,0,264,Hello World!
+70.Blue 2,Jonah WoikaKai Wilbur,70,b2,9767,1,0,1,-1,5,1,2,2,1,0,1,1,1,0,0,0,0,2,1,0,0,0,37,Hello World!
+70.Blue 3,Dean Blanchard,70,b3,378,0,1,0,0,2,1,2,3,1,0,1,1,0,3,1,1,0,3,0,0,0,1,178,Hello World!
+70.Red 1,Tyler Hignett ,70,r1,9016,0,1,1,-1,1,1,3,2,1,0,1,0,0,1,1,0,1,2,0,0,1,0,258,Hello World!
+70.Red 2,Connor Rapp,70,r2,271,1,0,1,-1,5,1,2,3,1,1,0,0,0,1,1,0,1,4,1,0,0,0,104,Hello World!
+70.Red 3,Nicholas Munier,70,r3,3173,0,0,1,-1,3,2,1,2,0,1,1,1,1,2,0,0,1,5,-1,1,0,1,183,Hello World!
+71.Blue 1,Tyler Hignett ,71,b1,144,1,1,1,1,3,1,1,2,1,1,1,1,0,2,0,0,0,4,0,0,0,1,123,Hello World!
+71.Blue 2,Amanah Obaji,71,b2,1787,0,1,0,1,1,3,2,4,0,1,0,1,1,1,1,0,1,5,0,0,1,1,276,Hello World!
+71.Blue 3,Arthur Sayre,71,b3,639,1,0,0,-1,2,2,2,3,1,1,0,0,0,-1,0,1,0,3,0,1,0,1,270,Hello World!
+71.Red 1,Colby Jackson,71,r1,4458,0,1,0,1,4,3,1,2,1,1,0,0,0,2,1,0,1,5,-1,0,1,0,260,Hello World!
+71.Red 2,Caitlin Munier,71,r2,4253,0,0,0,0,5,2,1,1,0,1,0,0,1,2,0,1,0,2,-1,1,0,0,278,Hello World!
+71.Red 3,Ruth Christensen ,71,r3,4930,1,1,0,0,2,2,1,2,0,1,0,0,0,0,1,1,1,1,0,0,0,0,127,Hello World!
+72.Blue 1,Nicholas Munier,72,b1,3044,0,1,1,1,4,1,3,1,0,0,1,1,1,-1,0,1,1,3,1,0,1,0,194,Hello World!
+72.Blue 2,Jonah WoikaKai Wilbur,72,b2,3181,0,1,1,-1,4,3,3,1,1,1,1,1,1,0,1,1,0,3,-1,1,1,1,140,Hello World!
+72.Blue 3,Domenic Giammusso,72,b3,4093,1,0,1,-1,3,2,1,2,0,0,0,0,0,-1,1,0,1,4,0,0,1,1,39,Hello World!
+72.Red 1,Andrew Crawford,72,r1,8503,1,1,1,1,1,1,3,4,1,1,0,0,1,1,1,1,0,4,0,0,0,1,36,Hello World!
+72.Red 2,Runa Hunt,72,r2,48,0,1,0,-1,4,1,3,4,1,1,0,0,1,3,1,1,0,4,0,0,1,0,299,Hello World!
+72.Red 3,Tetra Ukav ,72,r3,5528,0,1,1,-1,2,2,1,1,0,0,0,1,0,1,1,0,0,5,1,1,0,1,279,Hello World!
+73.Blue 1,Celton Norter,73,b1,325,0,0,0,-1,5,3,3,1,0,0,1,1,1,0,0,1,1,5,-1,0,0,0,152,Hello World!
+73.Blue 2,Arthur Sayre,73,b2,191,1,0,0,1,5,1,3,1,1,1,1,0,0,3,0,0,1,4,1,0,1,0,235,Hello World!
+73.Blue 3,Eli Harrison,73,b3,1468,1,1,0,1,2,3,3,3,1,0,0,0,1,1,0,1,1,2,-1,1,0,1,31,Hello World!
+73.Red 1,Gianmarco D'Angelo,73,r1,3951,1,0,0,1,3,2,1,5,1,0,0,1,0,0,1,1,0,4,-1,1,1,1,122,Hello World!
+73.Red 2,Connor Rapp,73,r2,1056,0,0,0,0,5,1,1,1,1,0,1,1,1,1,1,1,1,3,0,0,0,0,40,Hello World!
+73.Red 3,Tyler Hignett ,73,r3,353,0,0,0,-1,3,1,2,4,1,0,0,0,0,2,0,1,1,4,-1,1,1,1,247,Hello World!
+74.Blue 1,Amanah Obaji,74,b1,564,0,1,1,0,1,3,3,3,0,1,0,1,1,1,0,1,1,1,-1,0,1,1,91,Hello World!
+74.Blue 2,Eli Harrison,74,b2,694,0,1,0,1,1,2,1,2,1,1,1,0,0,-1,1,0,0,2,-1,1,1,1,118,Hello World!
+74.Blue 3,Nicholas Munier,74,b3,20,1,1,0,-1,2,3,2,2,0,0,1,1,0,-1,1,1,1,3,0,0,1,0,254,Hello World!
+74.Red 1,Dean Blanchard,74,r1,1781,0,0,0,1,2,3,2,1,0,0,1,1,0,3,0,1,1,4,-1,0,1,0,32,Hello World!
+74.Red 2,Tetra Ukav ,74,r2,7903,1,1,0,1,3,3,1,5,1,1,0,0,1,1,0,0,1,4,0,1,0,0,80,Hello World!
+74.Red 3,Matthew Mazzota,74,r3,3838,1,0,0,-1,4,3,1,2,0,0,0,0,0,1,1,0,1,5,0,1,1,0,60,Hello World!
+75.Blue 1,Connor Rapp,75,b1,5590,0,0,0,-1,3,3,1,4,0,1,0,1,1,1,0,0,1,4,1,0,0,1,237,Hello World!
+75.Blue 2,Andrew Crawford,75,b2,1518,0,1,0,0,1,2,3,2,0,1,0,1,0,3,0,0,1,2,1,0,0,0,245,Hello World!
+75.Blue 3,Colby Jackson,75,b3,1405,0,1,0,-1,4,1,1,4,0,0,0,0,1,1,0,1,1,5,1,1,0,1,238,Hello World!
+75.Red 1,Tetra Ukav ,75,r1,578,1,1,0,0,1,2,2,1,0,1,0,1,0,1,0,1,1,5,-1,1,1,0,52,Hello World!
+75.Red 2,Nathan DeVito,75,r2,1591,1,0,0,1,3,3,3,4,0,0,1,0,0,2,1,0,0,3,-1,1,1,0,74,Hello World!
+75.Red 3,Matthew Mazzota,75,r3,340,1,0,1,0,1,3,3,2,1,0,1,1,1,1,1,1,0,4,-1,0,1,1,21,Hello World!
+76.Blue 1,Colby Jackson,76,b1,7030,1,0,1,-1,2,3,2,5,0,0,1,1,0,0,0,1,1,5,0,0,0,0,148,Hello World!
+76.Blue 2,Tyler Hignett ,76,b2,2340,0,1,0,1,1,1,2,3,1,0,1,0,1,0,1,0,0,4,0,0,1,0,187,Hello World!
+76.Blue 3,Arthur Sayre,76,b3,6423,1,1,1,1,4,3,1,1,1,0,1,1,1,-1,1,1,0,3,-1,0,0,1,18,Hello World!
+76.Red 1,Domenic Giammusso,76,r1,6947,0,1,1,0,4,2,3,1,1,1,1,0,0,2,1,0,1,2,1,1,1,1,118,Hello World!
+76.Red 2,Amanah Obaji,76,r2,1511,0,1,1,1,4,2,3,2,0,0,1,1,0,2,0,0,1,2,-1,1,1,0,148,Hello World!
+76.Red 3,Matthew Mazzota,76,r3,9767,1,0,1,1,2,1,2,3,1,1,0,1,0,0,1,0,0,2,1,1,1,1,48,Hello World!
+77.Blue 1,Jonah WoikaKai Wilbur,77,b1,1585,1,1,0,-1,3,3,1,4,0,0,0,0,0,3,0,1,1,4,0,0,1,1,84,Hello World!
+77.Blue 2,Autumn Schoenfeld,77,b2,810,1,0,0,-1,5,1,1,1,0,1,1,0,1,0,0,1,0,3,0,1,1,0,241,Hello World!
+77.Blue 3,Jonah WoikaKai Wilbur,77,b3,3015,0,0,0,0,3,2,1,1,0,0,1,1,0,-1,1,1,1,2,-1,0,1,1,144,Hello World!
+77.Red 1,Arthur Sayre,77,r1,3003,1,1,0,-1,3,3,3,2,0,0,0,1,0,2,0,1,1,5,-1,1,0,0,156,Hello World!
+77.Red 2,Eli Harrison,77,r2,4458,0,0,1,1,3,1,3,5,0,0,0,1,0,-1,1,0,0,2,0,0,1,0,258,Hello World!
+77.Red 3,Domenic Giammusso,77,r3,6868,1,0,0,0,1,1,1,1,0,1,0,1,0,1,1,1,0,4,0,0,0,0,36,Hello World!
+78.Blue 1,Gianmarco D'Angelo,78,b1,424,0,0,1,1,3,1,2,5,0,0,1,1,1,0,0,0,1,4,1,1,1,0,237,Hello World!
+78.Blue 2,Colby Jackson,78,b2,10223,0,0,1,0,3,2,1,3,0,0,0,0,1,0,0,0,1,4,1,1,0,1,170,Hello World!
+78.Blue 3,Colby Jackson,78,b3,5528,0,0,0,0,5,2,1,1,0,0,0,0,1,1,0,0,1,4,0,0,1,1,215,Hello World!
+78.Red 1,Carter Silva,78,r1,144,1,1,1,-1,5,2,3,4,1,1,1,0,0,0,0,0,0,4,1,1,0,1,172,Hello World!
+78.Red 2,Jonah WoikaKai Wilbur,78,r2,48,0,1,0,0,1,3,2,4,0,1,0,0,1,3,1,0,1,5,-1,0,1,1,20,Hello World!
+78.Red 3,Eli Harrison,78,r3,1126,0,0,1,1,1,1,3,5,0,0,1,0,0,0,0,0,1,1,-1,1,1,1,288,Hello World!
+79.Blue 1,Dean Blanchard,79,b1,1468,0,0,0,0,1,1,3,4,0,1,0,1,1,1,0,1,0,4,0,1,0,0,92,Hello World!
+79.Blue 2,Autumn Schoenfeld,79,b2,3799,1,0,1,0,5,2,1,2,0,1,0,0,1,2,0,0,1,2,1,0,1,0,7,Hello World!
+79.Blue 3,Ethan Stiffler,79,b3,3181,0,0,1,-1,3,2,3,1,0,1,1,1,1,0,0,1,0,1,0,1,0,0,108,Hello World!
+79.Red 1,Carter Silva,79,r1,1787,0,1,0,-1,5,3,1,4,1,0,1,0,1,-1,0,1,0,5,-1,1,0,0,99,Hello World!
+79.Red 2,Ruth Christensen ,79,r2,1450,1,0,0,1,4,3,3,4,0,0,0,0,0,2,0,0,1,5,1,1,0,0,81,Hello World!
+79.Red 3,Caitlin Munier,79,r3,191,1,0,1,-1,2,2,1,1,1,0,0,1,1,2,1,1,0,1,0,1,0,1,65,Hello World!
+80.Blue 1,Matthew Mazzota,80,b1,10922,1,0,0,0,1,3,2,4,1,0,0,0,1,1,1,0,0,2,0,1,1,0,298,Hello World!
+80.Blue 2,Gianmarco D'Angelo,80,b2,1559,0,1,0,-1,3,1,1,4,0,1,1,1,1,1,0,1,1,2,1,0,1,0,134,Hello World!
+80.Blue 3,Ethan Stiffler,80,b3,353,1,0,1,-1,5,3,3,4,1,1,1,1,1,1,1,1,1,3,0,0,1,1,101,Hello World!
+80.Red 1,Ruth Christensen ,80,r1,4093,1,0,1,1,4,2,3,2,0,0,1,1,0,2,0,1,1,5,0,1,0,1,156,Hello World!
+80.Red 2,Domenic Giammusso,80,r2,9016,1,0,0,1,2,2,1,5,0,0,0,0,1,3,1,1,1,1,-1,0,1,1,172,Hello World!
+80.Red 3,Carter Silva,80,r3,1781,1,1,1,-1,3,3,3,4,0,1,0,1,1,0,1,0,0,3,1,0,0,0,204,Hello World!
+81.Blue 1,Ruth Christensen ,81,b1,271,0,1,0,-1,3,3,3,4,1,0,0,1,1,2,0,1,0,5,-1,0,0,0,251,Hello World!
+81.Blue 2,Nathan DeVito,81,b2,3044,0,1,1,-1,5,2,1,4,1,1,1,0,0,1,0,1,0,2,0,1,1,1,174,Hello World!
+81.Blue 3,Dean Blanchard,81,b3,3951,1,0,1,-1,4,3,1,4,0,1,1,0,0,3,0,1,1,2,0,1,0,0,107,Hello World!
+81.Red 1,Gianmarco D'Angelo,81,r1,2228,0,0,0,-1,2,1,3,2,0,1,1,1,1,-1,1,0,0,2,0,1,1,1,249,Hello World!
+81.Red 2,Dean Blanchard,81,r2,4930,0,0,1,-1,2,2,3,4,1,1,1,1,1,2,0,0,0,1,0,0,0,0,292,Hello World!
+81.Red 3,Tetra Ukav ,81,r3,3173,0,0,0,0,1,2,3,1,0,1,1,1,1,1,1,0,1,1,-1,0,0,0,189,Hello World!
+82.Blue 1,Matthew Mazzota,82,b1,564,1,1,0,1,1,1,2,3,0,0,0,1,0,0,1,0,1,4,1,0,1,1,286,Hello World!
+82.Blue 2,Nathan DeVito,82,b2,8503,1,1,0,1,4,2,2,1,0,0,1,0,1,0,0,0,0,3,1,1,1,0,58,Hello World!
+82.Blue 3,Carter Silva,82,b3,1507,0,1,0,-1,4,1,1,2,0,0,0,1,0,1,1,0,1,2,1,1,1,0,296,Hello World!
+82.Red 1,Runa Hunt,82,r1,378,0,1,1,1,4,2,1,4,1,0,1,1,1,1,1,1,0,3,1,1,1,0,80,Hello World!
+82.Red 2,Arthur Sayre,82,r2,325,1,1,1,0,4,3,2,2,0,1,0,1,0,1,0,1,0,4,1,0,1,1,69,Hello World!
+82.Red 3,Arthur Sayre,82,r3,4253,1,0,0,-1,1,2,3,5,0,1,1,0,1,3,1,1,1,1,1,1,0,1,21,Hello World!
+83.Blue 1,Madison DeCicca,83,b1,432,1,1,1,0,3,3,1,5,0,1,1,0,1,1,1,1,0,5,0,0,1,1,209,Hello World!
+83.Blue 2,Connor Rapp,83,b2,3838,0,1,1,0,1,1,2,4,1,0,0,1,0,0,0,1,1,5,0,0,1,0,257,Hello World!
+83.Blue 3,Ruth Christensen ,83,b3,20,1,1,1,-1,3,2,3,2,0,0,0,0,0,3,0,0,0,3,0,1,1,0,183,Hello World!
+83.Red 1,Dean Blanchard,83,r1,1056,0,0,1,1,2,1,1,1,1,0,1,0,0,0,1,1,0,3,0,0,1,1,247,Hello World!
+83.Red 2,Celton Norter,83,r2,639,1,1,1,-1,1,1,1,4,1,0,1,1,0,1,1,1,1,5,-1,1,0,0,160,Hello World!
+83.Red 3,Eli Harrison,83,r3,7903,1,1,0,1,2,1,3,5,1,1,1,1,0,3,1,1,1,2,-1,0,1,1,80,Hello World!

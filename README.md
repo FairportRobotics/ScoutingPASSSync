@@ -17,19 +17,22 @@
 
 ## Purpose
 
-We can create a process where we:
+This project contains a number of scripts that help us prepare for upcoming FRC events by leveraging data from The Blue
+Alliance. These scripts include:
 
-1. Pull data for an Event from The Blue Alliance and cache locally as JSON.
-2. Pull the data from the stored JSON into Excel to provide a rich experience for tracking Scouting sessions.
+- Pull all events for a competition year from The Blue Alliance and cache locally as JSON.
+- Pull data for an Event from The Blue Alliance and cache locally as JSON.
+- Pull the data from the stored JSON into Excel to provide a rich experience for tracking Scouting sessions.
+- Pull the data from the stored JSON to produde a much smaller JavaScript file for use in the ScoutingApp.
 
 <!-- Prerequisites -->
 <div id="prerequisites"></div>
 
 ## Prerequisites
 
-1. Python 3.12 or greater
-2. Microsoft Excel
-3. Configure `The Blue Alliance\.env` to speficy The Blue Alliance API key and other lookups.
+1. Python 3.12 or greater (to execute these scripts)
+2. Microsoft Excel or Libre Office (for using spreadsheets)
+3. API Key from [The Blue Alliance](https://www.thebluealliance.com/apidocs/v3).
 
 Additionally, the following Python packages need to be installed using the commands below:
 

@@ -168,7 +168,14 @@ def prepare_sheet_matches():
 
     # Set the conditional formatting rules.
     fill_scouted = PatternFill(start_color="C8D6A1", end_color="C8D6A1", fill_type="solid")
-    fill_scouted_multiple = PatternFill(start_color="D09996", end_color="D09996", fill_type="solid")
+    fill_duplicate_match = PatternFill(start_color="FFFF54", end_color="FFFF54", fill_type="solid")
+    fill_wrong_team = PatternFill(start_color="F5C242", end_color="F5C242", fill_type="solid")
+
+    # Match has not yet been scouted    : white
+    # Match has been scouted            : green
+    # Match was scouted more than once  : yellow
+    # Wrong team was scouted            : red
+
 
     # Read the JSON data from the file.
     with open(os.path.join(current_directory, f"{tbaEventKey}.matches.json"), "r") as f:
@@ -193,7 +200,7 @@ def prepare_sheet_matches():
 
         # Add conditional formatting that cannot be applied to a range.
         for col in ["C", "D", "E", "F", "G", "H"]:
-            scouted_wrong_team = FormulaRule(formula=[f"=IF(VLOOKUP(CONCATENATE($A{row_num}, \".\", ${col}$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE) = ${col}{row_num}, FALSE, TRUE)"], font=font_error)
+            scouted_wrong_team = FormulaRule(formula=[f"=IF(VLOOKUP(CONCATENATE($A{row_num}, \".\", ${col}$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE) = ${col}{row_num}, FALSE, TRUE)"], fill=fill_wrong_team)
             ws.conditional_formatting.add(f"{col}{row_num}", scouted_wrong_team)
 
   
@@ -208,21 +215,21 @@ def prepare_sheet_matches():
     # Add conditional formatting rules that can be applied to a range.
     # =COUNTIF(Where do you want to look?, What do you want to look for?)
     rule_scouted = FormulaRule(formula=["=COUNTIF(MatchScoutingData!$A$2:$A$1000, CONCATENATE($A2,\".\",C$1)) = 1"], fill=fill_scouted)
-    rule_scouted_multiple = FormulaRule(formula=["=COUNTIF(MatchScoutingData!$A$2:$A$1000, CONCATENATE($A2,\".\",C$1)) > 1"], fill=fill_scouted_multiple)
+    rule_scouted_multiple = FormulaRule(formula=["=COUNTIF(MatchScoutingData!$A$2:$A$1000, CONCATENATE($A2,\".\",C$1)) > 1"], fill=fill_duplicate_match)
     ws.conditional_formatting.add("C2:H1000", rule_scouted)
     ws.conditional_formatting.add("C2:H1000", rule_scouted_multiple)
 
     # Provide a key so it is wasy to understand conditional formatting.
-    ws[f"J2"] = "Match was not Scouted (incorrect)"
-    ws[f"J4"] = "Match was Scouted once (correct)"
-    ws[f"J6"] = "Match was Scouted twice (incorrect)"
-    ws[f"J8"] = "Team was Scouted twice (incorrect)"
+    ws[f"J2"] = "Match has not yet been scouted"
+    ws[f"J3"] = "Match has been scouted"
+    ws[f"J4"] = "Match was scouted more than once"
+    ws[f"J5"] = "Wrong team was scouted"
 
     # Apply formats to the key.
     apply_formats(ws, [
-        { "range": f"J4:J4", "fill": fill_scouted },
-        { "range": f"J6:J6", "fill": fill_scouted_multiple },
-        { "range": f"J8:J8", "font": font_error, "fill": fill_scouted  },
+        { "range": f"J3:J3", "fill": fill_scouted },
+        { "range": f"J4:J4", "fill": fill_duplicate_match },
+        { "range": f"J5:J5", "fill": fill_wrong_team  },
     ])    
 
 
@@ -429,3 +436,4 @@ prepare_sheet_team_summary()
 # And finally, save the spreadsheet.
 status(f"Saving to {ouput_file_name}...")
 wb.save(ouput_file_name)
+

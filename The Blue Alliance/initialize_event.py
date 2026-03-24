@@ -28,16 +28,6 @@ if tbaEventKey is None:
     raise ValueError("TBA_EVENT_KEY is not set")
 
 
-# Validate arguments.
-if tbaEventYear == "":
-    status("No event year provided.")
-    exit()
-
-if tbaAuthKey == "":
-    status("No TBA Auth key provided.")
-    exit()         
-
-
 # Define folder paths.
 current_directory = os.path.dirname(os.path.abspath(__file__))
 target_year_directory = os.path.join(current_directory, "Game Years", tbaEventYear)
