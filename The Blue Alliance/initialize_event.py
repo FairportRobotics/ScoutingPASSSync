@@ -189,7 +189,7 @@ def copy_env():
     try:
         shutil.copy2(source, dest)
     except:
-        status("ERROR: Unable to copy")   
+        status("ERROR: Unable to copy")
 
 
 fetch_event()
