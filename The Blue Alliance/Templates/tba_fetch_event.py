@@ -8,6 +8,11 @@ from dotenv import load_dotenv
 # Load the .env file and all environment variables.
 load_dotenv()
 
+# Define the status function.
+def status(message):
+    print(f"{datetime.now()}: {message}")
+
+
 # Retrieve values from .env.
 tbaEventYear = os.getenv("EVENT_YEAR")
 if tbaEventYear is None:
@@ -22,10 +27,6 @@ if tbaAuthKey is None:
     raise ValueError("TBA_AUTH_KEY is not set")
 
 tbaAuthHeader =  {"X-TBA-Auth-Key": tbaAuthKey}
-
-# Define the status function.
-def status(message):
-    print(f"{datetime.now()}: {message}")
 
 # Make sure the root path exists.
 rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data", f"{tbaEventYear}", f"{tbaEventKey}"))

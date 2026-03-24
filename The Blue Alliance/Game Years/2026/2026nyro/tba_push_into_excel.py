@@ -39,27 +39,27 @@ ouput_file_name = os.path.join(current_directory, f"{tbaEventKey}.xlsx")
 
 
 # Set constants we can use.
-font_header = Font(bold=True, size=12, color="FFFFFF")
-font_data   = Font(bold=False, size=12, color="000000")
-font_error   = Font(bold=True, size=12, color="FF0000")
+font_header    = Font(bold=True,  size=12, color="FFFFFF")
+font_data      = Font(bold=False, size=12, color="000000")
 
 align_center   = Alignment(horizontal="center", vertical="center")
-align_vertical = Alignment(horizontal="left", vertical="bottom", text_rotation=90) 
+align_vertical = Alignment(horizontal="left",   vertical="bottom", text_rotation=90) 
 
-fill_default = PatternFill(start_color="595959", end_color="595959", fill_type="solid") 
-fill_blue    = PatternFill(start_color="2471a3", end_color="2471a3", fill_type="solid")   
-fill_red     = PatternFill(start_color="cb4335", end_color="cb4335", fill_type="solid")   
-fill_green   = PatternFill(start_color="229954", end_color="229954", fill_type="solid")   
-fill_orange  = PatternFill(start_color="D68910", end_color="D68910", fill_type="solid")  
+fill_default   = PatternFill(start_color="595959", end_color="595959", fill_type="solid") 
+fill_blue      = PatternFill(start_color="2471A3", end_color="2471A3", fill_type="solid")   
+fill_red       = PatternFill(start_color="CB4335", end_color="CB4335", fill_type="solid")   
+fill_green     = PatternFill(start_color="229954", end_color="229954", fill_type="solid")   
+fill_orange    = PatternFill(start_color="D68910", end_color="D68910", fill_type="solid")  
 
 color_scale_rule = ColorScaleRule(
-    start_type="min", start_color="cb4335",                     # Red for minimum value
+    start_type="min", start_color="CB4335",                     # Red for minimum value
     mid_type="percentile", mid_value=50, mid_color="D68910",    # Yellow for mid value
     end_type="max", end_color="229954"                          # Green for maximum value
 )
 
 format_comma = '#,##0;-[Red]#,##0;"-"'
 format_percent = '0.0%'
+
 
 # Load the workbook and save it as the destination workbook.
 status(f"Preparing the spreadsheet: {ouput_file_name}")
@@ -239,7 +239,7 @@ def prepare_sheet_team_scores():
     # Capture the extents of the sheet and data.
     start_row = 3
     record_count = len(data)
-    last_row = start_row + record_count - 1
+    end_row = start_row + record_count - 1
 
     # Open the Teams sheet.
     ws = wb["Team Scores"]
@@ -289,8 +289,11 @@ def prepare_sheet_team_scores():
   
     # Apply formatting to the sheet.
     apply_formats(ws, [
+        # Team / Scouted Count
+        { "range": f"A{start_row}:B{end_row}", "font": font_header, "fill": fill_default },
+
         # Format the data cells.
-        { "range": f"B{start_row}:Z{last_row}", "font": font_data, "number_format": format_comma },        
+        { "range": f"C{start_row}:Z{end_row}", "font": font_data, "number_format": format_comma },        
     ])
 
 
@@ -307,8 +310,6 @@ def prepare_sheet_team_summary():
     record_count = len(data)
     start_row = 3
     end_row = start_row + record_count - 1
-    source_start_row = 3
-    source_end_row = source_start_row + record_count - 1        
 
     # Open the Teams sheet.
     ws = wb["Team Summary"]
@@ -366,11 +367,11 @@ def prepare_sheet_team_summary():
 
     # Apply the formats to the cells.
     apply_formats(ws, [
-        # Team
-        { "range": f"A{start_row}:A{end_row}", "font": font_header, "fill": fill_default },
+        # Team / Scouted Count
+        { "range": f"A{start_row}:B{end_row}", "font": font_header, "fill": fill_default },
 
         # All data cells.
-        { "range": f"B{start_row}:B{end_row}", "number_format": format_comma },
+        #{ "range": f"B{start_row}:B{end_row}", "number_format": format_comma },
         { "range": f"C{start_row}:AE{end_row}", "number_format": format_percent },
     ])
 

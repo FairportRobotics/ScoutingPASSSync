@@ -26,6 +26,7 @@ tbaEventKey = os.getenv("TBA_EVENT_KEY")
 if tbaEventKey is None:
     raise ValueError("TBA_EVENT_KEY is not set")
 
+
 # Get the directory of the current script
 current_directory = os.path.dirname(os.path.abspath(__file__))
 

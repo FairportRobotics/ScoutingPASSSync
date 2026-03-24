@@ -39,27 +39,27 @@ ouput_file_name = os.path.join(current_directory, f"{tbaEventKey}.xlsx")
 
 
 # Set constants we can use.
-font_header = Font(bold=True, size=12, color="FFFFFF")
-font_data   = Font(bold=False, size=12, color="000000")
-font_error   = Font(bold=True, size=12, color="FF0000")
+font_header    = Font(bold=True,  size=12, color="FFFFFF")
+font_data      = Font(bold=False, size=12, color="000000")
 
 align_center   = Alignment(horizontal="center", vertical="center")
-align_vertical = Alignment(horizontal="left", vertical="bottom", text_rotation=90) 
+align_vertical = Alignment(horizontal="left",   vertical="bottom", text_rotation=90) 
 
-fill_default = PatternFill(start_color="595959", end_color="595959", fill_type="solid") 
-fill_blue    = PatternFill(start_color="2471a3", end_color="2471a3", fill_type="solid")   
-fill_red     = PatternFill(start_color="cb4335", end_color="cb4335", fill_type="solid")   
-fill_green   = PatternFill(start_color="229954", end_color="229954", fill_type="solid")   
-fill_orange  = PatternFill(start_color="D68910", end_color="D68910", fill_type="solid")  
+fill_default   = PatternFill(start_color="595959", end_color="595959", fill_type="solid") 
+fill_blue      = PatternFill(start_color="2471A3", end_color="2471A3", fill_type="solid")   
+fill_red       = PatternFill(start_color="CB4335", end_color="CB4335", fill_type="solid")   
+fill_green     = PatternFill(start_color="229954", end_color="229954", fill_type="solid")   
+fill_orange    = PatternFill(start_color="D68910", end_color="D68910", fill_type="solid")  
 
 color_scale_rule = ColorScaleRule(
-    start_type="min", start_color="cb4335",                     # Red for minimum value
+    start_type="min", start_color="CB4335",                     # Red for minimum value
     mid_type="percentile", mid_value=50, mid_color="D68910",    # Yellow for mid value
     end_type="max", end_color="229954"                          # Green for maximum value
 )
 
 format_comma = '#,##0;-[Red]#,##0;"-"'
 format_percent = '0.0%'
+
 
 # Load the workbook and save it as the destination workbook.
 status(f"Preparing the spreadsheet: {ouput_file_name}")
@@ -168,7 +168,8 @@ def prepare_sheet_matches():
 
     # Set the conditional formatting rules.
     fill_scouted = PatternFill(start_color="C8D6A1", end_color="C8D6A1", fill_type="solid")
-    fill_scouted_multiple = PatternFill(start_color="D09996", end_color="D09996", fill_type="solid")
+    fill_duplicate_match = PatternFill(start_color="FFFF54", end_color="FFFF54", fill_type="solid")
+    fill_wrong_team = PatternFill(start_color="F5C242", end_color="F5C242", fill_type="solid")
 
     # Read the JSON data from the file.
     with open(os.path.join(current_directory, f"{tbaEventKey}.matches.json"), "r") as f:
@@ -193,7 +194,7 @@ def prepare_sheet_matches():
 
         # Add conditional formatting that cannot be applied to a range.
         for col in ["C", "D", "E", "F", "G", "H"]:
-            scouted_wrong_team = FormulaRule(formula=[f"=IF(VLOOKUP(CONCATENATE($A{row_num}, \".\", ${col}$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE) = ${col}{row_num}, FALSE, TRUE)"], font=font_error)
+            scouted_wrong_team = FormulaRule(formula=[f"=IF(VLOOKUP(CONCATENATE($A{row_num}, \".\", ${col}$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE) = ${col}{row_num}, FALSE, TRUE)"], fill=fill_wrong_team)
             ws.conditional_formatting.add(f"{col}{row_num}", scouted_wrong_team)
 
   
@@ -208,21 +209,21 @@ def prepare_sheet_matches():
     # Add conditional formatting rules that can be applied to a range.
     # =COUNTIF(Where do you want to look?, What do you want to look for?)
     rule_scouted = FormulaRule(formula=["=COUNTIF(MatchScoutingData!$A$2:$A$1000, CONCATENATE($A2,\".\",C$1)) = 1"], fill=fill_scouted)
-    rule_scouted_multiple = FormulaRule(formula=["=COUNTIF(MatchScoutingData!$A$2:$A$1000, CONCATENATE($A2,\".\",C$1)) > 1"], fill=fill_scouted_multiple)
+    rule_scouted_multiple = FormulaRule(formula=["=COUNTIF(MatchScoutingData!$A$2:$A$1000, CONCATENATE($A2,\".\",C$1)) > 1"], fill=fill_duplicate_match)
     ws.conditional_formatting.add("C2:H1000", rule_scouted)
     ws.conditional_formatting.add("C2:H1000", rule_scouted_multiple)
 
     # Provide a key so it is wasy to understand conditional formatting.
-    ws[f"J2"] = "Match was not Scouted (incorrect)"
-    ws[f"J4"] = "Match was Scouted once (correct)"
-    ws[f"J6"] = "Match was Scouted twice (incorrect)"
-    ws[f"J8"] = "Team was Scouted twice (incorrect)"
+    ws[f"J2"] = "Match has not yet been scouted"
+    ws[f"J3"] = "Match has been scouted"
+    ws[f"J4"] = "Match was scouted more than once"
+    ws[f"J5"] = "Wrong team was scouted"
 
     # Apply formats to the key.
     apply_formats(ws, [
-        { "range": f"J4:J4", "fill": fill_scouted },
-        { "range": f"J6:J6", "fill": fill_scouted_multiple },
-        { "range": f"J8:J8", "font": font_error, "fill": fill_scouted  },
+        { "range": f"J3:J3", "fill": fill_scouted },
+        { "range": f"J4:J4", "fill": fill_duplicate_match },
+        { "range": f"J5:J5", "fill": fill_wrong_team  },
     ])    
 
 
@@ -238,7 +239,7 @@ def prepare_sheet_team_scores():
     # Capture the extents of the sheet and data.
     start_row = 3
     record_count = len(data)
-    last_row = start_row + record_count - 1
+    end_row = start_row + record_count - 1
 
     # Open the Teams sheet.
     ws = wb["Team Scores"]
@@ -288,8 +289,11 @@ def prepare_sheet_team_scores():
   
     # Apply formatting to the sheet.
     apply_formats(ws, [
+        # Team / Scouted Count
+        { "range": f"A{start_row}:B{end_row}", "font": font_header, "fill": fill_default },
+
         # Format the data cells.
-        { "range": f"B{start_row}:Z{last_row}", "font": font_data, "number_format": format_comma },        
+        { "range": f"C{start_row}:Z{end_row}", "font": font_data, "number_format": format_comma },        
     ])
 
 
@@ -306,8 +310,6 @@ def prepare_sheet_team_summary():
     record_count = len(data)
     start_row = 3
     end_row = start_row + record_count - 1
-    source_start_row = 3
-    source_end_row = source_start_row + record_count - 1        
 
     # Open the Teams sheet.
     ws = wb["Team Summary"]
@@ -365,11 +367,11 @@ def prepare_sheet_team_summary():
 
     # Apply the formats to the cells.
     apply_formats(ws, [
-        # Team
-        { "range": f"A{start_row}:A{end_row}", "font": font_header, "fill": fill_default },
+        # Team / Scouted Count
+        { "range": f"A{start_row}:B{end_row}", "font": font_header, "fill": fill_default },
 
         # All data cells.
-        { "range": f"B{start_row}:B{end_row}", "number_format": format_comma },
+        #{ "range": f"B{start_row}:B{end_row}", "number_format": format_comma },
         { "range": f"C{start_row}:AE{end_row}", "number_format": format_percent },
     ])
 
@@ -429,3 +431,4 @@ prepare_sheet_team_summary()
 # And finally, save the spreadsheet.
 status(f"Saving to {ouput_file_name}...")
 wb.save(ouput_file_name)
+
