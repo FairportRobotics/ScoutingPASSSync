@@ -166,11 +166,9 @@ def prepare_sheet_teams():
 def prepare_sheet_matches():
     status("Pushing Match data...")
 
-
     # Set the conditional formatting rules.
     fill_scouted = PatternFill(start_color="C8D6A1", end_color="C8D6A1", fill_type="solid")
     fill_scouted_multiple = PatternFill(start_color="D09996", end_color="D09996", fill_type="solid")
-
 
     # Read the JSON data from the file.
     with open(os.path.join(current_directory, f"{tbaEventKey}.matches.json"), "r") as f:
@@ -193,20 +191,7 @@ def prepare_sheet_matches():
         ws.cell(row=row_num, column=7, value=int(row["alliances"]["red"]["team_keys"][1].replace("frc", "")))
         ws.cell(row=row_num, column=8, value=int(row["alliances"]["red"]["team_keys"][2].replace("frc", "")))
 
-        ws[f"I{row_num}"] = f"=VLOOKUP(CONCATENATE($A{row_num}, \".\", C$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE)"
-        ws[f"J{row_num}"] = f"=VLOOKUP(CONCATENATE($A{row_num}, \".\", D$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE)"
-        ws[f"K{row_num}"] = f"=VLOOKUP(CONCATENATE($A{row_num}, \".\", E$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE)"
-        ws[f"L{row_num}"] = f"=VLOOKUP(CONCATENATE($A{row_num}, \".\", F$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE)"
-        ws[f"M{row_num}"] = f"=VLOOKUP(CONCATENATE($A{row_num}, \".\", G$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE)"
-        ws[f"N{row_num}"] = f"=VLOOKUP(CONCATENATE($A{row_num}, \".\", H$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE)"
-
-        ws[f"O{row_num}"] = f"=IF(VLOOKUP(CONCATENATE($A{row_num}, \".\", $C$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE) = $C{row_num}, FALSE, TRUE)"
-        ws[f"P{row_num}"] = f"=IF(VLOOKUP(CONCATENATE($A{row_num}, \".\", $D$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE) = $D{row_num}, FALSE, TRUE)"
-        ws[f"Q{row_num}"] = f"=IF(VLOOKUP(CONCATENATE($A{row_num}, \".\", $E$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE) = $E{row_num}, FALSE, TRUE)"
-        ws[f"R{row_num}"] = f"=IF(VLOOKUP(CONCATENATE($A{row_num}, \".\", $F$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE) = $F{row_num}, FALSE, TRUE)"
-        ws[f"S{row_num}"] = f"=IF(VLOOKUP(CONCATENATE($A{row_num}, \".\", $G$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE) = $G{row_num}, FALSE, TRUE)"
-        ws[f"T{row_num}"] = f"=IF(VLOOKUP(CONCATENATE($A{row_num}, \".\", $H$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE) = $H{row_num}, FALSE, TRUE)"
-
+        # Add conditional formatting that cannot be applied to a range.
         for col in ["C", "D", "E", "F", "G", "H"]:
             scouted_wrong_team = FormulaRule(formula=[f"=IF(VLOOKUP(CONCATENATE($A{row_num}, \".\", ${col}$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE) = ${col}{row_num}, FALSE, TRUE)"], font=font_error)
             ws.conditional_formatting.add(f"{col}{row_num}", scouted_wrong_team)
@@ -220,15 +205,25 @@ def prepare_sheet_matches():
         { "range": f"A2:H{str(len(data) + 1)}", "font": font_data, "alignment": align_center },
     ])
 
-
+    # Add conditional formatting rules that can be applied to a range.
     # =COUNTIF(Where do you want to look?, What do you want to look for?)
     rule_scouted = FormulaRule(formula=["=COUNTIF(MatchScoutingData!$A$2:$A$1000, CONCATENATE($A2,\".\",C$1)) = 1"], fill=fill_scouted)
     rule_scouted_multiple = FormulaRule(formula=["=COUNTIF(MatchScoutingData!$A$2:$A$1000, CONCATENATE($A2,\".\",C$1)) > 1"], fill=fill_scouted_multiple)
-    #rule_scouted_wrong_team = FormulaRule(formula=["=IF(VLOOKUP(CONCATENATE($A2,\".\",C$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE) = C2, FALSE, TRUE)"], fill=fill_scouted_wrong_team)
-
-    #ws.conditional_formatting.add("C2:H1000", rule_scouted_wrong_team)
     ws.conditional_formatting.add("C2:H1000", rule_scouted)
     ws.conditional_formatting.add("C2:H1000", rule_scouted_multiple)
+
+    # Provide a key so it is wasy to understand conditional formatting.
+    ws[f"J2"] = "Match was not Scouted (incorrect)"
+    ws[f"J4"] = "Match was Scouted once (correct)"
+    ws[f"J6"] = "Match was Scouted twice (incorrect)"
+    ws[f"J8"] = "Team was Scouted twice (incorrect)"
+
+    # Apply formats to the key.
+    apply_formats(ws, [
+        { "range": f"J4:J4", "fill": fill_scouted },
+        { "range": f"J6:J6", "fill": fill_scouted_multiple },
+        { "range": f"J8:J8", "font": font_error, "fill": fill_scouted  },
+    ])    
 
 
 # Deine the function that prepares the Team Scores sheet.
@@ -427,8 +422,8 @@ prepare_sheet_matches()
 prepare_sheet_team_scores()
 prepare_sheet_team_summary()
 
-prepare_sheet_pbi_scouter_summary()
-prepare_sheet_pbi_team_summary()
+# prepare_sheet_pbi_scouter_summary()
+# prepare_sheet_pbi_team_summary()
 
 
 # And finally, save the spreadsheet.
