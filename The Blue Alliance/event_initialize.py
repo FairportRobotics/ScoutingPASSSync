@@ -1,7 +1,8 @@
-from datetime import datetime
 import json
 import os
 import requests
+
+from datetime import datetime
 from dotenv import load_dotenv 
 
 # Load the .env file and all environment variables.
