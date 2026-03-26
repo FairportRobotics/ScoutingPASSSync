@@ -6,6 +6,7 @@
   <ol>
     <li><a href="#tba">Purpose</a></li>
     <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#scripts">Scripts</a></li>
     <li><a href="#prepare-environment">Prepare Environment</a></li>
     <li><a href="#initialize-competition-year">Initialize Competition Year</a></li>
     <li><a href="#initialize-competition-event">Initialize Competition Event</a></li>
@@ -52,16 +53,29 @@ pip install load_dotenv
 pip install openpyxl
 ```
 
+<!-- Scripts -->
+<div id="scripts"></div>
+
+| File                       | Description                                                                                                                                                                                                                                                                     |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| event_initialize.py        | AAA                                                                                                                                                                                                                                                                             |
+| event_push_to_excel.py     | BBB                                                                                                                                                                                                                                                                             |
+| event_to_scouting_app.py   | CCC                                                                                                                                                                                                                                                                             |
+| fabricate_scouting_data.py | Generates bogus and random data (comma delimited and tab delimited) and writes to<br> `The Blue Alliance\Game Years\TBA_EVENT_YEAR\TBA_EVENT_KEY\TBA_EVENT_KEY.fake-data.csv`<br>and<br>`The Blue Alliance\Game Years\TBA_EVENT_YEAR\TBA_EVENT_KEY\TBA_EVENT_KEY.fake-data.tsv` |
+| year_initialize.py         | Downloads all the currently registered events for a Competition year and writes the JSON to<br> `The Blue Alliance\Game Years\TBA_EVENT_YEAR\TBA_EVENT_KEY\TBA_EVENT_KEY.json`                                                                                                  |
+
+---
+
 <!-- How to Use -->
 <div id="prepare-environment"></div>
 
 ## Prepare environment
 
-Create or validate the existence of the `.env` file. This is a simple file which is used to store settings and secrets
-or use by the scripts. This file is included in the `.gitignore` as we do not want the file to be added to source
-control.
+Create or validate the existence of the file `The Blue Alliance\.env`. This is a simple file which is used to store
+settings and secrets or use by the scripts. This file is included in the `.gitignore` as we do not want the file to be
+added to source control.
 
-The conents of the file should follow what you see in `.env.example` and current looks something like:
+The conents of the file should follow what you see in `.env.example` and currently looks something like:
 
 ```text
 TBA_AUTH_KEY="blue-alliance-api-key"
@@ -78,7 +92,7 @@ year for which we want to manage scouting data. **TBA_EVENT_KEY** will be explai
 
 ## Initialize Competition Year
 
-Once you have set `TBA_AUTH_KEY` and `TBA_EVENT_YEAR`, open the file `initialize_year.py` and execute it.
+Once you have set `TBA_AUTH_KEY` and `TBA_EVENT_YEAR`, open the file `year_initialize.py` and execute it.
 
 This script queries the TBA API, provides the authorization key and the desired year, and receives the list of events
 for the year.
@@ -97,8 +111,9 @@ For example, if you wanted to get the data for the year 1234, you would:
 
 ## Initialize Competition Event
 
-To prepare for a specific Event, update `.env` to include the TBA Event key from `YEAR.json`. Look for the "key"
-property in that JSON. For example, for **Rocket City Regional**, the key is `2026alhu`:
+To prepare for a specific Event, update `The Blue Alliance\.env` to include the TBA Event key from
+`TBA_EVENT_YEAR.json`. Look for the "key" property in that JSON. For example, for **Rocket City Regional**, the key is
+`2026alhu`:
 
 ```json
 [
@@ -124,28 +139,21 @@ property in that JSON. For example, for **Rocket City Regional**, the key is `20
 For example, if you wanted to get the data for the **Rocket City Regional**, you would:
 
 1. Update `.env` with `TBA_EVENT_KEY="2026alhu"`
-2. Execute `initialize_event.py`
+2. Execute `event_initialize.py`
 3. Navigate to `The Blue Alliance\Game Years\2026\2026alhu`.
-4. Observe the folder contains scripts and other files related to the event:
+4. Observe the folder contains data related to the event:
    - 2026alhu.json
    - 2026alhu.matches.json
    - 2026alhu.teams.json
-   - fabricate-scouting-data.py
-   - tba_fetch_event.py
-   - tba_push_into_excel_template.xlsx
-   - tba_push_into_excel.py
 
 The files and scripts related to the Event are as follows:
 
-| File                              | Description                                                                                                                                                                                                                       |
-| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| EVENT_KEY.json                    | This file contains meta data about the event itself. This is roughly the same information as you would find in `The Blue Alliance\Game Years\2026.json`.                                                                          |
-| EVENT_KEY.matches.json            | This file contains all the known information about the matches designated for the Event. Note that this file might not be populated. Typically, TBA will publish the final Match data the day before or the morning of the Event. |
-| EVENT_KEY.teams.json              | This file contains all the known information about the Teams competing at the Event. Note that this file might not be populated. TBA updates this data long before the Event takes place.                                         |
-| fabricate-scouting-data.py        | This script can be used to generate bogus place-holder data for testing the Scouting spreadsheet. Update and execute as needed to supply test data.                                                                               |
-| tba_fetch_event.py                | This script can be executed to update the cached `.json` files. Run it as often as desired. It will overwrite the cached files.                                                                                                   |
-| tba_push_into_excel_template.xlsx | This is the Excel template that will be used as as source for producing the actual Event spreadsheet. Works together with `tba_push_into_excel.py`. Update this when scouting questions change.                                   |
-| tba_push_into_excel.py            | This is the script that will be used to produce the actual Event spreadsheet. Works together with `tba_push_into_excel_template.xlsx.py`. Update this when scouting questions change.                                             |
+| File                   | Description                                                                                                                                                                                                                       |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| EVENT_KEY.json         | This file contains meta data about the event itself. This is roughly the same information as you would find in `The Blue Alliance\Game Years\2026.json`.                                                                          |
+| EVENT_KEY.matches.json | This file contains all the known information about the matches designated for the Event. Note that this file might not be populated. Typically, TBA will publish the final Match data the day before or the morning of the Event. |
+| EVENT_KEY.teams.json   | This file contains all the known information about the Teams competing at the Event. Note that this file might not be populated. TBA updates this data long before the Event takes place.                                         |
+|                        |
 
 ---
 

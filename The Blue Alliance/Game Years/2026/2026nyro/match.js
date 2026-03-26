@@ -1,3 +1,5 @@
+// This reflects the match information required by the ScoutingPASS app for the Event:
+// 2026nyro
 const eventMatches = 
 [
    {

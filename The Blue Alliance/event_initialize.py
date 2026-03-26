@@ -2,8 +2,6 @@ from datetime import datetime
 import json
 import os
 import requests
-import shutil
-import pandas as pd
 from dotenv import load_dotenv 
 
 # Load the .env file and all environment variables.

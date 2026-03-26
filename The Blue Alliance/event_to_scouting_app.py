@@ -78,6 +78,9 @@ def save_to_javascript(filename, data):
     status("Saving Match data...")
 
     with open(filename, 'w', newline='') as f:
+
+        f.write(f"// This reflects the match information required by the ScoutingPASS app for the Event:\n")
+        f.write(f"// {tbaEventKey}\n")
         output = f"const eventMatches = \n{json.dumps(data, indent=3)};"
         f.write(output)
 

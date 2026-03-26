@@ -9,6 +9,11 @@ from dotenv import load_dotenv
 # Load the .env file and all environment variables.
 load_dotenv()
 
+# Define the status function.
+def status(message):
+    print(f"{datetime.now()}: {message}")
+
+
 # Retrieve values from .env.
 tbaEventYear = os.getenv("TBA_EVENT_YEAR")
 if tbaEventYear is None:
@@ -25,11 +30,6 @@ target_year_directory = os.path.join(current_directory, "Game Years", tbaEventYe
 target_event_directory = os.path.join(current_directory, "Game Years", tbaEventYear, tbaEventKey)
 template_directory = os.path.join(current_directory, "Templates")
 os.makedirs(target_event_directory, exist_ok=True)
-
-
-# Define the status function.
-def status(message):
-    print(f"{datetime.now()}: {message}")
 
 
 team_members = [
