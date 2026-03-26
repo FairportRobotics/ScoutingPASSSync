@@ -10,17 +10,22 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Retrieve values from .env.
-tbaEventYear = os.getenv("EVENT_YEAR")
+tbaEventYear = os.getenv("TBA_EVENT_YEAR")
 if tbaEventYear is None:
-    raise ValueError("EVENT_YEAR is not set")
+    raise ValueError("TBA_EVENT_YEAR is not set")
 
 tbaEventKey = os.getenv("TBA_EVENT_KEY")
 if tbaEventKey is None:
     raise ValueError("TBA_EVENT_KEY is not set")
 
-# Make sure the root path exists.
-rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data", f"{tbaEventYear}", f"{tbaEventKey}"))
-os.makedirs(rootPath, exist_ok=True)
+
+# Define folder paths.
+current_directory = os.path.dirname(os.path.abspath(__file__))
+target_year_directory = os.path.join(current_directory, "Game Years", tbaEventYear)
+target_event_directory = os.path.join(current_directory, "Game Years", tbaEventYear, tbaEventKey)
+template_directory = os.path.join(current_directory, "Templates")
+os.makedirs(target_event_directory, exist_ok=True)
+
 
 # Define the status function.
 def status(message):
@@ -109,7 +114,7 @@ def create_record_for_team(match, alliance, keys):
 # Load the Matches json and fabricate some scouting data.
 def fabricate_data():
     status("Fabricating Scouting Match data...")
-    filePath = os.path.join(rootPath, f"{tbaEventKey}.matches.json")
+    filePath = os.path.join(target_event_directory, f"{tbaEventKey}.matches.json")
 
     print(filePath)
 
@@ -134,5 +139,5 @@ df = pd.DataFrame(results)
 df.columns = df.columns.str.replace(" ", "_")
 df.columns = df.columns.str.lower()
 
-df.to_csv(os.path.join(rootPath, f"{tbaEventKey}.fake-data.tsv"), sep="\t", index=False, header=True)
-df.to_csv(os.path.join(rootPath, f"{tbaEventKey}.fake-data.csv"), sep=",", index=False, header=True)
+df.to_csv(os.path.join(target_event_directory, f"{tbaEventKey}.fake-data.tsv"), sep="\t", index=False, header=True)
+df.to_csv(os.path.join(target_event_directory, f"{tbaEventKey}.fake-data.csv"), sep=",", index=False, header=True)

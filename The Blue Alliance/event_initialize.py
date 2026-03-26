@@ -1,9 +1,10 @@
+from datetime import datetime
 import json
 import os
 import requests
-from datetime import datetime
+import shutil
+import pandas as pd
 from dotenv import load_dotenv 
-
 
 # Load the .env file and all environment variables.
 load_dotenv()
@@ -12,25 +13,25 @@ load_dotenv()
 def status(message):
     print(f"{datetime.now()}: {message}")
 
-
 # Retrieve values from .env.
-tbaEventYear = os.getenv("EVENT_YEAR")
+tbaAuthKey = os.getenv("TBA_AUTH_KEY")
+tbaAuthHeader =  {"X-TBA-Auth-Key": tbaAuthKey}
+if tbaAuthKey is None:
+    raise ValueError("TBA_AUTH_KEY is not set")
+
+tbaEventYear = os.getenv("TBA_EVENT_YEAR")
 if tbaEventYear is None:
-    raise ValueError("EVENT_YEAR is not set")
+    raise ValueError("TBA_EVENT_YEAR is not set")
 
 tbaEventKey = os.getenv("TBA_EVENT_KEY")
 if tbaEventKey is None:
     raise ValueError("TBA_EVENT_KEY is not set")
 
-tbaAuthKey = os.getenv("TBA_AUTH_KEY")
-if tbaAuthKey is None:
-    raise ValueError("TBA_AUTH_KEY is not set")
 
-tbaAuthHeader =  {"X-TBA-Auth-Key": tbaAuthKey}
-
-# Make sure the root path exists.
-rootPath = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "data", f"{tbaEventYear}", f"{tbaEventKey}"))
-os.makedirs(rootPath, exist_ok=True)
+# Define folder paths.
+current_directory = os.path.dirname(os.path.abspath(__file__))
+target_event_directory = os.path.join(current_directory, "Game Years", tbaEventYear, tbaEventKey)
+os.makedirs(target_event_directory, exist_ok=True)
 
 
 def fetch_event():
@@ -47,7 +48,7 @@ def fetch_event():
         status(f"Fetching Event: '{tbaEvent["short_name"]}'")
 
     # Log to file.
-    filePath = os.path.join(rootPath, f"{tbaEventKey}.json")
+    filePath = os.path.join(target_event_directory, f"{tbaEventKey}.json")
     with open(filePath, 'w', newline='') as f:
         json.dump(tbaEvent, f, indent=3)
 
@@ -67,7 +68,7 @@ def fetch_teams():
         status(f"Fetching Teams: {len(tbaTeams)} Teams")    
 
     # Log to file.
-    filePath = os.path.join(rootPath, f"{tbaEventKey}.teams.json")
+    filePath = os.path.join(target_event_directory, f"{tbaEventKey}.teams.json")
     with open(filePath, 'w', newline='') as f:
         json.dump(tbaTeams, f, indent=3)    
 
@@ -87,13 +88,12 @@ def fetch_matches():
         status(f"Fetching Matches: {len(tbaMatches)} Matches")      
 
     # Log to file.
-    filePath = os.path.join(rootPath, f"{tbaEventKey}.matches.json")
+    filePath = os.path.join(target_event_directory, f"{tbaEventKey}.matches.json")
     with open(filePath, 'w', newline='') as f:
         json.dump(tbaMatches, f, indent=3)
 
     return tbaMatches
 
-status(f"Fetching data for: {tbaEventKey}")
-event = fetch_event()
-teams = fetch_teams()
-matches = fetch_matches()
+fetch_event()
+fetch_teams()
+fetch_matches()

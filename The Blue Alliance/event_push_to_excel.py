@@ -18,9 +18,9 @@ def status(message):
 load_dotenv()
 
 # Retrieve values from .env.
-tbaEventYear = os.getenv("EVENT_YEAR")
+tbaEventYear = os.getenv("TBA_EVENT_YEAR")
 if tbaEventYear is None:
-    raise ValueError("EVENT_YEAR is not set")
+    raise ValueError("TBA_EVENT_YEAR is not set")
 
 tbaEventKey = os.getenv("TBA_EVENT_KEY")
 if tbaEventKey is None:
@@ -29,31 +29,33 @@ if tbaEventKey is None:
 status(f"Processing {tbaEventKey}")
 
 
-# Get the directory of the current script
+# Define folder paths.
 current_directory = os.path.dirname(os.path.abspath(__file__))
-template_file_name = os.path.join(current_directory, "tba_push_into_excel_template.xlsx")
+target_event_directory = os.path.join(current_directory, "Game Years", tbaEventYear, tbaEventKey)
+template_directory = os.path.join(current_directory, "Templates")
+os.makedirs(target_event_directory, exist_ok=True)
 
 
 # Set various variables we can use throughout the script.
-ouput_file_name = os.path.join(current_directory, f"{tbaEventKey}.xlsx")
+template_file_name = os.path.join(template_directory, "scouting_template.xlsx")
+ouput_file_name = os.path.join(target_event_directory, f"{tbaEventKey}.xlsx")
 
 
 # Set constants we can use.
-font_header = Font(bold=True, size=12, color="FFFFFF")
-font_data   = Font(bold=False, size=12, color="000000")
-font_error   = Font(bold=True, size=12, color="FF0000")
+font_header    = Font(bold=True,  size=12, color="FFFFFF")
+font_data      = Font(bold=False, size=12, color="000000")
 
 align_center   = Alignment(horizontal="center", vertical="center")
-align_vertical = Alignment(horizontal="left", vertical="bottom", text_rotation=90) 
+align_vertical = Alignment(horizontal="left",   vertical="bottom", text_rotation=90) 
 
-fill_default = PatternFill(start_color="595959", end_color="595959", fill_type="solid") 
-fill_blue    = PatternFill(start_color="2471a3", end_color="2471a3", fill_type="solid")   
-fill_red     = PatternFill(start_color="cb4335", end_color="cb4335", fill_type="solid")   
-fill_green   = PatternFill(start_color="229954", end_color="229954", fill_type="solid")   
-fill_orange  = PatternFill(start_color="D68910", end_color="D68910", fill_type="solid")  
+fill_default   = PatternFill(start_color="595959", end_color="595959", fill_type="solid") 
+fill_blue      = PatternFill(start_color="2471A3", end_color="2471A3", fill_type="solid")   
+fill_red       = PatternFill(start_color="CB4335", end_color="CB4335", fill_type="solid")   
+fill_green     = PatternFill(start_color="229954", end_color="229954", fill_type="solid")   
+fill_orange    = PatternFill(start_color="D68910", end_color="D68910", fill_type="solid")  
 
 color_scale_rule = ColorScaleRule(
-    start_type="min", start_color="cb4335",                     # Red for minimum value
+    start_type="min", start_color="CB4335",                     # Red for minimum value
     mid_type="percentile", mid_value=50, mid_color="D68910",    # Yellow for mid value
     end_type="max", end_color="229954"                          # Green for maximum value
 )
@@ -61,11 +63,11 @@ color_scale_rule = ColorScaleRule(
 format_comma = '#,##0;-[Red]#,##0;"-"'
 format_percent = '0.0%'
 
+
 # Load the workbook and save it as the destination workbook.
 status(f"Preparing the spreadsheet: {ouput_file_name}")
 wb = load_workbook(template_file_name)
 wb.save(ouput_file_name)
-
 
 # Workaround for the inability to do something like this:
 # row[counter += 1]
@@ -116,7 +118,7 @@ def prepate_sheet_event():
     status("Pushing Event data...")
 
     # Read the JSON data from the file.
-    with open(os.path.join(current_directory, f"{tbaEventKey}.json"), "r") as f:
+    with open(os.path.join(target_event_directory, f"{tbaEventKey}.json"), "r") as f:
         data = json.load(f)
 
     # Load the Event sheet.
@@ -140,7 +142,7 @@ def prepare_sheet_teams():
     status("Pushing Team data...")
 
     # Read the JSON data from the file.
-    with open(os.path.join(current_directory, f"{tbaEventKey}.teams.json"), "r") as f:
+    with open(os.path.join(target_event_directory, f"{tbaEventKey}.teams.json"), "r") as f:
         data = json.load(f)
         data = sorted(data, key=lambda x: x["team_number"])
 
@@ -168,12 +170,11 @@ def prepare_sheet_matches():
 
     # Set the conditional formatting rules.
     fill_scouted = PatternFill(start_color="C8D6A1", end_color="C8D6A1", fill_type="solid")
-    fill_scouted_duplicate_match = PatternFill(start_color="D09996", end_color="D09996", fill_type="solid")
-    fill_scouted_duplicate_team  = PatternFill(start_color="D09996", end_color="D09996", fill_type="solid")
-    fill_scouted_incorrect_team  = PatternFill(start_color="E89149", end_color="E89149", fill_type="solid")
+    fill_duplicate_match = PatternFill(start_color="FFFF54", end_color="FFFF54", fill_type="solid")
+    fill_wrong_team = PatternFill(start_color="F5C242", end_color="F5C242", fill_type="solid")
 
     # Read the JSON data from the file.
-    with open(os.path.join(current_directory, f"{tbaEventKey}.matches.json"), "r") as f:
+    with open(os.path.join(target_event_directory, f"{tbaEventKey}.matches.json"), "r") as f:
         data = json.load(f)
         data = [row for row in data if row["comp_level"] == "qm"]
         data = sorted(data, key=lambda x: x["match_number"])
@@ -195,8 +196,8 @@ def prepare_sheet_matches():
 
         # Add conditional formatting that cannot be applied to a range.
         for col in ["C", "D", "E", "F", "G", "H"]:
-            incorrect_team_rule = FormulaRule(formula=[f"=IF(VLOOKUP(CONCATENATE($A{row_num}, \".\", ${col}$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE) = ${col}{row_num}, FALSE, TRUE)"], fill=fill_scouted_incorrect_team)
-            ws.conditional_formatting.add(f"{col}{row_num}", incorrect_team_rule)
+            scouted_wrong_team = FormulaRule(formula=[f"=IF(VLOOKUP(CONCATENATE($A{row_num}, \".\", ${col}$1),MatchScoutingData!$A$2:$E$1000, 5, FALSE) = ${col}{row_num}, FALSE, TRUE)"], fill=fill_wrong_team)
+            ws.conditional_formatting.add(f"{col}{row_num}", scouted_wrong_team)
 
   
     # Apply formatting to the sheet.
@@ -210,22 +211,21 @@ def prepare_sheet_matches():
     # Add conditional formatting rules that can be applied to a range.
     # =COUNTIF(Where do you want to look?, What do you want to look for?)
     rule_scouted = FormulaRule(formula=["=COUNTIF(MatchScoutingData!$A$2:$A$1000, CONCATENATE($A2,\".\",C$1)) = 1"], fill=fill_scouted)
-    rule_scouted_multiple = FormulaRule(formula=["=COUNTIF(MatchScoutingData!$A$2:$A$1000, CONCATENATE($A2,\".\",C$1)) > 1"], fill=fill_scouted_duplicate_match)
+    rule_scouted_multiple = FormulaRule(formula=["=COUNTIF(MatchScoutingData!$A$2:$A$1000, CONCATENATE($A2,\".\",C$1)) > 1"], fill=fill_duplicate_match)
     ws.conditional_formatting.add("C2:H1000", rule_scouted)
     ws.conditional_formatting.add("C2:H1000", rule_scouted_multiple)
 
     # Provide a key so it is wasy to understand conditional formatting.
-    ws[f"J2"]  = "Match was not Scouted (incorrect)"
-    ws[f"J4"]  = "Match was Scouted (correct)"
-    ws[f"J6"]  = "Match was Scouted twice (incorrect)"
-    ws[f"J8"]  = "Team was Scouted twice (incorrect)"
-    ws[f"J10"] = "Wrong Team was Scouted (incorrect)"
+    ws[f"J2"] = "Match has not yet been scouted"
+    ws[f"J3"] = "Match has been scouted"
+    ws[f"J4"] = "Match was scouted more than once"
+    ws[f"J5"] = "Wrong team was scouted"
 
     # Apply formats to the key.
     apply_formats(ws, [
-        { "range": f"J4:J4", "fill": fill_scouted },
-        { "range": f"J6:J6", "fill": fill_scouted_duplicate_match },
-        { "range": f"J8:J8", "fill": fill_scouted_incorrect_team  },
+        { "range": f"J3:J3", "fill": fill_scouted },
+        { "range": f"J4:J4", "fill": fill_duplicate_match },
+        { "range": f"J5:J5", "fill": fill_wrong_team  },
     ])    
 
 
@@ -234,14 +234,14 @@ def prepare_sheet_team_scores():
     status("Prepating Team Scores sheet...")
 
     # Read the JSON data from the file.
-    with open(os.path.join(current_directory, f"{tbaEventKey}.teams.json"), "r") as f:
+    with open(os.path.join(target_event_directory, f"{tbaEventKey}.teams.json"), "r") as f:
         data = json.load(f)
         data = sorted(data, key=lambda x: x["team_number"])
 
     # Capture the extents of the sheet and data.
     start_row = 3
     record_count = len(data)
-    last_row = start_row + record_count - 1
+    end_row = start_row + record_count - 1
 
     # Open the Teams sheet.
     ws = wb["Team Scores"]
@@ -291,8 +291,11 @@ def prepare_sheet_team_scores():
   
     # Apply formatting to the sheet.
     apply_formats(ws, [
+        # Team / Scouted Count
+        { "range": f"A{start_row}:B{end_row}", "font": font_header, "fill": fill_default },
+
         # Format the data cells.
-        { "range": f"B{start_row}:Z{last_row}", "font": font_data, "number_format": format_comma },        
+        { "range": f"C{start_row}:Z{end_row}", "font": font_data, "number_format": format_comma },        
     ])
 
 
@@ -301,7 +304,7 @@ def prepare_sheet_team_summary():
     status("Prepating Team Summary sheet...")
 
     # Read the JSON data from the file.
-    with open(os.path.join(current_directory, f"{tbaEventKey}.teams.json"), "r") as f:
+    with open(os.path.join(target_event_directory, f"{tbaEventKey}.teams.json"), "r") as f:
         data = json.load(f)
         data = sorted(data, key=lambda x: x["team_number"])
 
@@ -309,8 +312,6 @@ def prepare_sheet_team_summary():
     record_count = len(data)
     start_row = 3
     end_row = start_row + record_count - 1
-    source_start_row = 3
-    source_end_row = source_start_row + record_count - 1        
 
     # Open the Teams sheet.
     ws = wb["Team Summary"]
@@ -368,54 +369,16 @@ def prepare_sheet_team_summary():
 
     # Apply the formats to the cells.
     apply_formats(ws, [
-        # Team
-        { "range": f"A{start_row}:A{end_row}", "font": font_header, "fill": fill_default },
+        # Team / Scouted Count
+        { "range": f"A{start_row}:B{end_row}", "font": font_header, "fill": fill_default },
 
         # All data cells.
-        { "range": f"B{start_row}:B{end_row}", "number_format": format_comma },
+        #{ "range": f"B{start_row}:B{end_row}", "number_format": format_comma },
         { "range": f"C{start_row}:AE{end_row}", "number_format": format_percent },
     ])
 
     # Build and apply the conditional formatting rules to produce a heatmap for percentiles.
     ws.conditional_formatting.add(f"C{start_row}:AE{end_row}", color_scale_rule)
-
-
-# Prepare the sheet that lists the team results for consumption ny Power BI.
-def prepare_sheet_pbi_scouter_summary():
-    status("Prepating Power BI Team Summary sheet...")
-
-    # Open the Scouter sheet.
-    ws = wb["PB Scouter Summary"]
-
-    # This next formula keeps causing an exception when attempting to load the output spreadsheet.
-    #ws["A2"] = "=SORT(UNIQUE(MatchScoutingData!$B$2:$B$9999))"
-
-
-# Prepare the sheet that lists the scouter results for consumption by Power BI.
-def prepare_sheet_pbi_team_summary():
-    status("Prepating Power BI Team Summary sheet...")
-
-    # Read the JSON data from the file.
-    with open(os.path.join(current_directory, f"{tbaEventKey}.teams.json"), "r") as f:
-        data = json.load(f)
-        data = sorted(data, key=lambda x: x["team_number"])
-
-    # Capture the extents of the sheet and data.
-    record_count = len(data)
-    start_row = 2
-
-    # Open the Teams sheet.
-    ws = wb["PB Team Summary"]    
-
-    # Apply the formulas.
-    for row in range(start_row, start_row + record_count):
-        ws[f"A{row}"] = f"='Team Summary'!A{row + 2}"
-        ws[f"B{row}"] = f"='Team Summary'!B{row + 2}"
-        ws[f"C{row}"] = f"='Team Summary'!C{row + 2}"
-        ws[f"D{row}"] = f"='Team Summary'!D{row + 2}"
-        ws[f"E{row}"] = f"='Team Summary'!E{row + 2}"
-        ws[f"F{row}"] = f"='Team Summary'!F{row + 2}"
-        ws[f"G{row}"] = f"='Team Summary'!G{row + 2}"
 
 
 # Push the data into the spreadsheet.
@@ -425,10 +388,7 @@ prepare_sheet_matches()
 prepare_sheet_team_scores()
 prepare_sheet_team_summary()
 
-# prepare_sheet_pbi_scouter_summary()
-# prepare_sheet_pbi_team_summary()
-
-
 # And finally, save the spreadsheet.
 status(f"Saving to {ouput_file_name}...")
 wb.save(ouput_file_name)
+

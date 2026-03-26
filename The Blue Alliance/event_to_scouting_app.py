@@ -18,20 +18,24 @@ tbaAuthHeader =  {"X-TBA-Auth-Key": tbaAuthKey}
 if tbaAuthKey is None:
     raise ValueError("TBA_AUTH_KEY is not set")
 
-tbaEventYear = os.getenv("EVENT_YEAR")
+tbaEventYear = os.getenv("TBA_EVENT_YEAR")
 if tbaEventYear is None:
-    raise ValueError("EVENT_YEAR is not set")
+    raise ValueError("TBA_EVENT_YEAR is not set")
 
 tbaEventKey = os.getenv("TBA_EVENT_KEY")
 if tbaEventKey is None:
     raise ValueError("TBA_EVENT_KEY is not set")
 
-# Get the directory of the current script
+
+# Define folder paths.
 current_directory = os.path.dirname(os.path.abspath(__file__))
+target_event_directory = os.path.join(current_directory, "Game Years", tbaEventYear, tbaEventKey)
+os.makedirs(target_event_directory, exist_ok=True)
+
 
 # Establish the filenames.
-input_file_name = os.path.join(current_directory, f"{tbaEventKey}.matches.json")
-ouput_file_name = os.path.join(current_directory, "match.js")
+input_file_name = os.path.join(target_event_directory, f"{tbaEventKey}.matches.json")
+ouput_file_name = os.path.join(target_event_directory, "match.js")
 
 
 def extract_schedule_from_file(filename):
