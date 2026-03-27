@@ -27,9 +27,7 @@ if tbaEventKey is None:
 
 # Define folder paths.
 current_directory = os.path.dirname(os.path.abspath(__file__))
-target_year_directory = os.path.join(current_directory, "Game Years", tbaEventYear)
 target_event_directory = os.path.join(current_directory, "Game Years", tbaEventYear, tbaEventKey)
-template_directory = os.path.join(current_directory, "Templates")
 os.makedirs(target_event_directory, exist_ok=True)
 
 
