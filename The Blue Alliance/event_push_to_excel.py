@@ -44,6 +44,7 @@ ouput_file_name = os.path.join(target_event_directory, f"{tbaEventKey}.xlsx")
 # Set constants we can use.
 font_header    = Font(bold=True,  size=12, color="FFFFFF")
 font_data      = Font(bold=False, size=12, color="000000")
+font_link      = Font(bold=False, size=12, color="000000", underline='single')
 
 align_center   = Alignment(horizontal="center", vertical="center")
 align_vertical = Alignment(horizontal="left",   vertical="bottom", text_rotation=90) 
@@ -152,15 +153,43 @@ def prepare_sheet_teams():
     # Write the data to the sheet.
     for index, row in enumerate(data):
         row_num = index + 2
-        ws.cell(row=row_num, column=1, value=row["team_number"])
+        team_number = row["team_number"]
+        ws.cell(row=row_num, column=1, value=team_number)
         ws.cell(row=row_num, column=2, value=row["nickname"])
         ws.cell(row=row_num, column=3, value=row["school_name"])
-        ws.cell(row=row_num, column=4, value=row["rookie_year"])
-        ws.cell(row=row_num, column=5, value=row["key"])
+
+        cell = ws.cell(row=row_num, column=4)
+        cell.value = team_number
+        cell.hyperlink = f"https://www.thebluealliance.com/team/{team_number}" # type: ignore
+        cell.style = "Hyperlink"
+        cell.alignment = Alignment(horizontal='center')
+
+        cell = ws.cell(row=row_num, column=5)
+        cell.value = team_number
+        cell.hyperlink = f"https://www.statbotics.io/team/{team_number}" # type: ignore
+        cell.style = "Hyperlink"
+        cell.alignment = Alignment(horizontal='center')
+
+        cell = ws.cell(row=row_num, column=6)
+        cell.value = team_number
+        cell.hyperlink = f"https://www.statbotics.io/team/{team_number}/{tbaEventYear}" # type: ignore
+        cell.style = "Hyperlink"                
+        cell.alignment = Alignment(horizontal='center')
+
+
+        # ws.cell(row=row_num, column=4, value=f"https://www.thebluealliance.com/team/{team_number}")
+        # ws.cell(row=row_num, column=5, value=f"https://www.thebluealliance.com/team/{team_number}")
+        # ws.cell(row=row_num, column=6, value=f"https://www.statbotics.io/team/{team_number}/{tbaEventYear}")
+
+
+        # ws['A1'].value = "OpenPyXL Documentation"
+        # ws['A1'].hyperlink = "https://openpyxl.readthedocs.io"
+        # # Applying the 'Hyperlink' style often helps Excel recognize it as a clickable link
+        # ws['A1'].style = "Hyperlink"        
   
     # Apply formatting to the sheet.
     apply_formats(ws, [
-        { "range": f"A2:A{str(len(data) + 1)}", "font": font_data },
+        { "range": f"A2:C{str(len(data) + 1)}", "font": font_data },
     ])
 
 
