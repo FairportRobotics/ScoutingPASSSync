@@ -33,10 +33,10 @@ Alliance. These scripts include:
 
 ## Prerequisites
 
-1. Python 3.12 or greater (to execute these scripts)
-2. Microsoft Excel or Libre Office (for using spreadsheets)
-3. API Key from [The Blue Alliance](https://www.thebluealliance.com/apidocs/v3). (Refer to <a href="#how-to">How To</a>
-   for instructions)
+1. [Python](https://www.python.org/) (latest version)
+2. Microsoft Excel or [Libre Office](https://www.libreoffice.org/) (for using spreadsheets)
+3. [The Blue Alliance](https://www.thebluealliance.com/apidocs/v3) API Key (Refer to <a href="#how-to">How To</a> for
+   instructions)
 
 The required Python packages can be installed by executing the command below:
 
@@ -56,11 +56,13 @@ pip install openpyxl
 <!-- Scripts -->
 <div id="scripts"></div>
 
+## Scripts
+
 | File                       | Description                                                                                                                                                                                                                                                                     |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| event_initialize.py        | AAA                                                                                                                                                                                                                                                                             |
-| event_push_to_excel.py     | BBB                                                                                                                                                                                                                                                                             |
-| event_to_scouting_app.py   | CCC                                                                                                                                                                                                                                                                             |
+| event_initialize.py        | Retrieves event data from The Blue Alliance and caches the JSON output to:<br> `The Blue Alliance\Game Years\TBA_EVENT_YEAR\TBA_EVENT_KEY`                                                                                                                                      |
+| event_push_to_excel.py     | Reads cached `TBA_EVENT_KEY.json`, `TBA_EVENT_KEY.matches.json` and `TBA_EVENT_KEY.teams.json` and uses `.\Templates\scouting-template.xlsx` to populate<br>`The Blue Alliance\Game Years\TBA_EVENT_YEAR\TBA_EVENT_KEY\TBA_EVENT_KEY.xlsx`.                                     |
+| event_to_scouting_app.py   | Reads cached `TBA_EVENT_KEY.matches.json` and writes a ScoutingPass-friendly JavaScript file to<br>`The Blue Alliance\Game Years\TBA_EVENT_YEAR\TBA_EVENT_KEY\matches.js`                                                                                                       |
 | fabricate_scouting_data.py | Generates bogus and random data (comma delimited and tab delimited) and writes to<br> `The Blue Alliance\Game Years\TBA_EVENT_YEAR\TBA_EVENT_KEY\TBA_EVENT_KEY.fake-data.csv`<br>and<br>`The Blue Alliance\Game Years\TBA_EVENT_YEAR\TBA_EVENT_KEY\TBA_EVENT_KEY.fake-data.tsv` |
 | year_initialize.py         | Downloads all the currently registered events for a Competition year and writes the JSON to<br> `The Blue Alliance\Game Years\TBA_EVENT_YEAR\TBA_EVENT_KEY\TBA_EVENT_KEY.json`                                                                                                  |
 
@@ -84,15 +86,15 @@ TBA_EVENT_KEY="2026abcde"
 ```
 
 **TBA_AUTH_KEY** is the TBA key acquired from
-[The Blue Alliance Accounts Page](https://www.thebluealliance.com/account). **TBA_EVENT_YEAR** is the FRC competition
-year for which we want to manage scouting data. **TBA_EVENT_KEY** will be explained later.
+[The Blue Alliance Accounts Page](https://www.thebluealliance.com/account). _TBA_EVENT_YEAR_ is the FRC competition year
+for which we want to manage scouting data. _TBA_EVENT_KEY_ will be explained later.
 
 <!-- Initialize Competition Year -->
 <div id="initialize-competition-year"></div>
 
 ## Initialize Competition Year
 
-Once you have set `TBA_AUTH_KEY` and `TBA_EVENT_YEAR`, open the file `year_initialize.py` and execute it.
+Once you have set _TBA_AUTH_KEY_ and _TBA_EVENT_YEAR_, open the file `year_initialize.py` and execute it.
 
 This script queries the TBA API, provides the authorization key and the desired year, and receives the list of events
 for the year.
@@ -101,7 +103,7 @@ The script then creates a folder in `The Blue Alliance\Game Years` for that year
 
 For example, if you wanted to get the data for the year 1234, you would:
 
-1. Update `.env` with `TBA_EVENT_YEAR="1234"`
+1. Update `.env` with _TBA_EVENT_YEAR="1234"_
 2. Execute `initialize_year.py`
 3. Navigate to `The Blue Alliance\Game Years\1234`.
 4. Observe the file `1234.json` exists and contains all the events for that year.
@@ -113,7 +115,7 @@ For example, if you wanted to get the data for the year 1234, you would:
 
 To prepare for a specific Event, update `The Blue Alliance\.env` to include the TBA Event key from
 `TBA_EVENT_YEAR.json`. Look for the "key" property in that JSON. For example, for **Rocket City Regional**, the key is
-`2026alhu`:
+**2026alhu**:
 
 ```json
 [
@@ -138,7 +140,7 @@ To prepare for a specific Event, update `The Blue Alliance\.env` to include the 
 
 For example, if you wanted to get the data for the **Rocket City Regional**, you would:
 
-1. Update `.env` with `TBA_EVENT_KEY="2026alhu"`
+1. Update `.env` with _TBA_EVENT_KEY="2026alhu"_
 2. Execute `event_initialize.py`
 3. Navigate to `The Blue Alliance\Game Years\2026\2026alhu`.
 4. Observe the folder contains data related to the event:
@@ -148,12 +150,12 @@ For example, if you wanted to get the data for the **Rocket City Regional**, you
 
 The files and scripts related to the Event are as follows:
 
-| File                   | Description                                                                                                                                                                                                                       |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| EVENT_KEY.json         | This file contains meta data about the event itself. This is roughly the same information as you would find in `The Blue Alliance\Game Years\2026.json`.                                                                          |
-| EVENT_KEY.matches.json | This file contains all the known information about the matches designated for the Event. Note that this file might not be populated. Typically, TBA will publish the final Match data the day before or the morning of the Event. |
-| EVENT_KEY.teams.json   | This file contains all the known information about the Teams competing at the Event. Note that this file might not be populated. TBA updates this data long before the Event takes place.                                         |
-|                        |
+| File                       | Description                                                                                                                                                                                                                       |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| TBA_EVENT_KEY.json         | This file contains meta data about the event itself. This is roughly the same information as you would find in `The Blue Alliance\Game Years\2026.json`.                                                                          |
+| TBA_EVENT_KEY.matches.json | This file contains all the known information about the matches designated for the Event. Note that this file might not be populated. Typically, TBA will publish the final Match data the day before or the morning of the Event. |
+| TBA_EVENT_KEY.teams.json   | This file contains all the known information about the Teams competing at the Event. Note that this file might not be populated. TBA updates this data long before the Event takes place.                                         |
+|                            |
 
 ---
 
@@ -183,16 +185,28 @@ Scouting data.
 ### Prepare for a new competition year
 
 1. Work with members working on the ScoutingPASS and update the **MatchScoutingData** tab in the
-   `The Blue Alliance\Templates\tba_push_into_excel_template.xlsx` spreadsheet.
+   `The Blue Alliance\Templates\scouting_template.xlsx` spreadsheet.
 2. Work with members working on the ScoutingPASS and update the script
-   `The Blue Alliance\Templates\tba_push_into_excel.py` to account for how we want to consume and report on scouting
+   `The Blue Alliance\Templates\event_push_to_excel.py` to account for how we want to consume and report on scouting
    data.
 3. Follow the guidance in <a href="#initialize-competition-year">Initialize Competition Year</a>
 
-### Prepare for a new competition event
+### Prepare for competition event
 
-TBD
+Continually refresh cached Event JSON until we have the Event, Matches and Teams.
 
-### Adjust scouting data beteween events
+1. Confirm that `.env` contains the property settings for the API Key, the Year and the Event Key.
+2. Execute `event_initialize.py`
+3. Check `TBA_EVENT_KEY.json`, `TBA_EVENT_KEY.matches.json` and `TBA_EVENT_KEY.matches.json` and repeat Step 2
+   periodically until all three files contain data. The Blue Alliance typically publishes the Matches schedules the day
+   before, or the morning of a competition.
 
-TBD
+Update the spreadsheet and script to reflect any changes to questions or answers implemented within the ScoutingPASS
+application.
+
+1. Work with members working on the ScoutingPASS and update the **MatchScoutingData** tab in the
+   `The Blue Alliance\Templates\scouting_template.xlsx` spreadsheet.
+2. Work with members working on the ScoutingPASS and update the script
+   `The Blue Alliance\Templates\event_push_to_excel.py` to account for how we want to consume and report on scouting
+   data.
+3. Execute `event_push_to_excel.py` to populate the scouting spreadsheet.
