@@ -6,8 +6,6 @@ import json
 import logging
 import os
 import requests
-import pandas as pd
-from pathlib import Path
 
 from datetime import datetime
 from dotenv import load_dotenv              

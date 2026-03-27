@@ -26,7 +26,8 @@ Alliance. These scripts include:
 - Pull all events for a competition year from The Blue Alliance and cache locally as JSON.
 - Pull data for an Event from The Blue Alliance and cache locally as JSON.
 - Pull the data from the stored Event JSON into Excel to provide a rich experience for tracking Scouting sessions.
-- Pull the data from the stored Event JSON to produde a much smaller JavaScript file for use in the ScoutingApp.
+- Pull the data from the stored Event JSON to produde a much smaller JavaScript file for use in the ScoutingPASS
+  Application.
 
 <!-- Prerequisites -->
 <div id="prerequisites"></div>
