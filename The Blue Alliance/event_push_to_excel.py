@@ -308,88 +308,7 @@ def prepare_sheet_team_scores():
         { "range": f"C{start_row}:Z{end_row}", "font": font_data, "number_format": format_comma },        
     ])
 
-
-# Define the function that prepares the Team Summary sheet.
 def prepare_sheet_team_summary():
-    status("Prepating Team Summary sheet...")
-
-    # Read the JSON data from the file.
-    with open(os.path.join(target_event_directory, f"{tbaEventKey}.teams.json"), "r") as f:
-        data = json.load(f)
-        data = sorted(data, key=lambda x: x["team_number"])
-
-    # Capture the extents of the sheet and data.
-    record_count = len(data)
-    start_row = 3
-    end_row = start_row + record_count - 1
-
-    # Open the Teams sheet.
-    ws = wb["Team Summary"]
-
-    # Write the team numbers to the sheet.
-    for index, row in enumerate(data):
-        row_num = index + start_row
-        ws.cell(row=row_num, column=1, value=row["team_number"])
-
-    # Apply the formulas.
-    for row in range(start_row, end_row + 1):
-
-        # General
-        ws[f"B{row}"] = f"=COUNTIF(MatchScoutingData!E$2:E$1000, $A{row})"                       # Matches Scouted
-
-        # Auto
-        ws[f"C{row}"] = f"=PERCENTRANK('Team Scores'!$C$3:$C$1000, 'Team Scores'!$C{row}, 3)"    # Moved
-        ws[f"D{row}"] = f"=PERCENTRANK('Team Scores'!$D$3:$D$1000, 'Team Scores'!$D{row}, 3)"    # A-Stop
-        ws[f"E{row}"] = f"=PERCENTRANK('Team Scores'!$E$3:$E$1000, 'Team Scores'!$E{row}, 3)"    # Fuel Score
-
-        # Teleop
-        ws[f"F{row}"] = f"=PERCENTRANK('Team Scores'!$F$3:$F$1000, 'Team Scores'!$F{row}, 3)"    # Shooting Speed
-        ws[f"G{row}"] = f"=PERCENTRANK('Team Scores'!$G$3:$G$1000, 'Team Scores'!$G{row}, 3)"    # Accuracy
-        ws[f"H{row}"] = f"=PERCENTRANK('Team Scores'!$H$3:$H$1000, 'Team Scores'!$H{row}, 3)"    # Fuel Scored
-        ws[f"I{row}"] = f"=PERCENTRANK('Team Scores'!$I$3:$I$1000, 'Team Scores'!$I{row}, 3)"    # Inactive - Collect
-        ws[f"J{row}"] = f"=PERCENTRANK('Team Scores'!$J$3:$J$1000, 'Team Scores'!$J{row}, 3)"    # Inactive - Pass
-        ws[f"K{row}"] = f"=PERCENTRANK('Team Scores'!$K$3:$K$1000, 'Team Scores'!$K{row}, 3)"    # Collect Alliance Zone
-        ws[f"L{row}"] = f"=PERCENTRANK('Team Scores'!$L$3:$L$1000, 'Team Scores'!$L{row}, 3)"    # Collect Neutral Zone
-        ws[f"M{row}"] = f"=PERCENTRANK('Team Scores'!$M$3:$M$1000, 'Team Scores'!$M{row}, 3)"    # Travel over Bump
-        ws[f"N{row}"] = f"=PERCENTRANK('Team Scores'!$N$3:$N$1000, 'Team Scores'!$N{row}, 3)"    # Travel under Trench
-        ws[f"O{row}"] = f"=PERCENTRANK('Team Scores'!$O$3:$O$1000, 'Team Scores'!$O{row}, 3)"    # Was Intake Good
-
-        # Endgame        
-        ws[f"P{row}"] = f"=PERCENTRANK('Team Scores'!$P$3:$P$1000, 'Team Scores'!$P{row}, 3)"    # Defense Whole Game
-        ws[f"Q{row}"] = f"=PERCENTRANK('Team Scores'!$Q$3:$Q$1000, 'Team Scores'!$Q{row}, 3)"    # Shot from Same Position
-        ws[f"R{row}"] = f"=PERCENTRANK('Team Scores'!$R$3:$R$1000, 'Team Scores'!$R{row}, 3)"    # Performance
-
-        # Ranking Points
-        ws[f"S{row}"] = f"=PERCENTRANK('Team Scores'!$S$3:$S$1000, 'Team Scores'!$S{row}, 3)"    # Result
-        ws[f"T{row}"] = f"=PERCENTRANK('Team Scores'!$T$3:$T$1000, 'Team Scores'!$T{row}, 3)"    # Energized Ranking Point
-        ws[f"U{row}"] = f"=PERCENTRANK('Team Scores'!$U$3:$U$1000, 'Team Scores'!$U{row}, 3)"    # Supercharged Ranking Point
-        ws[f"V{row}"] = f"=PERCENTRANK('Team Scores'!$V$3:$V$1000, 'Team Scores'!$V{row}, 3)"    # Traversal Ranking Point
-        ws[f"W{row}"] = f"=PERCENTRANK('Team Scores'!$W$3:$W$1000, 'Team Scores'!$W{row}, 3)"    # Total Points
-        ws[f"X{row}"] = f"=PERCENTRANK('Team Scores'!$X$3:$X$1000, 'Team Scores'!$X{row}, 3)"    # Total Ranking Points
-
-        # Overall
-        ws[f"Y{row}"]  = f"=AVERAGE(C{row}:E{row})"  
-        ws[f"Z{row}"]  = f"=AVERAGE(F{row}:O{row})"  
-        ws[f"AA{row}"] = f"=AVERAGE(P{row}:R{row})"  
-        ws[f"AB{row}"] = f"=AVERAGE(S{row}:X{row})"  
-        ws[f"AC{row}"] = f"=AVERAGE(Y{row}:AB{row})"  
-
-
-    # Apply the formats to the cells.
-    apply_formats(ws, [
-        # Team / Scouted Count
-        { "range": f"A{start_row}:B{end_row}", "font": font_header, "fill": fill_default },
-
-        # All data cells.
-        #{ "range": f"B{start_row}:B{end_row}", "number_format": format_comma },
-        { "range": f"C{start_row}:AE{end_row}", "number_format": format_percent },
-    ])
-
-    # Build and apply the conditional formatting rules to produce a heatmap for percentiles.
-    ws.conditional_formatting.add(f"C{start_row}:AE{end_row}", color_scale_rule)
-
-
-def prepare_sheet_team_summary_weightings():
     status("Prepating Team Summary Weightings sheet...")
 
     # Read the JSON data from the file.
@@ -403,7 +322,7 @@ def prepare_sheet_team_summary_weightings():
     end_row = start_row + record_count - 1
 
     # Open the Teams sheet.
-    ws = wb["Team Summary Weightings"]
+    ws = wb["Team Summary"]
 
     # Write the team numbers to the sheet.
     for index, row in enumerate(data):
@@ -449,7 +368,6 @@ prepare_sheet_teams()
 prepare_sheet_matches()
 prepare_sheet_team_scores()
 prepare_sheet_team_summary()
-prepare_sheet_team_summary_weightings()
 
 # And finally, save the spreadsheet.
 status(f"Saving to {ouput_file_name}...")
