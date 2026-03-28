@@ -274,37 +274,35 @@ def prepare_sheet_team_scores():
         # General
         ws[f"B{row}"] = f"=COUNTIF(MatchScoutingData!E$2:E$1000, $A{row})"                                  # Matches Scouted
 
-        # Auto
-        ws[f"C{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!F$2:F$1000)"    # Climbed
-        ws[f"D{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!G$2:G$1000)"    # Level 1
-        ws[f"E{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!H$2:H$1000)"    # Moved
-        ws[f"F{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!I$2:I$1000)"    # A-Stop
-        ws[f"G{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!J$2:J$1000)"    # Fuel Score
+        # Autonomous
+        ws[f"C{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!F$2:H$1000)"    # Moved
+        ws[f"D{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!G$2:I$1000)"    # A-Stop
+        ws[f"E{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!H$2:J$1000)"    # Fuel Score
 
         # Teleop
-        ws[f"H{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!K$2:K$1000)"    # Shooting Speed
-        ws[f"I{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!L$2:L$1000)"    # Accuracy
-        ws[f"J{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!M$2:M$1000)"    # Fuel Collected
-        ws[f"K{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!N$2:N$1000)"    # Collect Inactive
-        ws[f"L{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!O$2:O$1000)"    # Did Pass
-        ws[f"M{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!P$2:P$1000)"    # Collect Alliance Zone
-        ws[f"N{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!Q$2:Q$1000)"    # Collect Neutral Zone
+        ws[f"F{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!I$2:I$1000)"    # Shooting Speed
+        ws[f"G{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!J$2:J$1000)"    # Accuracy
+        ws[f"H{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!K$2:K$1000)"    # Fuel Scored
+        ws[f"I{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!L$2:L$1000)"    # Inactive - Did Collect
+        ws[f"J{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!M$2:M$1000)"    # Inactive - Did Pass
+        ws[f"K{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!N$2:N$1000)"    # Collect Alliance Zone
+        ws[f"L{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!O$2:O$1000)"    # Collect Neutral Zone
+        ws[f"M{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!P$2:P$1000)"    # Travel over Bump
+        ws[f"N{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!Q$2:Q$1000)"    # Travel under Trench
         ws[f"O{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!R$2:R$1000)"    # Was Intake Good
 
         # Endgame        
-        ws[f"P{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!S$2:S$1000)"    # Climb Success
-        ws[f"Q{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!T$2:T$1000)"    # Defense Whole Game
-        ws[f"R{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!U$2:U$1000)"    # Shot from Same Position
-        ws[f"S{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!V$2:V$1000)"    # Shoot to End
-        ws[f"T{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!W$2:W$1000)"    # Performance
-        ws[f"U{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!X$2:X$1000)"    # Result
-        ws[f"V{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!AB$2:AB$1000)"  # Total Points
+        ws[f"P{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!S$2:S$1000)"    # Defense Whole Game
+        ws[f"Q{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!T$2:T$1000)"    # Shot from Same Position
+        ws[f"R{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!U$2:U$1000)"    # Performance
 
-        # Ranking Points
-        ws[f"W{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!Y$2:Y$1000)"    # Energized Ranking Point
-        ws[f"X{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!Z$2:Z$1000)"    # Supercharged Ranking Point
-        ws[f"Y{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!AA$2:AA$1000)"  # Traversal Ranking Point
-        ws[f"Z{row}"] = f"=SUM(W{row}:Y{row})"                                                              # Total Ranking Points
+        # Post Match
+        ws[f"S{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!V$2:V$1000)"    # Result
+        ws[f"T{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!W$2:W$1000)"    # Total Points
+        ws[f"U{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!X$2:X$1000)"    # Energized Ranking Point
+        ws[f"V{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!Y$2:Y$1000)"    # Supercharged Ranking Point
+        ws[f"W{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!Z$2:Z$1000)"    # Traversal Ranking Point
+        ws[f"X{row}"] = f"=SUM(U{row}:W{row})"                                                              # Total Ranking Points
 
   
     # Apply formatting to the sheet.
@@ -404,7 +402,7 @@ prepate_sheet_event()
 prepare_sheet_teams()
 prepare_sheet_matches()
 prepare_sheet_team_scores()
-prepare_sheet_team_summary()
+#prepare_sheet_team_summary()
 
 # And finally, save the spreadsheet.
 status(f"Saving to {ouput_file_name}...")

@@ -65,11 +65,6 @@ team_members = [
 # Define a function that accepts the match number, the alliance, and the team keys.
 # This function will fabricate scouting data for each team in the alliance.
 def create_record_for_team(match, alliance, keys):
-    # Set up weights.
-    weights_bool = [0.1, 0.9]
-    auto_coral_weights = [0.1, 0.8, 0.1]
-    tele_coral_weights = [0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3]
-
     results = []
     for a, team in enumerate(keys):
         key = f"{match}.{"Blue" if alliance == "b" else "Red"} {a+1}"
@@ -81,28 +76,26 @@ def create_record_for_team(match, alliance, keys):
                 "Alliance": f"{alliance}{a+1}",
                 "Team": team.replace("frc", ""),
 
-                "Climbing Attempted": random.choices([0,1])[0],
-                "Robot Reach Level 1": random.choices([0,1])[0],
                 "Robot Move in Auto": random.choices([0,1])[0],
                 "A-Stop Activated": random.choices([-1, 0,1])[0],
                 "Total Fuel Scored": random.choices([1, 2, 3, 4, 5])[0],
                 
                 "Speed to Shoot Fuel": random.choices([1, 2, 3])[0],
                 "Accuracy to Shoot Fuel": random.choices([1, 2, 3])[0],
-                "Number of Fuel Collected": random.choices([1, 2, 3, 4, 5])[0],
-                "Duirng Inactive, did Collect": random.choices([0,1])[0],
-                "During Inactive, did Pass": random.choices([0,1])[0],
+                "Number of Fuel Scored": random.choices([1, 2, 3, 4, 5])[0],
+                "During Inactive did Collect": random.choices([0,1])[0],
+                "During Inactive did Pass": random.choices([0,1])[0],
                 "Collect from Alliance Zone": random.choices([0,1])[0],
                 "Collect from Neutral Zone": random.choices([0,1])[0],
+                "Travel Over Bump": random.choices([0,1])[0],
+                "Travel Under Trench": random.choices([0,1])[0],
                 "Was Intake Good": random.choices([0,1])[0],
                 
-                "Climb, Scucess, Level (Endgame)": random.choices([-1, 0, 1, 2, 3])[0],
                 "Defensive Whole Game": random.choices([0,1])[0],
                 "Shot from Same Position": random.choices([0,1])[0],
-                "Continue to Shoot Until End": random.choices([0,1])[0],
                 "Grade Robot's Performance": random.choices([-1, 1, 2, 3, 4])[0],
 
-                "Result of Match (Postmatch)": random.choices([-1, 0, 1])[0],
+                "Result of Match": random.choices([-1, 0, 1])[0],
                 "Energized Ranking Point": random.choices([0,1])[0],
                 "Supercharged Ranking Point": random.choices([0,1])[0],
                 "Traversal Ranking Point": random.choices([0,1])[0],
