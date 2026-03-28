@@ -7,6 +7,7 @@ from datetime import datetime
 from openpyxl import load_workbook
 from openpyxl.styles import Font, PatternFill, Alignment
 from openpyxl.formatting.rule import FormulaRule, ColorScaleRule
+from openpyxl.utils import get_column_letter
 from dotenv import load_dotenv 
 
 # Define the status message function.
@@ -272,37 +273,30 @@ def prepare_sheet_team_scores():
     # Apply the formulas.
     for row in range(start_row, start_row + record_count):
         # General
-        ws[f"B{row}"] = f"=COUNTIF(MatchScoutingData!E$2:E$1000, $A{row})"                                  # Matches Scouted
+        ws[f"B{row}"] = f"=COUNTIF(MatchScoutingData!E$2:E$1000, $A{row})"      # Matches Scouted
 
-        # Autonomous
-        ws[f"C{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!F$2:H$1000)"    # Moved
-        ws[f"D{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!G$2:I$1000)"    # A-Stop
-        ws[f"E{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!H$2:J$1000)"    # Fuel Score
+        # Generate formulas to account for all the source columns.
+        dest_start = 3   # Column C
+        dest_end   = 23  # Column X
+        src_start = 6    # Column F
 
-        # Teleop
-        ws[f"F{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!I$2:I$1000)"    # Shooting Speed
-        ws[f"G{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!J$2:J$1000)"    # Accuracy
-        ws[f"H{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!K$2:K$1000)"    # Fuel Scored
-        ws[f"I{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!L$2:L$1000)"    # Inactive - Did Collect
-        ws[f"J{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!M$2:M$1000)"    # Inactive - Did Pass
-        ws[f"K{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!N$2:N$1000)"    # Collect Alliance Zone
-        ws[f"L{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!O$2:O$1000)"    # Collect Neutral Zone
-        ws[f"M{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!P$2:P$1000)"    # Travel over Bump
-        ws[f"N{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!Q$2:Q$1000)"    # Travel under Trench
-        ws[f"O{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!R$2:R$1000)"    # Was Intake Good
+        for i, col_idx in enumerate(range(dest_start, dest_end + 1)):
+            target_col = get_column_letter(col_idx)
+            source_col = get_column_letter(src_start + i)
 
-        # Endgame        
-        ws[f"P{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!S$2:S$1000)"    # Defense Whole Game
-        ws[f"Q{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!T$2:T$1000)"    # Shot from Same Position
-        ws[f"R{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!U$2:U$1000)"    # Performance
+            ws[f"{target_col}{row}"] = (
+                f"=SUMIF(MatchScoutingData!$E$2:$E$1000, "
+                f"$A{row}, "
+                f"MatchScoutingData!{source_col}$2:{source_col}$1000)"
+            )
 
-        # Post Match
-        ws[f"S{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!V$2:V$1000)"    # Result
-        ws[f"T{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!W$2:W$1000)"    # Total Points
-        ws[f"U{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!X$2:X$1000)"    # Energized Ranking Point
-        ws[f"V{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!Y$2:Y$1000)"    # Supercharged Ranking Point
-        ws[f"W{row}"] = f"=SUMIF(MatchScoutingData!$E$2:$E$1000, $A{row}, MatchScoutingData!Z$2:Z$1000)"    # Traversal Ranking Point
-        ws[f"X{row}"] = f"=SUM(U{row}:W{row})"                                                              # Total Ranking Points
+        # Generate formula for new columns.
+        ws[f"X{row}"]  = f"=SUM(U{row}:W{row})"     # Total Ranking Points
+        ws[f"Y{row}"]  = f"=SUM(C{row}:E{row})"     # Auto
+        ws[f"Z{row}"]  = f"=SUM(F{row}:O{row})"     # Teleop
+        ws[f"AA{row}"] = f"=SUM(P{row}:R{row})"     # Endgame
+        ws[f"AB{row}"] = f"=SUM(S{row}:X{row})"     # Post Match
+        ws[f"AC{row}"] = f"=SUM(Y{row}:AB{row})"    # Complete
 
   
     # Apply formatting to the sheet.
@@ -344,9 +338,9 @@ def prepare_sheet_team_summary():
         ws[f"B{row}"] = f"=COUNTIF(MatchScoutingData!E$2:E$1000, $A{row})"                       # Matches Scouted
 
         # Auto
-        ws[f"C{row}"] = f"=PERCENTRANK('Team Scores'!$C$3:$E$1000, 'Team Scores'!$C{row}, 3)"    # Moved
+        ws[f"C{row}"] = f"=PERCENTRANK('Team Scores'!$C$3:$C$1000, 'Team Scores'!$C{row}, 3)"    # Moved
         ws[f"D{row}"] = f"=PERCENTRANK('Team Scores'!$D$3:$D$1000, 'Team Scores'!$D{row}, 3)"    # A-Stop
-        ws[f"E{row}"] = f"=PERCENTRANK('Team Scores'!$E$3:$G$1000, 'Team Scores'!$E{row}, 3)"    # Fuel Score
+        ws[f"E{row}"] = f"=PERCENTRANK('Team Scores'!$E$3:$E$1000, 'Team Scores'!$E{row}, 3)"    # Fuel Score
 
         # Teleop
         ws[f"F{row}"] = f"=PERCENTRANK('Team Scores'!$F$3:$F$1000, 'Team Scores'!$F{row}, 3)"    # Shooting Speed
@@ -361,17 +355,17 @@ def prepare_sheet_team_summary():
         ws[f"O{row}"] = f"=PERCENTRANK('Team Scores'!$O$3:$O$1000, 'Team Scores'!$O{row}, 3)"    # Was Intake Good
 
         # Endgame        
-        ws[f"P{row}"] = f"=PERCENTRANK('Team Scores'!$P$3:$R$1000, 'Team Scores'!$P{row}, 3)"    # Defense Whole Game
-        ws[f"Q{row}"] = f"=PERCENTRANK('Team Scores'!$Q$3:$S$1000, 'Team Scores'!$Q{row}, 3)"    # Shot from Same Position
-        ws[f"R{row}"] = f"=PERCENTRANK('Team Scores'!$R$3:$T$1000, 'Team Scores'!$R{row}, 3)"    # Performance
+        ws[f"P{row}"] = f"=PERCENTRANK('Team Scores'!$P$3:$P$1000, 'Team Scores'!$P{row}, 3)"    # Defense Whole Game
+        ws[f"Q{row}"] = f"=PERCENTRANK('Team Scores'!$Q$3:$Q$1000, 'Team Scores'!$Q{row}, 3)"    # Shot from Same Position
+        ws[f"R{row}"] = f"=PERCENTRANK('Team Scores'!$R$3:$R$1000, 'Team Scores'!$R{row}, 3)"    # Performance
 
         # Ranking Points
-        ws[f"S{row}"] = f"=PERCENTRANK('Team Scores'!$S$3:$U$1000, 'Team Scores'!$S{row}, 3)"    # Result
-        ws[f"T{row}"] = f"=PERCENTRANK('Team Scores'!$T$3:$W$1000, 'Team Scores'!$T{row}, 3)"    # Energized Ranking Point
-        ws[f"U{row}"] = f"=PERCENTRANK('Team Scores'!$U$3:$X$1000, 'Team Scores'!$U{row}, 3)"    # Supercharged Ranking Point
-        ws[f"V{row}"] = f"=PERCENTRANK('Team Scores'!$V$3:$Y$1000, 'Team Scores'!$V{row}, 3)"    # Traversal Ranking Point
-        ws[f"W{row}"] = f"=PERCENTRANK('Team Scores'!$W$3:$V$1000, 'Team Scores'!$W{row}, 3)"    # Total Points
-        ws[f"X{row}"] = f"=PERCENTRANK('Team Scores'!$X$3:$Z$1000, 'Team Scores'!$X{row}, 3)"    # Total Ranking Points
+        ws[f"S{row}"] = f"=PERCENTRANK('Team Scores'!$S$3:$S$1000, 'Team Scores'!$S{row}, 3)"    # Result
+        ws[f"T{row}"] = f"=PERCENTRANK('Team Scores'!$T$3:$T$1000, 'Team Scores'!$T{row}, 3)"    # Energized Ranking Point
+        ws[f"U{row}"] = f"=PERCENTRANK('Team Scores'!$U$3:$U$1000, 'Team Scores'!$U{row}, 3)"    # Supercharged Ranking Point
+        ws[f"V{row}"] = f"=PERCENTRANK('Team Scores'!$V$3:$V$1000, 'Team Scores'!$V{row}, 3)"    # Traversal Ranking Point
+        ws[f"W{row}"] = f"=PERCENTRANK('Team Scores'!$W$3:$W$1000, 'Team Scores'!$W{row}, 3)"    # Total Points
+        ws[f"X{row}"] = f"=PERCENTRANK('Team Scores'!$X$3:$X$1000, 'Team Scores'!$X{row}, 3)"    # Total Ranking Points
 
         # Overall
         ws[f"Y{row}"]  = f"=AVERAGE(C{row}:E{row})"  
@@ -395,12 +389,67 @@ def prepare_sheet_team_summary():
     ws.conditional_formatting.add(f"C{start_row}:AE{end_row}", color_scale_rule)
 
 
+def prepare_sheet_team_summary_weightings():
+    status("Prepating Team Summary Weightings sheet...")
+
+    # Read the JSON data from the file.
+    with open(os.path.join(target_event_directory, f"{tbaEventKey}.teams.json"), "r") as f:
+        data = json.load(f)
+        data = sorted(data, key=lambda x: x["team_number"])
+
+    # Capture the extents of the sheet and data.
+    record_count = len(data)
+    start_row = 4
+    end_row = start_row + record_count - 1
+
+    # Open the Teams sheet.
+    ws = wb["Team Summary Weightings"]
+
+    # Write the team numbers to the sheet.
+    for index, row in enumerate(data):
+        row_num = index + start_row
+        ws.cell(row=row_num, column=1, value=row["team_number"])
+
+    # Apply the formulas.
+    for row in range(start_row, start_row + record_count):
+        # General
+        ws[f"B{row}"] = f"=SUM(C{row}:AD{row})"
+
+        # Generate formulas to account for all the source columns.
+        dest_start = 3   # Column C
+        dest_end   = 30  # Column AD
+        src_start  = 2   # Column B
+
+        for i, col_idx in enumerate(range(dest_start, dest_end + 1)):
+            dest_col = get_column_letter(col_idx)
+            src_col = get_column_letter(src_start + i)
+
+            ws[f"{dest_col}{row}"] = (
+                f"=PERCENTRANK('Team Scores'!${src_col}$3:${src_col}$1000, "
+                f"'Team Scores'!{src_col}{row - 1}, 3) * {dest_col}$2"
+            )
+
+    # Apply the formats to the cells.
+    apply_formats(ws, [
+        # Team / Scouted Count
+        { "range": f"A{start_row}:B{end_row}", "font": font_header, "fill": fill_default },
+
+        # All data cells.
+        #{ "range": f"B{start_row}:B{end_row}", "number_format": format_comma },
+        { "range": f"C{start_row}:AD{end_row}", "number_format": format_percent },
+    ])
+
+    # Build and apply the conditional formatting rules to produce a heatmap for percentiles.
+    ws.conditional_formatting.add(f"C{start_row}:AD{end_row}", color_scale_rule)
+
+
 # Push the data into the spreadsheet.
 prepate_sheet_event()
 prepare_sheet_teams()
 prepare_sheet_matches()
 prepare_sheet_team_scores()
 prepare_sheet_team_summary()
+prepare_sheet_team_summary_weightings()
 
 # And finally, save the spreadsheet.
 status(f"Saving to {ouput_file_name}...")
