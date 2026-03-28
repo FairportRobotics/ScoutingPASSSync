@@ -159,33 +159,22 @@ def prepare_sheet_teams():
         ws.cell(row=row_num, column=3, value=row["school_name"])
 
         cell = ws.cell(row=row_num, column=4)
-        cell.value = team_number
+        cell.value = "Go to TBA" # type: ignore
         cell.hyperlink = f"https://www.thebluealliance.com/team/{team_number}" # type: ignore
         cell.style = "Hyperlink"
         cell.alignment = Alignment(horizontal='center')
 
         cell = ws.cell(row=row_num, column=5)
-        cell.value = team_number
-        cell.hyperlink = f"https://www.statbotics.io/team/{team_number}" # type: ignore
+        cell.value = "Go to FRC" # type: ignore
+        cell.hyperlink = f"https://frc-events.firstinspires.org/team/{team_number}" # type: ignore
         cell.style = "Hyperlink"
         cell.alignment = Alignment(horizontal='center')
 
         cell = ws.cell(row=row_num, column=6)
-        cell.value = team_number
+        cell.value = "Go to StatBotics" # type: ignore
         cell.hyperlink = f"https://www.statbotics.io/team/{team_number}/{tbaEventYear}" # type: ignore
         cell.style = "Hyperlink"                
         cell.alignment = Alignment(horizontal='center')
-
-
-        # ws.cell(row=row_num, column=4, value=f"https://www.thebluealliance.com/team/{team_number}")
-        # ws.cell(row=row_num, column=5, value=f"https://www.thebluealliance.com/team/{team_number}")
-        # ws.cell(row=row_num, column=6, value=f"https://www.statbotics.io/team/{team_number}/{tbaEventYear}")
-
-
-        # ws['A1'].value = "OpenPyXL Documentation"
-        # ws['A1'].hyperlink = "https://openpyxl.readthedocs.io"
-        # # Applying the 'Hyperlink' style often helps Excel recognize it as a clickable link
-        # ws['A1'].style = "Hyperlink"        
   
     # Apply formatting to the sheet.
     apply_formats(ws, [
