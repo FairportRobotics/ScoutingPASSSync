@@ -26,8 +26,24 @@
    "start_date": "2026-04-15",
    "state_prov": "NY",
    "timezone": "America/New_York",
-   "webcasts": [],
-   "website": "https://www.techvalleyfirst.org/",
+   "webcasts": [
+      {
+         "channel": "NwBk0DsV2U4",
+         "date": "2026-04-16",
+         "type": "youtube"
+      },
+      {
+         "channel": "KAovawTlvOY",
+         "date": "2026-04-17",
+         "type": "youtube"
+      },
+      {
+         "channel": "a6hNBJzv_Lw",
+         "date": "2026-04-18",
+         "type": "youtube"
+      }
+   ],
+   "website": "https://www.nysfirst.org",
    "week": 6,
    "year": 2026
 }

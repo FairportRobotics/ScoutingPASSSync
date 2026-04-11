@@ -70,43 +70,41 @@ def create_record_for_team(match, alliance, keys):
         key = f"{match}.{"Blue" if alliance == "b" else "Red"} {a+1}"
 
         results.append({
-                "Key": key,
-                "Scouter": random.choice(team_members),
-                "Match": match,
-                "Alliance": f"{alliance}{a+1}",
-                "Team": team.replace("frc", ""),
+            "Key": key,
+            "Scouter": random.choice(team_members),
+            "Match": match,
+            "Alliance": f"{alliance}{a+1}",
+            "Team": team.replace("frc", ""),
 
-                "Robot Move in Auto": random.choices([0,1])[0],
-                "A-Stop Activated": random.choices([-1, 0,1])[0],
-                "Total Fuel Scored": random.choices([1, 2, 3, 4, 5])[0],
-                
-                "Speed to Shoot Fuel": random.choices([1, 2, 3])[0],
-                "Accuracy to Shoot Fuel": random.choices([1, 2, 3])[0],
-                "Number of Fuel Scored": random.choices([1, 2, 3, 4, 5])[0],
-                "During Inactive did Collect": random.choices([0,1])[0],
-                "During Inactive did Pass": random.choices([0,1])[0],
-                "Collect from Alliance Zone": random.choices([0,1])[0],
-                "Collect from Neutral Zone": random.choices([0,1])[0],
-                "Travel Over Bump": random.choices([0,1])[0],
-                "Travel Under Trench": random.choices([0,1])[0],
-                "Was Intake Good": random.choices([0,1])[0],
-                
-                "Defensive Whole Game": random.choices([0,1])[0],
-                "Shot from Same Position": random.choices([0,1])[0],
-                "Grade Robot's Performance": random.choices([-1, 1, 2, 3, 4])[0],
+            "Robot Move in Auto": random.choices([0,1])[0],
+            "A-Stop Activated": random.choices([-1, 0,1])[0],
+            "Total Fuel Scored": random.choices([1, 2, 3, 4, 5])[0],
+            
+            "Speed to Shoot Fuel": random.choices([1, 2, 3])[0],
+            "Accuracy to Shoot Fuel": random.choices([1, 2, 3])[0],
+            "Number of Fuel Scored": random.choices([1, 2, 3, 4, 5])[0],
+            "Collect from Neutral Zone": random.choices([0,1])[0],
+            "Collect from Alliance Zone": random.choices([0,1])[0],
+            "Did relay Fuel": random.choices([0,1])[0],
+            "TDid bulldoze Fuel": random.choices([0,1])[0],
+            "Was Intake Good": random.choices([0,1])[0],
+            
+            "Defensive Whole Game": random.choices([0,1])[0],
+            "Shot from Same Position": random.choices([0,1])[0],
+            "Grade Robot's Performance": random.choices([-1, 1, 2, 3, 4])[0],
 
-                "Result of Match": random.choices([-1, 0, 1])[0],
-                "Energized Ranking Point": random.choices([0,1])[0],
-                "Supercharged Ranking Point": random.choices([0,1])[0],
-                "Traversal Ranking Point": random.choices([0,1])[0],
-                "Total Points Scored": random.choices([0,1])[0],
-                "Comments": "Hello World!",
-            })
+            "Result of Match": random.choices([-1, 0, 1])[0],
+            "Energized Ranking Point": random.choices([0,1])[0],
+            "Supercharged Ranking Point": random.choices([0,1])[0],
+            "Traversal Ranking Point": random.choices([0,1])[0],
+            "Total Points Scored": random.randint(25,500),
+            "Comments": "Hello World!",
+        })
         
     return results
 
 # Load the Matches json and fabricate some scouting data.
-def fabricate_data():
+def fabricate_data_from_matches():
     status("Fabricating Scouting Match data...")
     filePath = os.path.join(target_event_directory, f"{tbaEventKey}.matches.json")
 
@@ -127,8 +125,9 @@ def fabricate_data():
 
     return results
 
+
 # Fabricate the data and save it to a file.
-results = fabricate_data()
+results = fabricate_data_from_matches()
 df = pd.DataFrame(results)
 df.columns = df.columns.str.replace(" ", "_")
 df.columns = df.columns.str.lower()

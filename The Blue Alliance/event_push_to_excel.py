@@ -62,6 +62,8 @@ color_scale_rule = ColorScaleRule(
     end_type="max", end_color="229954"                          # Green for maximum value
 )
 
+
+format_decimal = '#,##0.00;-[Red]#,##0.00;"-"'
 format_comma = '#,##0;-[Red]#,##0;"-"'
 format_percent = '0.0%'
 
@@ -308,6 +310,7 @@ def prepare_sheet_team_scores():
         { "range": f"C{start_row}:Z{end_row}", "font": font_data, "number_format": format_comma },        
     ])
 
+
 def prepare_sheet_team_summary():
     status("Prepating Team Summary Weightings sheet...")
 
@@ -362,12 +365,62 @@ def prepare_sheet_team_summary():
     ws.conditional_formatting.add(f"C{start_row}:AD{end_row}", color_scale_rule)
 
 
+def prepare_sheet_tba_opr():
+    status("Prepating The Blue Alliance OPR sheet...")
+
+    # Read the JSON data from the file.
+    with open(os.path.join(target_event_directory, f"{tbaEventKey}.teams.json"), "r") as f:
+        data = json.load(f)
+        data = sorted(data, key=lambda x: x["team_number"])
+
+    # Capture the extents of the sheet and data.
+    record_count = len(data)
+    start_row = 2
+    end_row = start_row + record_count - 1
+
+    # Open the Teams sheet.
+    ws = wb["TBA OPR"]
+
+    # Write the team numbers to the sheet.
+    for index, row in enumerate(data):
+        row_num = index + start_row
+        ws.cell(row=row_num, column=1, value=row["team_number"])
+
+    # Apply the formulas.
+    for row in range(start_row, start_row + record_count):
+        # Generate formulas to account for all the source columns.
+        dest_start = 2   # Column B
+        dest_end   = 27  # Column AA
+
+        for i, col_idx in enumerate(range(dest_start, dest_end + 1)):
+            dest_col = get_column_letter(col_idx)
+
+            # ws[f"{dest_col}{row}"] = (
+            #     f"=PERCENTRANK(${dest_col}$2:${dest_col}$1000, "
+            #     f"'{dest_col}{row}, 3)"
+            # )
+
+    # Apply the formats to the cells.
+    apply_formats(ws, [
+        # Team / Scouted Count
+        { "range": f"A{start_row}:B{end_row}", "font": font_header, "fill": fill_default },
+
+        # All data cells.
+        { "range": f"B{start_row}:AA{end_row}", "number_format": format_decimal },
+    ])
+
+    # Build and apply the conditional formatting rules to produce a heatmap for percentiles.
+    ws.conditional_formatting.add(f"B{start_row}:AD{end_row}", color_scale_rule)
+
+
+
 # Push the data into the spreadsheet.
 prepate_sheet_event()
 prepare_sheet_teams()
 prepare_sheet_matches()
 prepare_sheet_team_scores()
 prepare_sheet_team_summary()
+prepare_sheet_tba_opr()
 
 # And finally, save the spreadsheet.
 status(f"Saving to {ouput_file_name}...")
